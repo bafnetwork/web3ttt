@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Course Overview on Web3 Teacher Training Track</title>
+    <link>/course/</link>
+    <description>Recent content in Course Overview on Web3 Teacher Training Track</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/course/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Syllabus</title>
+      <link>/course/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/course/syllabus/</guid>
+      <description>Instructor: Jacob Lindahl
+Email: jacob@baf.network
+Office Hours: TBD
+Course Website: TBD
+Cohort: #1
+Course Meetings: TBD
+Prerequisites Are you&amp;hellip;
+ Passionate about learning about blockchain? Willing to share this knowledge with other people?</description>
+    </item>
+    
+    <item>
+      <title>01 - Introduction to Blockchain</title>
+      <link>/course/01-introduction-to-blockchain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/course/01-introduction-to-blockchain/</guid>
+      <description>Introduction to Blockchain Have fun!</description>
+    </item>
+    
+  </channel>
+</rss>

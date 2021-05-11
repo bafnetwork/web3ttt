@@ -1,0 +1,56 @@
+languageCode = "en-us"
+title = "Web3 Teacher Training Track"
+baseURL = "/"
+ignoreFiles = ["\\.remark.md$"]
+themesDir = "themes"
+theme = "hugo-whisper-theme"
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+# Controls how many words are printed in the content summary on the docs homepage.
+# See https://gohugo.io/content-management/summaries/
+summaryLength = 30
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Course"
+  url = "/course/"
+  weight = 2
+
+[params]
+  google_analytics_id=""
+  homepage_button_link = "/course"
+  homepage_button_text = "View Course"
+  homepage_intro = "The Blockchain Acceleration Foundation's Web3 Teacher Training Track is a dApp and smart contract development course"
+  homepage_image = "/images/logo.png"
+
+  ## You can enable to add anchor links to header elements
+  # enable_anchor_link = true
+
+  [params.homepage_meta_tags]
+    meta_description = "The Blockchain Acceleration Foundation's Web3 Teacher Training Track is a dApp and smart contract development course"
+    meta_og_title = "Web3 Teacher Training Track"
+    meta_og_type = "website"
+    meta_og_url = ""
+    meta_og_image = ""
+    meta_og_description = "The Blockchain Acceleration Foundation's Web3 Teacher Training Track is a dApp and smart contract development course"
+    meta_twitter_card = "summary"
+    meta_twitter_site = "@TheBAFNetwork"
+    meta_twitter_creator = "@TheBAFNetwork"
+
+  [params.logo]
+    mobile = "/images/icon.png"
+    standard  = "/images/icon.png"
+
+[outputFormats]
+  [outputFormats.remark]
+    baseName = "slides"
+    isHTML = true
+    permalinkable = true
+    mediaType = "text/html"
