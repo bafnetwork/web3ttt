@@ -1,6 +1,6 @@
 languageCode = "en-us"
 title = "Web3 Teacher Training Track"
-baseURL = "/"
+baseURL = "https://bafnetwork.github.io/web3ttt/"
 ignoreFiles = ["\\.remark.md$"]
 themesDir = "themes"
 theme = "hugo-whisper-theme"

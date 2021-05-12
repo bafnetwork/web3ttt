@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/course/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/course/</loc>
   </url><url>
-    <loc>/course/syllabus/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/course/syllabus/</loc>
   </url><url>
-    <loc>/course/01-introduction-to-blockchain/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/course/01-introduction-to-blockchain/</loc>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/categories/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/tags/</loc>
   </url><url>
-    <loc>/</loc>
+    <loc>https://bafnetwork.github.io/web3ttt/</loc>
   </url>
 </urlset>
