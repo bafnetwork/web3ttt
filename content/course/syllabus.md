@@ -1,6 +1,7 @@
 ---
 title: "Syllabus"
 weight: 1
+description: "Important information about the course"
 ---
 
 **Instructor:** Jacob Lindahl \
