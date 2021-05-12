@@ -1,36 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Course Overview on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/course/</link>
-    <description>Recent content in Course Overview on Web3 Teacher Training Track</description>
+    <title>smart contract on Web3 Teacher Training Track</title>
+    <link>https://bafnetwork.github.io/web3ttt/tags/smart-contract/</link>
+    <description>Recent content in smart contract on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/course/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Syllabus</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/syllabus/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bafnetwork.github.io/web3ttt/course/syllabus/</guid>
-      <description>Instructor: Jacob Lindahl
-Email: jacob@baf.network
-Office Hours: TBD
-Course Website: TBD
-Cohort: #1
-Course Meetings: TBD
-Prerequisites Are you&amp;hellip;
- Passionate about learning about blockchain? Willing to share this knowledge with other people?</description>
-    </item>
-    
-    <item>
-      <title>Useful Information</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/useful-information/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bafnetwork.github.io/web3ttt/course/useful-information/</guid>
-      <description>Links  Explore the Ethereum blockchain &amp;amp; smart contracts on Etherscan Write and test smart contracts with Remix IDE Read the Solidity documentation  </description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/smart-contract/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>01 - Intro to Blockchain &amp; Smart Contracts</title>
       <link>https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/</link>

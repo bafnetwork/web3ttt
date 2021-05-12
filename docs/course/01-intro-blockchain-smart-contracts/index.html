@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>01 - Intro to Blockchain &amp; Smart Contracts - Web3 Teacher Training Track</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://bafnetwork.github.io/web3ttt/favicon.ico">
+
+  
+  
+  <link rel="stylesheet" href="/web3ttt/css/style.min.ff32014d34d7a4387a83919315fc8ffecdbc72114c16dc8149e51021b4aa8ce6.css">
+  
+
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+  
+
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/web3ttt/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-course">
+      <a href="/web3ttt/course/">
+        <span>Course</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/web3ttt/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-course">
+      <a href="/web3ttt/course/">
+        <span>Course</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>Course</h4>
+  <ul>
+    
+    <li class="">
+      <a href="https://bafnetwork.github.io/web3ttt/course/syllabus/">Syllabus</a>
+    </li>
+    
+    <li class="">
+      <a href="https://bafnetwork.github.io/web3ttt/course/useful-information/">Useful Information</a>
+    </li>
+    
+    <li class="active ">
+      <a href="https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/">01 - Intro to Blockchain &amp; Smart Contracts</a>
+    </li>
+    
+    <li class="">
+      <a href="https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/">02 - Exploring Smart Contracts</a>
+    </li>
+    
+    <li class="">
+      <a href="https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/">03 - Writing Smart Contracts in Solidity</a>
+    </li>
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+  <h1 class="title">01 - Intro to Blockchain &amp; Smart Contracts</h1>
+  
+  
+  
+    <a href="/web3ttt/course/01-intro-blockchain-smart-contracts/slides.html">Slides</a>
+  
+  <div class="content ">
+    <h2 id="what-is-blockchain">What is &ldquo;blockchain&rdquo;?</h2>
+<p>&ldquo;Blockchain technology&rdquo; is <em>the</em> buzzword in the business. You probably have heard about everything but the kitchen sink being put &ldquo;on the blockchain.&rdquo; Let&rsquo;s review what a blockchain actually is.</p>
+<p>A good starting point for understanding the structure of a blockchain is comparing it to a <a href="https://www.geeksforgeeks.org/data-structures/linked-list/">linked list</a>, specifically a <strong>singly-linked list</strong>, which is probably the type of linked list with which you are most familiar.</p>
+<p>Linked lists are composed of nodes that contain pointers to the next node in the list. In the context of cryptocurrency, a blockchain structure contains <strong>blocks</strong> which contain references to the <em>previous</em> block in the chain. It&rsquo;s like a linked list, except instead of adding new nodes onto the end (furthest node) of the list, you add new blocks to the beginning (closest node).</p>
+<p>A block on a blockchain represents a certain span of time, making a cryptocurrency&rsquo;s blockchain a living structure of sorts, in that it is always being updated with the next timespan&rsquo;s block. Bitcoin&rsquo;s blocks represent a timespan of about 10 minutes, and Ethereum&rsquo;s about 14 seconds. This timespan is called <strong>block time</strong>, and the data included in each block represents the activity that occurred during that time. This activity takes the form of a list of transactions, like:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Bob</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Dana</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Everyone<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> connected to a cryptocurrency&rsquo;s network maintains a complete copy of that cryptocurrency&rsquo;s blockchain. However, this means that whenever a change to the blockchain occurs (e.g. someone makes a transaction and wants to add it to a block), everyone needs to agree on whether that change is allowed, and once an agreement has been reached, that change needs to be distributed to everyone. Let&rsquo;s focus on agreement first.</p>
+<h2 id="mining">Mining</h2>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Blockchain as a &ldquo;pimped-out&rdquo; linked list structure</li>
+<li>Blocks contain data representing activity that occurred during the block time</li>
+<li>Hash functions are one-way and generate a unique fingerprint for data</li>
+<li>Hash functions <em>useful for crypto</em> are also &ldquo;avalanching&rdquo; (a tiny change in the input completely changes the output)</li>
+<li>Bitcoin uses <code>Hashcash</code> for mining, which uses $sha256 \circ sha256$ as its hash function<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li>Ethereum uses <code>hashimoto</code> for mining, which uses modified versions of $sha3\_256$ and $sha3\_512$<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Well, not exactly <em>everyone</em>, but close enough&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://en.bitcoin.it/wiki/Proof_of_work">https://en.bitcoin.it/wiki/Proof_of_work</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://eth.wiki/concepts/ethash/ethash#mining">https://eth.wiki/concepts/ethash/ethash#mining</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+
+  
+
+  
+  
+    <script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
+  integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
+  crossorigin="anonymous"
+></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+  
+
+
+  
+  <script type="text/javascript" src="/web3ttt/js/scripts.min.eaf147370baecdd07c022597db631f99cab1c9cd6479de586f30327a568d6a0f.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

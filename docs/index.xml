@@ -23,12 +23,39 @@ Prerequisites Are you&amp;hellip;
     </item>
     
     <item>
-      <title>01 - Introduction to Blockchain &amp; Smart Contracts</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/01-introduction-to-blockchain-smart-contracts/</link>
+      <title>Useful Information</title>
+      <link>https://bafnetwork.github.io/web3ttt/course/useful-information/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/course/01-introduction-to-blockchain-smart-contracts/</guid>
-      <description>Introduction to Blockchain &amp;amp; Smart Contracts Have fun!</description>
+      <guid>https://bafnetwork.github.io/web3ttt/course/useful-information/</guid>
+      <description>Links  Explore the Ethereum blockchain &amp;amp; smart contracts on Etherscan Write and test smart contracts with Remix IDE Read the Solidity documentation  </description>
+    </item>
+    
+    <item>
+      <title>01 - Intro to Blockchain &amp; Smart Contracts</title>
+      <link>https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/</guid>
+      <description>What is &amp;ldquo;blockchain&amp;rdquo;? &amp;ldquo;Blockchain technology&amp;rdquo; is the buzzword in the business. You probably have heard about everything but the kitchen sink being put &amp;ldquo;on the blockchain.&amp;rdquo; Let&amp;rsquo;s review what a blockchain actually is.</description>
+    </item>
+    
+    <item>
+      <title>02 - Exploring Smart Contracts</title>
+      <link>https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/</guid>
+      <description>Have fun!</description>
+    </item>
+    
+    <item>
+      <title>03 - Writing Smart Contracts in Solidity</title>
+      <link>https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/</guid>
+      <description>Have fun!</description>
     </item>
     
   </channel>
