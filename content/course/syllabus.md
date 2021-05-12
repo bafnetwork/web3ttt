@@ -22,6 +22,7 @@ Are you...
 Technical skills:
 
 * Some experience programming in any general-purpose programming language
+* Comfortable with the command line
 
 ## Outcomes
 
@@ -39,3 +40,9 @@ This course is entirely remote. This course consists of one 45-minute intro sess
 Student work in this course will be reviewed, but not graded, and the certificate of completion is not awarded contingent on any level of performance.
 
 This course is *not* slow-moving. It starts with the basics but will be moving quickly.
+
+Lessons will be recorded and uploaded to YouTube.  <!-- TODO: YouTube channel link? -->
+
+## Content License
+
+The contents of the BAF Web3 Teacher Training Program and this website are &copy; Copyright 2021 Blockchain Acceleration Foundation, All Rights Reserved.
