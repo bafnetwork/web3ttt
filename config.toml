@@ -4,6 +4,7 @@ baseURL = "/"
 ignoreFiles = ["\\.remark.md$"]
 themesDir = "themes"
 theme = "hugo-whisper-theme"
+publishDir = "docs"
 
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
