@@ -48,9 +48,10 @@ Ethereum is switching to proof-of-stake as part of the Eth2 series of upgrades.[
 [^btc-environment]: https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html
 
 Regardless of the consensus algorithm used, nodes are incentivized to participate in the mining process because:
-1. They get to help decide which transactions make it into the next block
-2. They receive **transaction fees**
-3. They receive a **block reward**
+
+- They get to help decide which transactions make it into the next block
+- They receive **transaction fees**
+- They receive a **block reward**
 
 The block reward is a sum of cryptocurrency awarded to whoever successfully mines the next block on the blockchain. It comes from the block's **coinbase transaction**, which is a transaction with a fixed value that a miner is allowed to generate in a mined block.
 
