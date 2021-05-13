@@ -8,9 +8,18 @@
     {{ block "meta_tags" . }}{{end}}
     <link rel="icon" href="{{ "favicon.ico" | absURL }}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/obsidian.min.css">
+
+    {{ if .Site.IsServer }}
+      {{ $style := resources.Get "scss/slides.scss" | toCSS (dict "targetPath" "css/slides.css" "enableSourceMap" true) }}
+      <link rel="stylesheet" href="{{ ($style).RelPermalink }}">
+    {{ else }}
+      {{ $style := resources.Get "scss/slides.scss" | toCSS (dict "targetPath" "css/slides.css" "enableSourceMap" false) }}
+      <link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}">
+    {{ end }}
   </head>
   <body>
     {{ $slidesFileName := "_slides.md" }}
@@ -29,10 +38,10 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
     <script defer>
       if (document.readyState !== 'complete') {
         document.addEventListener('readystatechange', () => {
