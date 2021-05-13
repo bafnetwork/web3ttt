@@ -7,23 +7,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="icon" href="https://bafnetwork.github.io/web3ttt/favicon.ico">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/obsidian.min.css">
+
+    
+      
+      <link rel="stylesheet" href="/web3ttt/css/slides.min.fc9c15aa7c5af591e711455e5f33af7b35a7683f8dd48db1ca3aa18edb39eeec.css">
+    
   </head>
   <body>
     
     
     
     
-
-    <div id="source" style="display:none"># Intro to Blockchain &amp; Smart Contracts
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template>## Intro to Blockchain &amp; Smart Contracts
 
 The heart of modern cryptocurrency
 
 ---
-</div>
 
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-    <script>
-      const slideshow = remark.create();
+### &#34;Blockchain Technology&#34;
+
+---
+
+Remember linked lists?
+
+```java [2]
+class LinkedListNode {
+  public LinkedListNode nextNode; // Singly-linked
+  public Object data;
+}
+```
+
+---
+
+Blocks reference *previous* blocks
+
+```java [3]
+class Block {
+  public BlockId id;
+  public BlockId previousBlockId;
+  public Object data;
+  // Other nifty stuff...
+}
+```
+
+---
+
+Linked List:
+
+```txt
+First Node -&gt; Node -&gt; Node -&gt; Last Node
+```
+
+Blockchain:
+
+```txt
+Newest Block -&gt; Block -&gt; Block -&gt; Oldest Block
+```
+
+---
+
+**block time**
+
+Blocks represent activity in a span of time
+
+```txt
+...
+Block #34 { start: 3pm, end: 4pm, data: ... }
+Block #35 { start: 4pm, end: 5pm, data: ... }
+Block #36 { start: 6pm, end: 7pm, data: ... }
+...
+```
+
+--
+
+**block time** - the duration between one block and the next block
+
+---
+
+Cryptocurrencies store transactions in blocks
+
+| From    | To   | Amount |
+| ------- | ---- | ------ |
+| Alice   | Bob  | $10    |
+| Charlie | Dana | $15    |
+
+---
+
+**shared/distributed ledger**
+
+Everyone connected to the cryptocurrency network has a copy of the blockchain
+
+---
+
+**consensus**
+
+Adding to the blockchain...
+
+How to make sure everyone agrees?
+
+---
+
+## Mining
+
+Making free money!
+</textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script defer>
+      if (document.readyState !== 'complete') {
+        document.addEventListener('readystatechange', () => {
+          if (document.readyState === "complete") {
+            init();
+          }
+        });
+      } else {
+        init();
+      }
+
+      function init () {
+        console.log(document.readyState);
+        Reveal.initialize({
+          plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealMath,
+          ],
+        });
+      }
     </script>
 
     

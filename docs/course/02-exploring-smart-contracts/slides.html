@@ -7,23 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="icon" href="https://bafnetwork.github.io/web3ttt/favicon.ico">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/obsidian.min.css">
+
+    
+      
+      <link rel="stylesheet" href="/web3ttt/css/slides.min.fc9c15aa7c5af591e711455e5f33af7b35a7683f8dd48db1ca3aa18edb39eeec.css">
+    
   </head>
   <body>
     
     
     
     
-
-    <div id="source" style="display:none"># Exploring Smart Contracts
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template># Exploring Smart Contracts
 
 Diving into some real-life smart contracts!
 
 ---
-</div>
+</textarea>
+        </section>
+      </div>
+    </div>
 
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-    <script>
-      const slideshow = remark.create();
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script defer>
+      if (document.readyState !== 'complete') {
+        document.addEventListener('readystatechange', () => {
+          if (document.readyState === "complete") {
+            init();
+          }
+        });
+      } else {
+        init();
+      }
+
+      function init () {
+        console.log(document.readyState);
+        Reveal.initialize({
+          plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealMath,
+          ],
+        });
+      }
     </script>
 
     
