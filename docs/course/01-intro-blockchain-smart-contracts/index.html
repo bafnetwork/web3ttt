@@ -160,28 +160,49 @@
 </tr>
 </tbody>
 </table>
-<p>Everyone<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> connected to a cryptocurrency&rsquo;s network maintains a complete copy of that cryptocurrency&rsquo;s blockchain. However, this means that whenever a change to the blockchain occurs (e.g. someone makes a transaction and wants to add it to a block), everyone needs to agree on whether that change is allowed, and once an agreement has been reached, that change needs to be distributed to everyone. Let&rsquo;s focus on agreement first.</p>
+<p>Everyone<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> connected to a cryptocurrency&rsquo;s network maintains a complete copy of that cryptocurrency&rsquo;s blockchain. However, this means that whenever a change to the blockchain occurs (e.g. someone makes a transaction and wants to add it to a block), everyone needs to agree on whether that change is allowed, and once agreement has been reached, that change can be distributed to everyone.</p>
 <h2 id="mining">Mining</h2>
+<p>The idea of &ldquo;mining&rdquo; cryptocurrency lends itself to some imaginative mental imagery of steampunk hackers delving into the depths of cyberspace to extract mysterious cryptographic treasures. While it&rsquo;s a fun thought, the reality of mining is a lot more like balancing hundreds of millions of checkbooks at once than it is like chopping rocks with a digital pickaxe.</p>
+<h3 id="the-problem-of-consensus">The problem of consensus</h3>
+<p>Since anyone is allowed to connect and propose new blocks to a cryptocurrency network, there has to be some way to ensure that only legitimate blocks (i.e. those containing legitimate transactions) are added to the chain and that illegitimate blocks are rejected from the chain. However, the network is made up of a whole bunch of strangers whose only common link is that they want to use the same cryptocurrency, and thus, they have little to no reason to trust each other to make the <em>correct</em> decision as opposed to the decision that most benefits themselves.</p>
+<p>One way to create a trust bond between strangers is for them to offer some sort of collateral to each other. For example, Alice could offer $100 collateral to the network as proof that she will be honest, and if she <em>isn&rsquo;t</em> honest, the network has permission to appropriate that money.</p>
+<p>This simple example is roughly similar to the category of consensus algorithms known as <strong>Proof-of-Stake (PoS)</strong>. Nodes connected to the network will offer some of their crypto as <strong>stake</strong>, which will be forfeited if the node acts incorrectly.</p>
+<p>Ethereum is switching to proof-of-stake as part of the Eth2 series of upgrades.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> Until that happens, Ethereum (and Bitcoin) both operate using a type of consensus called proof-of-work.</p>
+<p><strong>Proof-of-Work (PoW)</strong> is similar to PoS in that they both have the end goal of helping the network agree (reach consensus). However, in PoW, the &ldquo;collateral&rdquo; offered by a node is not in terms of crypto, but in terms of computing power. A node races against other nodes to be the first to find the solution to a math problem. If they find the solution, they get to add a block to the chain. However, if they&rsquo;re dishonest, they waste all of the computing power they invested into mining, which is quite a lot.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>Regardless of the consensus algorithm used, nodes are incentivized to participate in the mining process because:</p>
+<ul>
+<li>They get to help decide which transactions make it into the next block</li>
+<li>They receive <strong>transaction fees</strong></li>
+<li>They receive a <strong>block reward</strong></li>
+</ul>
+<p>The block reward is a sum of cryptocurrency awarded to whoever successfully mines the next block on the blockchain. It comes from the block&rsquo;s <strong>coinbase transaction</strong>, which is a transaction with a fixed value that a miner is allowed to generate in a mined block.</p>
+<h2 id="smart-contracts">Smart Contracts</h2>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Blockchain as a &ldquo;pimped-out&rdquo; linked list structure</li>
 <li>Blocks contain data representing activity that occurred during the block time</li>
 <li>Hash functions are one-way and generate a unique fingerprint for data</li>
 <li>Hash functions <em>useful for crypto</em> are also &ldquo;avalanching&rdquo; (a tiny change in the input completely changes the output)</li>
-<li>Bitcoin uses <code>Hashcash</code> for mining, which uses $sha256 \circ sha256$ as its hash function<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
-<li>Ethereum uses <code>hashimoto</code> for mining, which uses modified versions of $sha3\_256$ and $sha3\_512$<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+<li>Bitcoin uses <code>Hashcash</code> for mining, which uses $sha256 \circ sha256$ as its hash function<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+<li>Ethereum uses <code>hashimoto</code> for mining, which uses modified versions of $sha3\_256$ and $sha3\_512$<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>Well, not exactly <em>everyone</em>, but close enough&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Well, not exactly <em>everyone</em>, but close enough for now&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://en.bitcoin.it/wiki/Proof_of_work">https://en.bitcoin.it/wiki/Proof_of_work</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/">https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p><a href="https://eth.wiki/concepts/ethash/ethash#mining">https://eth.wiki/concepts/ethash/ethash#mining</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html">https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://en.bitcoin.it/wiki/Proof_of_work">https://en.bitcoin.it/wiki/Proof_of_work</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><a href="https://eth.wiki/concepts/ethash/ethash#mining">https://eth.wiki/concepts/ethash/ethash#mining</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
