@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }} - Slideshow{{ end }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ block "meta_tags" . }}{{end}}
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+  </head>
+  <body>
+    {{ $slidesFileName := "_slides.md" }}
+    {{ if isset .Params "slides" }}
+      {{ $slidesFileName = .Params.slides }}
+    {{ end }}
+    {{ $dir := .File.Dir }}
+    {{ $fullpath := delimit (slice $dir $slidesFileName) "" }}
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template>
+            {{- readFile $fullpath -}}
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script defer>
+      if (document.readyState !== 'complete') {
+        document.addEventListener('readystatechange', () => {
+          if (document.readyState === "complete") {
+            init();
+          }
+        });
+      } else {
+        init();
+      }
+
+      function init () {
+        console.log(document.readyState);
+        Reveal.initialize({
+          plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealMath,
+          ],
+        });
+      }
+    </script>
+
+    {{ partial "google-analytics.html" . }}
+  </body>
+</html>

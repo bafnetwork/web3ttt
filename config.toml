@@ -1,7 +1,7 @@
 languageCode = "en-us"
 title = "Web3 Teacher Training Track"
 baseURL = "https://bafnetwork.github.io/web3ttt/"
-ignoreFiles = ["\\.remark.md$"]
+ignoreFiles = ["_slides.md$"]
 themesDir = "themes"
 theme = "hugo-whisper-theme"
 publishDir = "docs"
@@ -50,7 +50,7 @@ summaryLength = 30
     standard  = "/images/icon.png"
 
 [outputFormats]
-  [outputFormats.remark]
+  [outputFormats.slides]
     baseName = "slides"
     isHTML = true
     permalinkable = true
