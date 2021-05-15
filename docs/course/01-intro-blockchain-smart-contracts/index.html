@@ -177,14 +177,57 @@
 </ul>
 <p>The block reward is a sum of cryptocurrency awarded to whoever successfully mines the next block on the blockchain. It comes from the block&rsquo;s <strong>coinbase transaction</strong>, which is a transaction with a fixed value that a miner is allowed to generate in a mined block.</p>
 <h2 id="smart-contracts">Smart Contracts</h2>
+<p>A regular Ethereum account simply consists of a keypair that can be identified with an address as the recipient of a transaction and thus has some balance of ETH associated with it. Normally these accounts are controlled by humans. However, Ethereum addresses can also point to <strong>smart contracts</strong>: little programs whose behavior is defined by on-chain logic. These little programs have the ability to send, store, and receive ETH tokens, perform computations, interact with other smart contracts, store data on the blockchain, etc.</p>
+<p>Smart contract logic can be activated by sending them special transactions called <strong>message calls</strong>. These message calls are effectively like calling a function that operates on the saved state associated with the smart contract, and can include additional data for the contract (like parameters to a function call).</p>
+<p>Ethereum&rsquo;s smart contracts are <em>quasi-</em><a href="https://en.wikipedia.org/wiki/Turing_completeness">Turing-complete</a>.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> Their many use-cases include:</p>
+<ul>
+<li>Auctions</li>
+<li>Elections</li>
+<li>Trading</li>
+<li>Resource sharing</li>
+<li>Donations</li>
+<li>Multiparty decision making</li>
+<li>etc.</li>
+</ul>
+<p>These smart contracts have a couple of interesting properties that make them different from regular programs:</p>
+<ul>
+<li>Smart contracts are stored on the blockchain. This means&hellip;
+<ul>
+<li>A contract&rsquo;s instructions are public on the blockchain</li>
+<li>A contract&rsquo;s stored state is public on the blockchain</li>
+<li>Even small amounts of storage can be <em>very expensive</em></li>
+<li>A contract cannot be changed once it is deployed (its state can be changed as the contract allows)</li>
+</ul>
+</li>
+<li>Smart contracts are executed in the context of the blockchain, and the results are stored on chain. This means&hellip;
+<ul>
+<li>The result of a computation must be <strong>deterministic</strong> (every node executing a contract must come up with the same answer). This means&hellip;
+<ul>
+<li>No network requests</li>
+<li>No randomness</li>
+<li>No asynchronicity</li>
+<li>No node-specific logic (e.g. &ldquo;What&rsquo;s your timezone?&rdquo;, &ldquo;What&rsquo;s your IP address?&rdquo;, etc.)</li>
+</ul>
+</li>
+<li>A contract is executed by every node attempting to mine a block containing transactions to that contract</li>
+</ul>
+</li>
+<li>Message calls to a smart contract are transactions like account-to-account ETH transfers are transactions. This means&hellip;
+<ul>
+<li>The execution and state of a smart contract are secured the same as the transfer and balance of regular ETH accounts</li>
+<li>The state of a smart contract deployed to Ethereum can update at most once every 14 seconds (on average)</li>
+</ul>
+</li>
+</ul>
+<p>This course primarily focuses on exploring, understanding, and building smart contracts in Ethereum&rsquo;s smart contract language <a href="https://soliditylang.org/">Solidity</a>.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Blockchain as a &ldquo;pimped-out&rdquo; linked list structure</li>
 <li>Blocks contain data representing activity that occurred during the block time</li>
 <li>Hash functions are one-way and generate a unique fingerprint for data</li>
 <li>Hash functions <em>useful for crypto</em> are also &ldquo;avalanching&rdquo; (a tiny change in the input completely changes the output)</li>
-<li>Bitcoin uses <code>Hashcash</code> for mining, which uses $sha256 \circ sha256$ as its hash function<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
-<li>Ethereum uses <code>hashimoto</code> for mining, which uses modified versions of $sha3\_256$ and $sha3\_512$<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></li>
+<li>Bitcoin uses <code>Hashcash</code> for mining, which uses $sha256 \circ sha256$ as its hash function<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></li>
+<li>Ethereum uses <code>hashimoto</code> for mining, which uses modified versions of $sha3\_256$ and $sha3\_512$<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -199,10 +242,13 @@
 <p><a href="https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html">https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p><a href="https://en.bitcoin.it/wiki/Proof_of_work">https://en.bitcoin.it/wiki/Proof_of_work</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://ethereum.github.io/yellowpaper/paper.pdf#section.9">https://ethereum.github.io/yellowpaper/paper.pdf#section.9</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:5" role="doc-endnote">
-<p><a href="https://eth.wiki/concepts/ethash/ethash#mining">https://eth.wiki/concepts/ethash/ethash#mining</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://en.bitcoin.it/wiki/Proof_of_work">https://en.bitcoin.it/wiki/Proof_of_work</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p><a href="https://eth.wiki/concepts/ethash/ethash#mining">https://eth.wiki/concepts/ethash/ethash#mining</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

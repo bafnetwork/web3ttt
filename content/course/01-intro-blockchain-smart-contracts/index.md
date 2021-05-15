@@ -57,6 +57,42 @@ The block reward is a sum of cryptocurrency awarded to whoever successfully mine
 
 ## Smart Contracts
 
+A regular Ethereum account simply consists of a keypair that can be identified with an address as the recipient of a transaction and thus has some balance of ETH associated with it. Normally these accounts are controlled by humans. However, Ethereum addresses can also point to **smart contracts**: little programs whose behavior is defined by on-chain logic. These little programs have the ability to send, store, and receive ETH tokens, perform computations, interact with other smart contracts, store data on the blockchain, etc.
+
+Smart contract logic can be activated by sending them special transactions called **message calls**. These message calls are effectively like calling a function that operates on the saved state associated with the smart contract, and can include additional data for the contract (like parameters to a function call).
+
+Ethereum's smart contracts are *quasi-*[Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness).[^quasi-turing-complete] Their many use-cases include:
+
+- Auctions
+- Elections
+- Trading
+- Resource sharing
+- Donations
+- Multiparty decision making
+- etc.
+
+[^quasi-turing-complete]: https://ethereum.github.io/yellowpaper/paper.pdf#section.9
+
+These smart contracts have a couple of interesting properties that make them different from regular programs:
+
+- Smart contracts are stored on the blockchain. This means...
+  - A contract's instructions are public on the blockchain
+  - A contract's stored state is public on the blockchain
+  - Even small amounts of storage can be *very expensive*
+  - A contract cannot be changed once it is deployed (its state can be changed as the contract allows)
+- Smart contracts are executed in the context of the blockchain, and the results are stored on chain. This means...
+  - The result of a computation must be **deterministic** (every node executing a contract must come up with the same answer). This means...
+    - No network requests
+    - No randomness
+    - No asynchronicity
+    - No node-specific logic (e.g. "What's your timezone?", "What's your IP address?", etc.)
+  - A contract is executed by every node attempting to mine a block containing transactions to that contract
+- Message calls to a smart contract are transactions like account-to-account ETH transfers are transactions. This means...
+  - The execution and state of a smart contract are secured the same as the transfer and balance of regular ETH accounts
+  - The state of a smart contract deployed to Ethereum can update at most once every 14 seconds (on average)
+
+This course primarily focuses on exploring, understanding, and building smart contracts in Ethereum's smart contract language [Solidity](https://soliditylang.org/).
+
 ## Notes
 
 - Blockchain as a "pimped-out" linked list structure
