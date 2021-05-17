@@ -3,7 +3,6 @@ title = "Web3 Teacher Training Track"
 baseURL = "https://bafnetwork.github.io/web3ttt/"
 ignoreFiles = ["_slides.md$"]
 themesDir = "themes"
-theme = "hugo-whisper-theme"
 publishDir = "docs"
 
 pygmentsCodeFences = true

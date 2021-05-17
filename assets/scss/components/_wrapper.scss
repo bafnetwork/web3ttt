@@ -1,0 +1,15 @@
+.center-wrapper, .wrapper {
+  display: block;
+}
+
+@media (min-width: $mobile-breakpoint) {
+  .center-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

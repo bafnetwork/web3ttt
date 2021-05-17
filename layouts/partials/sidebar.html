@@ -1,11 +1,11 @@
-{{$currentNode := .}}
-<div class="docs-menu">
-  <h4>{{ .Section | humanize }}</h4>
-  <ul>
+{{ $currentNode := . }}
+<aside class="sidebar">
+  <h4 class="sidebar__header">{{ .Section | humanize }}</h4>
+  <ul class="sidebar__list">
     {{ range where .Site.RegularPages "Section" .Section }}
-    <li class="{{ if eq .File.UniqueID $currentNode.File.UniqueID }}active {{ end }}">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <li class="sidebar__item{{ if eq .File.UniqueID $currentNode.File.UniqueID }} sidebar__item--active{{ end }}">
+      <a class="sidebar__link" href="{{ .Permalink }}">{{ .Title }}</a>
     </li>
     {{ end }}
   </ul>
-</div>
+</aside>

@@ -1,12 +1,8 @@
-<div id="main-menu" class="main-menu">
-  <ul>
-    {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-    <li class="menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
-      <a href="{{ .URL }}">
-        <span>{{ .Name }}</span>
-      </a>
-    </li>
-    {{end}}
-  </ul>
-</div>
+<ul id="main-menu" class="main-menu">
+  {{ $currentPage := . }}
+  {{ range .Site.Menus.main }}
+  <li class="main-menu__item menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
+    <a class="main-menu__link" href="{{ .URL }}">{{ .Name }}</a>
+  </li>
+  {{ end }}
+</ul>

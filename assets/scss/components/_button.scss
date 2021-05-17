@@ -1,0 +1,26 @@
+.button {
+  white-space: nowrap;
+  display: inline-block;
+  background: $primary;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  transition: all .15s ease;
+  @include round-text;
+
+  &:hover {
+    background-color: lighten($primary, 10%);
+    color: white;
+  }
+
+  &--secondary {
+    background: $secondary;
+    text-transform: none;
+
+    &:hover {
+      background-color: lighten($secondary, 10%);
+    }
+  }
+}
