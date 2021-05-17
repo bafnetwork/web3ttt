@@ -8,11 +8,6 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-  {{ $slidesOutputFormat := .OutputFormats.Get "slides" }}
-  {{ $hasSlides := ne $slidesOutputFormat nil }}
-  {{ if $hasSlides }}
-    <a class="slides-link button button--secondary" href="{{ $slidesOutputFormat.RelPermalink }}">Slides</a>
-  {{ end }}
   <h1 class="title">{{.Title}}</h1>
   <div class="content {{if .Site.Params.enable_anchor_link}}{{ "anchor-link-enabled" }}{{ end }}">
     {{ .Content }}
