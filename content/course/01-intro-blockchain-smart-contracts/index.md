@@ -31,9 +31,11 @@ Everyone[^everyone] connected to a cryptocurrency's network maintains a complete
 
 The idea of "mining" cryptocurrency lends itself to some imaginative mental imagery of steampunk hackers delving into the depths of cyberspace to extract mysterious cryptographic treasures. While it's a fun thought, the reality of mining is a lot more like balancing hundreds of millions of checkbooks at once than it is like chopping rocks with a digital pickaxe.
 
+Cryptocurrency miners help secure the blockchain. They establish trust with the network, and then the network accepts blocks that the miners say are legitimate.
+
 ### The problem of consensus
 
-Since anyone is allowed to connect and propose new blocks to a cryptocurrency network, there has to be some way to ensure that only legitimate blocks (i.e. those containing legitimate transactions) are added to the chain and that illegitimate blocks are rejected from the chain. However, the network is made up of a whole bunch of strangers whose only common link is that they want to use the same cryptocurrency, and thus, they have little to no reason to trust each other to make the _correct_ decision as opposed to the decision that most benefits themselves.
+Since anyone is allowed to connect and propose new blocks to a cryptocurrency network, there has to be some way to ensure that only legitimate blocks (i.e. those containing legitimate transactions) are added to the chain and that illegitimate blocks are rejected from the chain. However, the network is made up of a whole bunch of strangers whose only common link is that they want to use the same cryptocurrency, and thus, they have little to no reason to trust each other to make the _correct_ decision (as opposed to the decision that most benefits themselves).
 
 One way to create a trust bond between strangers is for them to offer some sort of collateral to each other. For example, Alice could offer $100 collateral to the network as proof that she will be honest, and if she _isn't_ honest, the network has permission to appropriate that money.
 
@@ -43,17 +45,17 @@ Ethereum is switching to proof-of-stake as part of the Eth2 series of upgrades.[
 
 [^eth2-pos]: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/
 
-**Proof-of-Work (PoW)** is similar to PoS in that they both have the end goal of helping the network agree (reach consensus). However, in PoW, the "collateral" offered by a node is not in terms of crypto, but in terms of computing power. A node races against other nodes to be the first to find the solution to a math problem. If they find the solution, they get to add a block to the chain. However, if they're dishonest, they waste all of the computing power they invested into mining, which is quite a lot.[^btc-environment]
+**Proof-of-Work (PoW)** is similar to PoS in that they both have the end goal of helping the network agree (reach consensus). However, in PoW, the "collateral" offered by a miner is not in terms of crypto, but in terms of computing power. A miner races against other miners to be the first to find the solution to a math problem. If they find the solution, they get to add a block to the chain. However, if they're dishonest, they waste all of the computing power they invested into mining, which can be quite a lot.[^btc-environment] However, in exchange for their honesty, miners are rewarded with new coins generated every block.
 
 [^btc-environment]: https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html
 
-Regardless of the consensus algorithm used, nodes are incentivized to participate in the mining process because:
+Regardless of the consensus algorithm used, nodes are incentivized to participate because:
 
 - They get to help decide which transactions make it into the next block
 - They receive **transaction fees**
 - They receive a **block reward**
 
-The block reward is a sum of cryptocurrency awarded to whoever successfully mines the next block on the blockchain. It comes from the block's **coinbase transaction**, which is a transaction with a fixed value that a miner is allowed to generate in a mined block.
+The block reward is a sum of cryptocurrency awarded to whoever successfully mines the next block on the blockchain. (This is where new coins come from.) The block reward comes from the block's **coinbase transaction**, which is a transaction with a fixed value that a miner is allowed to generate in a mined block.
 
 ## Smart Contracts
 
@@ -61,8 +63,10 @@ A regular Ethereum account simply consists of a keypair that can be identified w
 
 Smart contract logic can be activated by sending them special transactions called **message calls**. These message calls are effectively like calling a function that operates on the saved state associated with the smart contract, and can include additional data for the contract (like parameters to a function call).
 
-Ethereum's smart contracts are *quasi-*[Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness).[^quasi-turing-complete] Their many use-cases include:
+Ethereum's smart contracts are _quasi-_[Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness).[^quasi-turing-complete] Their many use-cases include:
 
+- Decentralized finance (DeFi)
+- Non-fungible tokens (NFT's)
 - Auctions
 - Elections
 - Trading
@@ -78,7 +82,7 @@ These smart contracts have a couple of interesting properties that make them dif
 - Smart contracts are stored on the blockchain. This means...
   - A contract's instructions are public on the blockchain
   - A contract's stored state is public on the blockchain
-  - Even small amounts of storage can be *very expensive*
+  - Even small amounts of storage can be _very expensive_
   - A contract cannot be changed once it is deployed (its state can be changed as the contract allows)
 - Smart contracts are executed in the context of the blockchain, and the results are stored on chain. This means...
   - The result of a computation must be **deterministic** (every node executing a contract must come up with the same answer). This means...
