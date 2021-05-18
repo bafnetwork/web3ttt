@@ -11,7 +11,7 @@
 
   
   
-  <link rel="stylesheet" href="/web3ttt/css/style.min.ff32014d34d7a4387a83919315fc8ffecdbc72114c16dc8149e51021b4aa8ce6.css">
+  <link rel="stylesheet" href="/web3ttt/css/style.min.571bf95d13d832c230f01fe2c79e4b591eab934c0f084f49bda32de5a0220523.css">
   
 
   
@@ -21,132 +21,137 @@
 </head>
 
 <body class='page page-default-single'>
-  <div id="main-menu-mobile" class="main-menu-mobile">
-  <ul>
-    
-    
-    <li class="menu-item-home">
-      <a href="/web3ttt/">
-        <span>Home</span>
-      </a>
-    </li>
-    
-    <li class="menu-item-course">
-      <a href="/web3ttt/course/">
-        <span>Course</span>
-      </a>
-    </li>
-    
-  </ul>
-</div>
-  <div class="wrapper">
-    <div class='header'>
-  <div class="container">
-    <div class="logo">
-      <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
-    </div>
-    <div class="logo-mobile">
-      <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
-    </div>
-    <div id="main-menu" class="main-menu">
-  <ul>
-    
-    
-    <li class="menu-item-home">
-      <a href="/web3ttt/">
-        <span>Home</span>
-      </a>
-    </li>
-    
-    <li class="menu-item-course">
-      <a href="/web3ttt/course/">
-        <span>Course</span>
-      </a>
-    </li>
-    
-  </ul>
-</div>
-    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
-  <span class="hamburger-box">
-    <span class="hamburger-inner"></span>
-  </span>
-</button>
+  <header class="header">
+  <div class="header__logo">
+    <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
   </div>
-</div>
+  <ul id="main-menu" class="main-menu">
+  
+  
+  <li class="main-menu__item menu-item-home">
+    <a class="main-menu__link" href="/web3ttt/">Home</a>
+  </li>
+  
+  <li class="main-menu__item menu-item-course">
+    <a class="main-menu__link" href="/web3ttt/course/">Course</a>
+  </li>
+  
+</ul>
+
+</header>
 
 
+  
+  
     
+      
     
-    
-    
-    
-    
+  
 
+  <div class="center-wrapper">
+    <div class="wrapper">
+      
+        
+<aside class="sidebar">
+  <h4 class="sidebar__header">Course</h4>
+  <ul class="sidebar__list">
     
-    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
-      <div class="row">
-        <div class="col-12 col-md-3 mb-3">
-          <div class="sidebar">
-            
-<div class="docs-menu">
-  <h4>Course</h4>
-  <ul>
-    
-    <li class="">
-      <a href="https://bafnetwork.github.io/web3ttt/course/syllabus/">Syllabus</a>
+    <li class="sidebar__item">
+      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/syllabus/">Syllabus</a>
     </li>
     
-    <li class="">
-      <a href="https://bafnetwork.github.io/web3ttt/course/useful-information/">Useful Information</a>
+    <li class="sidebar__item">
+      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/useful-information/">Useful Information</a>
     </li>
     
-    <li class="">
-      <a href="https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/">01 - Intro to Blockchain &amp; Smart Contracts</a>
+    <li class="sidebar__item">
+      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/">01 - Intro to Blockchain &amp; Smart Contracts</a>
     </li>
     
-    <li class="active ">
-      <a href="https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/">02 - Exploring Smart Contracts</a>
+    <li class="sidebar__item sidebar__item--active">
+      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/">02 - Exploring Smart Contracts</a>
     </li>
     
-    <li class="">
-      <a href="https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/">03 - Writing Smart Contracts in Solidity</a>
+    <li class="sidebar__item">
+      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/">03 - Writing Smart Contracts in Solidity</a>
     </li>
     
   </ul>
-</div>
+    
+    
+    
+      <h4 class="sidebar__header">Lesson Material</h4>
+      <ul class="sidebar__list">
+        <li class="sidebar__item">
+          <a class="sidebar__link" target="_blank" href="/web3ttt/course/02-exploring-smart-contracts/slides.html">Slides</a>
+        </li>
+      </ul>
+    
+</aside>
 
-          </div>
-        </div>
-        <div class="col-12 col-md-9">
-          
+      
+
+      <main class="content">
+        
   <h1 class="title">02 - Exploring Smart Contracts</h1>
-  
-  
-  
-    <a href="/web3ttt/course/02-exploring-smart-contracts/slides.html">Slides</a>
-  
   <div class="content ">
-    <p>Have fun!</p>
+    <h2 id="smart-contracts-in-practice">Smart Contracts in Practice</h2>
+<p>Before we dive into writing smart contracts of our own, let&rsquo;s take a look at some of the simpler contracts that are alive and well on the Ethereum blockchain today. Many of these contracts implement another currency or token on top of Ethereum, and are therefore often called &ldquo;Ethereum (based) tokens&rdquo;. Because this use case is so popular, there are a few different token standards that have arisen and gained popularity.</p>
+<p>These standards merely formalize requirements for a contract&rsquo;s behavior and interface, so they don&rsquo;t (necessarily) provide or require any precise <em>implementation</em> of logic in order for the contract to conform to the specification. Think of these standards more like official interface definitions (like Java interfaces).</p>
+<p>By far, the two most well-known token standards are <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20</a> and <a href="https://eips.ethereum.org/EIPS/eip-721">ERC-721</a>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> These standards are the most popular for Ethereum-based fungible and non-fungible tokens, respectively.</p>
+<h3 id="fungibility">Fungibility</h3>
+<p><strong>Fungibility</strong> is a property of an asset that describes its interchangability.</p>
+<p>If the asset is <strong>fungible</strong>, that means that it can be replaced with another of the same type of asset and no value will be lost or gained. A fungible asset would be like a dollar: it doesn&rsquo;t matter <em>which</em> dollar you have&mdash;one dollar is one dollar. In other words, when dealing with fungible assets, what matters is <em>quantity</em>.</p>
+<p><strong>Non-fungible</strong> assets, on the other hand, are not universally mutually equivalent. Instead, a non-fungible asset is unique from all of the other assets, and <em>which</em> assets you own matters. A non-fungible asset would be like a piece of artwork: it matters <em>significantly</em> what you own&mdash;who created it, when, what media, whether it is an original, etc. This means that the <em>quality</em> of non-fungible assets you own usually matters more than the quantity.</p>
+<h2 id="erc-20-fungible-tokens">ERC-20: Fungible Tokens</h2>
+<p>An ERC-20 token contrect provides an interface to a fungible token. This means that an Ethereum address can be associated with a number of tokens of which the contract considers that address to be the owner. The smart contract maintains the collection of address-balance associations and provides a set of public operations that can be performed on it.</p>
+<p>Some of the operations provided by an ERC-20 token contract include:</p>
+<ul>
+<li><code>name</code> &ndash; Returns the name of the contract&rsquo;s token</li>
+<li><code>totalSupply</code> &ndash; Returns the total number of tokens managed by the contract</li>
+<li><code>transfer</code> &ndash; Transfers a quantity of tokens from one address to another address</li>
+<li><code>balanceOf</code> &ndash; Returns the number of tokens owned by an address</li>
+</ul>
+<h3 id="sample-erc-20-implementations">Sample ERC-20 Implementations</h3>
+<ul>
+<li><a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol">OpenZeppelin ERC-20</a></li>
+</ul>
+<h3 id="live-erc-20-contracts">Live ERC-20 Contracts</h3>
+<p>Note: These contracts were selected for their relative simplicity and readability. We do not endorse any of these tokens or projects.</p>
+<ul>
+<li><a href="https://etherscan.io/address/0xDb144CD0F15eE40AaC5602364B470d703d7e16b6#code">VSL token</a> (dead project)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://etherscan.io/address/0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c#code">ENJ token</a> and <a href="https://callisto.network/enjin-token-enj-security-audit/">security audit</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ul>
+<h3 id="erc-20-security">ERC-20 Security</h3>
+<ul>
+<li><a href="https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit">Allowance Double Withdrawal Attack</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>ERC: <strong>E</strong>thereum <strong>R</strong>equest for <strong>C</strong>omments&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Not an endorsement of this project or its practices.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
   </div>
 
-        </div>
-      </div>
+      </main>
     </div>
-    
   </div>
 
   
 
-
-  
-
   
   
 
 
   
-  <script type="text/javascript" src="/web3ttt/js/scripts.min.eaf147370baecdd07c022597db631f99cab1c9cd6479de586f30327a568d6a0f.js"></script>
+  <script type="text/javascript" src="/web3ttt/js/scripts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
   
 
   
