@@ -104,7 +104,7 @@
 <p>If the asset is <strong>fungible</strong>, that means that it can be replaced with another of the same type of asset and no value will be lost or gained. A fungible asset would be like a dollar: it doesn&rsquo;t matter <em>which</em> dollar you have&mdash;one dollar is one dollar. In other words, when dealing with fungible assets, what matters is <em>quantity</em>.</p>
 <p><strong>Non-fungible</strong> assets, on the other hand, are not universally mutually equivalent. Instead, a non-fungible asset is unique from all of the other assets, and <em>which</em> assets you own matters. A non-fungible asset would be like a piece of artwork: it matters <em>significantly</em> what you own&mdash;who created it, when, what media, whether it is an original, etc. This means that the <em>quality</em> of non-fungible assets you own usually matters more than the quantity.</p>
 <h2 id="erc-20-fungible-tokens">ERC-20: Fungible Tokens</h2>
-<p>An ERC-20 token contrect provides an interface to a fungible token. This means that an Ethereum address can be associated with a number of tokens of which the contract considers that address to be the owner. The smart contract maintains the collection of address-balance associations and provides a set of public operations that can be performed on it.</p>
+<p>An ERC-20 token contract provides an interface to a fungible token, associating Ethereum addresses with a quantity of tokens like a balance sheet. The smart contract maintains the collection of address-balance associations and provides a set of public operations that can be performed on the collection.</p>
 <p>Some of the operations provided by an ERC-20 token contract include:</p>
 <ul>
 <li><code>name</code> &ndash; Returns the name of the contract&rsquo;s token</li>
@@ -112,17 +112,17 @@
 <li><code>transfer</code> &ndash; Transfers a quantity of tokens from one address to another address</li>
 <li><code>balanceOf</code> &ndash; Returns the number of tokens owned by an address</li>
 </ul>
-<h3 id="sample-erc-20-implementations">Sample ERC-20 Implementations</h3>
+<h3 id="sample-implementations">Sample Implementations</h3>
 <ul>
 <li><a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol">OpenZeppelin ERC-20</a></li>
 </ul>
-<h3 id="live-erc-20-contracts">Live ERC-20 Contracts</h3>
+<h3 id="live-contracts">Live Contracts</h3>
 <p>Note: These contracts were selected for their relative simplicity and readability. We do not endorse any of these tokens or projects.</p>
 <ul>
 <li><a href="https://etherscan.io/address/0xDb144CD0F15eE40AaC5602364B470d703d7e16b6#code">VSL token</a> (dead project)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 <li><a href="https://etherscan.io/address/0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c#code">ENJ token</a> and <a href="https://callisto.network/enjin-token-enj-security-audit/">security audit</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 </ul>
-<h3 id="erc-20-security">ERC-20 Security</h3>
+<h3 id="security">Security</h3>
 <ul>
 <li><a href="https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit">Allowance Double Withdrawal Attack</a></li>
 </ul>
