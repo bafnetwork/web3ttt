@@ -98,13 +98,13 @@
     <h2 id="smart-contracts-in-practice">Smart Contracts in Practice</h2>
 <p>Before we dive into writing smart contracts of our own, let&rsquo;s take a look at some of the simpler contracts that are alive and well on the Ethereum blockchain today. Many of these contracts implement another currency or token on top of Ethereum, and are therefore often called &ldquo;Ethereum (based) tokens&rdquo;. Because this use case is so popular, there are a few different token standards that have arisen and gained popularity.</p>
 <p>These standards merely formalize requirements for a contract&rsquo;s behavior and interface, so they don&rsquo;t (necessarily) provide or require any precise <em>implementation</em> of logic in order for the contract to conform to the specification. Think of these standards more like official interface definitions (like Java interfaces).</p>
-<p>By far, the two most well-known token standards are <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20</a> and <a href="https://eips.ethereum.org/EIPS/eip-721">ERC-721</a>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> These standards are the most popular for Ethereum-based fungible and non-fungible tokens, respectively.</p>
+<p>By far, the two most well-known token standards are <a href="https://eips.ethereum.org/EIPS/eip-20">ERC-20</a> and <a href="https://eips.ethereum.org/EIPS/eip-721">ERC-721</a>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> These standards and their derivatives are the most popular for Ethereum-based fungible and non-fungible tokens, respectively.</p>
 <h3 id="fungibility">Fungibility</h3>
 <p><strong>Fungibility</strong> is a property of an asset that describes its interchangability.</p>
 <p>If the asset is <strong>fungible</strong>, that means that it can be replaced with another of the same type of asset and no value will be lost or gained. A fungible asset would be like a dollar: it doesn&rsquo;t matter <em>which</em> dollar you have&mdash;one dollar is one dollar. In other words, when dealing with fungible assets, what matters is <em>quantity</em>.</p>
 <p><strong>Non-fungible</strong> assets, on the other hand, are not universally mutually equivalent. Instead, a non-fungible asset is unique from all of the other assets, and <em>which</em> assets you own matters. A non-fungible asset would be like a piece of artwork: it matters <em>significantly</em> what you own&mdash;who created it, when, what media, whether it is an original, etc. This means that the <em>quality</em> of non-fungible assets you own usually matters more than the quantity.</p>
 <h2 id="erc-20-fungible-tokens">ERC-20: Fungible Tokens</h2>
-<p>An ERC-20 token contract provides an interface to a fungible token, associating Ethereum addresses with a quantity of tokens like a balance sheet. The smart contract maintains the collection of address-balance associations and provides a set of public operations that can be performed on the collection.</p>
+<p>An ERC-20 token contract provides an interface to a fungible token, associating Ethereum addresses with a quantity of tokens. The smart contract maintains the collection of address-balance associations and provides a set of public operations that can be performed on the collection.</p>
 <p>Some of the operations provided by an ERC-20 token contract include:</p>
 <ul>
 <li><code>name</code> &ndash; Returns the name of the contract&rsquo;s token</li>
@@ -122,9 +122,35 @@
 <li><a href="https://etherscan.io/address/0xDb144CD0F15eE40AaC5602364B470d703d7e16b6#code">VSL token</a> (dead project)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 <li><a href="https://etherscan.io/address/0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c#code">ENJ token</a> and <a href="https://callisto.network/enjin-token-enj-security-audit/">security audit</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 </ul>
-<h3 id="security">Security</h3>
+<h3 id="issues">Issues</h3>
 <ul>
 <li><a href="https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit">Allowance Double Withdrawal Attack</a></li>
+</ul>
+<h2 id="erc-721-non-fungible-tokens-nfts">ERC-721: Non-fungible Tokens (NFT&rsquo;s)</h2>
+<p>An ERC-721 token contract provides an interface to an NFT token registry, wherein unique token identifiers are associated with their owner&rsquo;s ETH address. The public interface is reminiscent of some of the ERC-20 methods, with some interesting modifications and additions:</p>
+<ul>
+<li><code>transferFrom</code> &ndash; Transfers a single token from one address to another</li>
+<li><code>ownerOf</code> &ndash; Returns the address of the owner of a specific token</li>
+</ul>
+<h3 id="sample-implementations-1">Sample Implementations</h3>
+<ul>
+<li><a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol">OpenZeppelin ERC-721</a></li>
+<li><a href="https://github.com/0xcert/ethereum-erc721/blob/master/src/contracts/tokens/nf-token.sol">0xcert nf-token</a></li>
+</ul>
+<h3 id="live-contracts-1">Live Contracts</h3>
+<ul>
+<li><a href="https://etherscan.io/address/0x0a59849de1e4bd9cb9fcfe303678523fba10de33#code">This random NFT on Rarible.com</a>, <a href="https://rarible.com/rimowa_metaverse">original Rarible listing</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://etherscan.io/address/0xe3435edbf54b5126e817363900234adfee5b3cee#code">VOXIES Token</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ul>
+<h3 id="issues-1">Issues</h3>
+<ul>
+<li><a href="https://medium.com/alphawallet/epic-fail-the-consequences-of-poor-erc-design-what-you-can-do-about-it-503e19c750">General inefficiency</a></li>
+</ul>
+<h2 id="other-contracts">Other Contracts</h2>
+<ul>
+<li><a href="https://etherscan.io/address/0x66d58f0a2a44742688843ceb8c0fa8d8567e3c54#code">DoubleOrNothing</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://etherscan.io/address/0xb957d92d7feae5be6877aa94997de6dcd36b65f4#code">The Hitchhiker&rsquo;s Guide to the Galaxy (H2G2)</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://etherscan.io/address/0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206#code">NEXO Token</a><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>

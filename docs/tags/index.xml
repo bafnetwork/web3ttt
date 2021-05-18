@@ -16,29 +16,29 @@
     </item>
     
     <item>
-      <title>erc20</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/erc20/</link>
+      <title>consensus</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/consensus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/erc20/</guid>
+      <guid>https://bafnetwork.github.io/web3ttt/tags/consensus/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>erc721</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/erc721/</link>
+      <title>erc-20</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/erc-20/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/erc721/</guid>
+      <guid>https://bafnetwork.github.io/web3ttt/tags/erc-20/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>etherscan.io</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/etherscan.io/</link>
+      <title>erc-721</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/erc-721/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/etherscan.io/</guid>
+      <guid>https://bafnetwork.github.io/web3ttt/tags/erc-721/</guid>
       <description></description>
     </item>
     
@@ -61,6 +61,33 @@
     </item>
     
     <item>
+      <title>mining</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/mining/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/mining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proof-of-stake</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/proof-of-stake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/proof-of-stake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proof-of-work</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/proof-of-work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/proof-of-work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>smart contract</title>
       <link>https://bafnetwork.github.io/web3ttt/tags/smart-contract/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -75,6 +102,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bafnetwork.github.io/web3ttt/tags/solidity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>staking</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/staking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/staking/</guid>
       <description></description>
     </item>
     
