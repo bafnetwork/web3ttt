@@ -45,7 +45,7 @@ Ethereum is switching to proof-of-stake as part of the Eth2 series of upgrades.[
 
 [^eth2-pos]: https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/
 
-**Proof-of-Work (PoW)** is similar to PoS in that they both have the end goal of helping the network agree (reach consensus). However, in PoW, the "collateral" offered by a miner is not in terms of crypto, but in terms of computing power. A miner races against other miners to be the first to find the solution to a math problem. If they find the solution, they get to add a block to the chain. However, if they're dishonest, they waste all of the computing power they invested into mining, which can be quite a lot.[^btc-environment] However, in exchange for their honesty, miners are rewarded with new coins generated every block.
+**Proof-of-Work (PoW)** is similar to PoS in that they both have the end goal of helping the network agree (reach consensus). However, in PoW, the "collateral" offered by a miner is not in terms of crypto, but in terms of computing power. A miner races against other miners to be the first to find the solution to a mathematical riddle. If they find the solution, they get to add a block to the chain. However, if they're dishonest, they waste all of the computing power they invested into mining, which can be quite a lot.[^btc-environment] However, in exchange for their honesty, miners are rewarded with new coins generated every block.
 
 [^btc-environment]: https://www.independent.co.uk/climate-change/news/bitcoin-bad-environment-mining-cryptocurrency-b1846773.html
 
