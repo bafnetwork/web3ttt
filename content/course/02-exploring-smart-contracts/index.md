@@ -41,7 +41,7 @@ Some of the operations provided by an ERC-20 token contract include:
 
 ### Live Contracts
 
-Note: These contracts were selected for their relative simplicity and readability. We do not endorse any of these tokens or projects.
+Note: These contracts were selected for their relative simplicity and readability. We do not necessarily endorse any of these tokens or projects.
 
 - [VSL token](https://etherscan.io/address/0xDb144CD0F15eE40AaC5602364B470d703d7e16b6#code) (dead project)[^not-an-endorsement]
 - [ENJ token](https://etherscan.io/address/0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c#code) and [security audit](https://callisto.network/enjin-token-enj-security-audit/)[^not-an-endorsement]
@@ -63,6 +63,8 @@ An ERC-721 token contract provides an interface to an NFT token registry, wherei
 - [0xcert nf-token](https://github.com/0xcert/ethereum-erc721/blob/master/src/contracts/tokens/nf-token.sol)
 
 ### Live Contracts
+
+Note: These contracts were selected for their relative simplicity and readability. We do not necessarily endorse any of these tokens or projects.
 
 - [This random NFT from Rarible](https://etherscan.io/address/0x0a59849de1e4bd9cb9fcfe303678523fba10de33#code), [original Rarible listing](https://rarible.com/rimowa_metaverse)[^not-an-endorsement]
 - [VOXIES Token](https://etherscan.io/address/0xe3435edbf54b5126e817363900234adfee5b3cee#code)[^not-an-endorsement]
