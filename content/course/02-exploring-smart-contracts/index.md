@@ -64,7 +64,7 @@ An ERC-721 token contract provides an interface to an NFT token registry, wherei
 
 ### Live Contracts
 
-- [This random NFT on Rarible.com](https://etherscan.io/address/0x0a59849de1e4bd9cb9fcfe303678523fba10de33#code), [original Rarible listing](https://rarible.com/rimowa_metaverse)[^not-an-endorsement]
+- [This random NFT from Rarible](https://etherscan.io/address/0x0a59849de1e4bd9cb9fcfe303678523fba10de33#code), [original Rarible listing](https://rarible.com/rimowa_metaverse)[^not-an-endorsement]
 - [VOXIES Token](https://etherscan.io/address/0xe3435edbf54b5126e817363900234adfee5b3cee#code)[^not-an-endorsement]
 
 ### Issues
