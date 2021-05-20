@@ -53,12 +53,6 @@ Token metadata
 
 ---
 
-Sample Implementations
-
-- [OpenZeppelin ERC-20](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol)
-
----
-
 Scenario: Alice sends some ERC-20 tokens to a contract's address.
 
 Can the contract use the tokens?
@@ -84,6 +78,12 @@ Problems:
 
 - Two-step process
 - Possibility for failure at every step
+
+---
+
+Sample Implementations
+
+- [OpenZeppelin ERC-20](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol)
 
 ---
 
@@ -126,14 +126,14 @@ Token metadata
 
 ---
 
+Allowances are still a thing, but they are given on a per-token basis
+
+---
+
 Sample Implementations
 
 - [OpenZeppelin ERC-721](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)
 - [0xcert nf-token](https://github.com/0xcert/ethereum-erc721/blob/master/src/contracts/tokens/nf-token.sol)
-
----
-
-Allowances are still a thing, but they are given on a per-token basis
 
 ---
 
