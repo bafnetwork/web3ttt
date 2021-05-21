@@ -7,7 +7,7 @@ outputs: ['html', 'slides']
 katex: true
 ---
 
-Follow along in [Remix IDE](https://remix.ethereum.org/).
+Follow along in [Remix IDE](https://remix.ethereum.org/). Copy and paste the listings, deploy and test your solutions to the exercises.
 
 ## Essential Syntax
 
@@ -86,9 +86,12 @@ Transaction fee: 21,000 &times; 0.000000066 ETH = 0.001386 ETH (<span>$</span>3.
     - Make sure to update `totalSupply`.
     - What modifiers should the function have?
 2. The transfer function could use less gas while having the same functionality. What improvements can you make?
+    - Implementing these two optimizations improved the execution cost of the function from 28847 gas to 12777 gas (55.7% improvement).
     - Optimization 1:
+      - Involves reading from storage
       - [Hint 1](https://docs.soliditylang.org/en/v0.8.4/introduction-to-smart-contracts.html#storage-memory-and-the-stack)
     - Optimization 2:
+      - Involves integer overflow safeguards
       - [Hint 1](https://docs.soliditylang.org/en/v0.8.4/080-breaking-changes.html#silent-changes-of-the-semantics)
       - [Hint 2](https://docs.soliditylang.org/en/v0.8.4/control-structures.html#checked-or-unchecked-arithmetic)
     - If you need help, check out [this transfer function from an OpenZeppelin ERC-20 implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/5f50b9f6e02c6a8ce8fc4b243fdbbf210b0e6446/contracts/token/ERC20/ERC20.sol#L215).
@@ -111,6 +114,11 @@ contract VeryExpensiveToken {
         owner = _owner;
     }
     
+    // Events appear in logs (e.g. for debugging) and web3 applications can
+    // listen for them
+    // Indexed parameters are searchable in logs
+    event BuyEvent(address indexed buyer, uint256 indexed tokenIndex, uint256 price);
+    
     // Functions marked payable have access to msg.value, which is a quantity of
     // ETH tokens sent along with the function call
     function buy () external payable {
@@ -119,6 +127,9 @@ contract VeryExpensiveToken {
             "Not enough to buy next token");
         totalSupply = _totalSupply + 1;
         balances[msg.sender]++;
+        
+        // Emits an event
+        emit BuyEvent(msg.sender, _totalSupply, msg.value);
     }
     
     function nextTokenCost () external view returns (uint256) {
@@ -145,6 +156,10 @@ contract VeryExpensiveToken {
         // their use is no longer recommended because they rely on a constant
         // gas cost for computations which is no longer a safe assumption
         // https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now
+        // !!!WARNING!!!
+        // There is potential for even worse bugs or vulnerabilities if this
+        // method is not used carefully. Proper usage is covered in the next
+        // section.
         (bool success,) = owner.call{ value: address(this).balance }("");
         require(success, "Withdraw failed");
     }
@@ -163,10 +178,146 @@ contract VeryExpensiveToken {
 
 Payable functions are able to receive ETH tokens. The payment value is in the `msg.value` global in units of **wei**, the smallest division of Ethereum (1 ether = $10^{18}$ wei).
 
+If you are short on gas and your logic can be performed off-chain somewhere, **events** are a relatively cheap (although not free) way to integrate off-chain logic into an application. Web3 applications can listen for events and react to them.
+
 ### Exercises
 
 1. Create a `buyOut()` function which changes the owner to `msg.sender` if `(2 ** (2 * totalSupply)) * 1 ether` tokens are attached.
     - Implement the buyout value as a pure function.
     - Make sure to handle payouts to the old owner correctly!
+    - Emit a (new) `BuyOutEvent` with the old and new owner indexed, and the buyout price.
     - `address(this).balance` is increased by `msg.value` before execution begins.
 2. Read [this section in the Solidity documentation](https://docs.soliditylang.org/en/v0.8.4/common-patterns.html#withdrawal-from-contracts). Rewrite `buyOut()` with these considerations.
+
+## Design Patterns & Security Considerations
+
+### Listing
+
+```solidity
+pragma solidity ^0.8.4;
+
+contract InconspicuousToken {
+    mapping (address => uint256) balances;
+    uint256 public totalSupply = 0;
+    // Constant values are defined at compile time and replaced throughout the
+    // contract so they do not incur a storage read cost.
+    uint256 constant minimumBuy = 1 gwei;
+    
+    function balanceOf (address _wallet) external view returns (uint256) {
+        return balances[_wallet];
+    }
+    
+    // Errors look a little bit like events, but they halt execution when used
+    error InsufficientBuy();
+    
+    // Custom function modifiers alter function behavior
+    modifier enforceMinimumBuy () {
+        // Similar to a require(...) call
+        if (msg.value < minimumBuy) {
+            revert InsufficientBuy();
+        }
+        
+        // Will be replaced with the modified function's body
+        _;
+    }
+    
+    function contractBalance () external view returns (uint256) {
+        return address(this).balance;
+    }
+    
+    // Uses a custom function modifier to ensure that a condition is met
+    function buy () payable external enforceMinimumBuy {
+        balances[msg.sender] += msg.value;
+        totalSupply += msg.value;
+    }
+    
+    function sell () external {
+        // !!!WARNING!!!
+        // This function is vulnerable!
+        
+        // Send the user their unwrapped funds
+        uint256 balance = balances[msg.sender];
+        (bool success,) = payable(msg.sender).call{
+            value: balance
+        }("");
+        
+        // Don't empty their wallet if the transaction failed
+        if (success) {
+            totalSupply -= balance;
+            balances[msg.sender] = 0;
+        }
+    }
+    
+    function transfer (address _to, uint256 _amount) external {
+        // ...
+    }
+}
+```
+
+### Concepts
+
+
+#### Fallback & Receive Functions
+
+Recall that any given Ethereum address may be controlled by a smart contract or a real person. Smart contracts can also respond to transactions sent directly to their address by using a special `fallback` or `receive` function. These functions look like this:
+
+```solidity
+// No function keyword
+receive () external payable {
+    // Called when the contract address is paid directly
+    // Just like any other payable function
+    // Keep in mind the gas limit could be as low as 2300
+}
+
+// Optionally payable
+fallback () external payable {
+    // Called when no function signature matches
+}
+```
+
+See the documentation for [fallback functions](https://docs.soliditylang.org/en/v0.8.4/contracts.html#fallback-function) and [receive functions](https://docs.soliditylang.org/en/v0.8.4/contracts.html#receive-ether-function).
+
+#### Cross-contract calls
+
+Smart contracts can call each other if they know the address and interface of the contract they want to call. Fortunately, addresses aren't too difficult to discover, and a contract's interface can be easily imported into another file by using the `import` keyword:
+
+```solidity
+// At the top of the file
+import "./InconspicuousToken.sol";
+
+// Elsewhere in your contract...
+InconspicuousToken it = InconspicuousToken(contractAddress);
+it.buy{ value: /* ... */ }();
+it.sell();
+```
+
+See [the documentation for import](https://docs.soliditylang.org/en/v0.8.4/layout-of-source-files.html#importing-other-source-files) and [more information about calling other contracts](https://ethereum.org/en/developers/tutorials/interact-with-other-contracts-from-solidity/).
+
+#### Security Vulnerability: Re-entrancy
+
+Sending ETH to an address has the potential to trigger some smart contract code---smart contract code which could theoretically call other smart contract code and so on and so forth.
+
+This all brings us to a type of security vulnerability called **re-entrancy**, and as it turns out, the above listing is vulnerable to a re-entrancy attack.
+
+The general idea of a re-entrancy attack is to call back into a contract while it is in the middle of executing, in order to take advantage of a half-baked state.
+
+#### Mitigation
+
+Use the **checks-effects-interactions** order of operations:
+
+1. Check & validate your input
+2. Perform any and all modifications to contract state
+3. Send calls to other contracts
+
+This ensures that your contract state will _always_ be valid when other contracts may be attempting to interact with it _even as part of one of your own function calls_.
+
+### Exercises
+
+1. Construct a contract that performs a re-entrancy attack on `InconspicuousToken`.
+    - Your contract should contain four functions:
+      - `contractBalance()` for figuring out if your attack worked
+      - A `receive` function
+      - `performAttack1(address)` which performs a buy on `InconspicuousToken`
+      - `performAttack2(address)` which performs a sell on `InconspicuousToken`
+    - The attack should drain the `InconspicuousToken`'s balance into the attacking contract's balance
+2. Use the check-effects-interactions pattern to fix `InconspicuousToken`.
