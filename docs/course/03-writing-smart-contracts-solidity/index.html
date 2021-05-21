@@ -16,7 +16,12 @@
 
   
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha256-hFAmQt2dGk6G99nu2cEWz8/1JGRnBP/BsGoZwQ7WeLE="
+  crossorigin="anonymous"
+/>
 
   
 
@@ -98,7 +103,7 @@
         
   <h1 class="title">03 - Writing Smart Contracts in Solidity</h1>
   <div class="content ">
-    <p>Follow along in <a href="https://remix.ethereum.org/">Remix IDE</a>.</p>
+    <p>Follow along in <a href="https://remix.ethereum.org/">Remix IDE</a>. Copy and paste the listings, deploy and test your solutions to the exercises.</p>
 <h2 id="essential-syntax">Essential Syntax</h2>
 <h3 id="listing">Listing</h3>
 <div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: &lt;license-identifier-here&gt;
@@ -171,13 +176,16 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </li>
 <li>The transfer function could use less gas while having the same functionality. What improvements can you make?
 <ul>
+<li>Implementing these two optimizations improved the execution cost of the function from 28847 gas to 12777 gas (55.7% improvement).</li>
 <li>Optimization 1:
 <ul>
+<li>Involves reading from storage</li>
 <li><a href="https://docs.soliditylang.org/en/v0.8.4/introduction-to-smart-contracts.html#storage-memory-and-the-stack">Hint 1</a></li>
 </ul>
 </li>
 <li>Optimization 2:
 <ul>
+<li>Involves integer overflow safeguards</li>
 <li><a href="https://docs.soliditylang.org/en/v0.8.4/080-breaking-changes.html#silent-changes-of-the-semantics">Hint 1</a></li>
 <li><a href="https://docs.soliditylang.org/en/v0.8.4/control-structures.html#checked-or-unchecked-arithmetic">Hint 2</a></li>
 </ul>
@@ -201,6 +209,11 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
         <span class="n">owner</span> <span class="o">=</span> <span class="n">_owner</span><span class="p">;</span>
     <span class="p">}</span>
     
+    <span class="c1">// Events appear in logs (e.g. for debugging) and web3 applications can
+</span><span class="c1"></span>    <span class="c1">// listen for them
+</span><span class="c1"></span>    <span class="c1">// Indexed parameters are searchable in logs
+</span><span class="c1"></span>    <span class="kd">event</span> <span class="n">BuyEvent</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="kr">indexed</span> <span class="n">tokenIndex</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">price</span><span class="p">);</span>
+    
     <span class="c1">// Functions marked payable have access to msg.value, which is a quantity of
 </span><span class="c1"></span>    <span class="c1">// ETH tokens sent along with the function call
 </span><span class="c1"></span>    <span class="kd">function</span> <span class="n">buy</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
@@ -209,6 +222,9 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
             <span class="s">&#34;Not enough to buy next token&#34;</span><span class="p">);</span>
         <span class="n">totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
         <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        
+        <span class="c1">// Emits an event
+</span><span class="c1"></span>        <span class="n">emit</span> <span class="n">BuyEvent</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">_totalSupply</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">);</span>
     <span class="p">}</span>
     
     <span class="kd">function</span> <span class="n">nextTokenCost</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
@@ -235,6 +251,10 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="c1"></span>        <span class="c1">// their use is no longer recommended because they rely on a constant
 </span><span class="c1"></span>        <span class="c1">// gas cost for computations which is no longer a safe assumption
 </span><span class="c1"></span>        <span class="c1">// https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now
+</span><span class="c1"></span>        <span class="c1">// !!!WARNING!!!
+</span><span class="c1"></span>        <span class="c1">// There is potential for even worse bugs or vulnerabilities if this
+</span><span class="c1"></span>        <span class="c1">// method is not used carefully. Proper usage is covered in the next
+</span><span class="c1"></span>        <span class="c1">// section.
 </span><span class="c1"></span>        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="n">owner</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span> <span class="nb">value</span><span class="o">:</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
         <span class="nb">require</span><span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="s">&#34;Withdraw failed&#34;</span><span class="p">);</span>
     <span class="p">}</span>
@@ -249,16 +269,132 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 <span class="p">}</span>
 </code></pre></div><h3 id="concepts-1">Concepts</h3>
 <p>Payable functions are able to receive ETH tokens. The payment value is in the <code>msg.value</code> global in units of <strong>wei</strong>, the smallest division of Ethereum (1 ether = $10^{18}$ wei).</p>
+<p>If you are short on gas and your logic can be performed off-chain somewhere, <strong>events</strong> are a relatively cheap (although not free) way to integrate off-chain logic into an application. Web3 applications can listen for events and react to them.</p>
 <h3 id="exercises-1">Exercises</h3>
 <ol>
 <li>Create a <code>buyOut()</code> function which changes the owner to <code>msg.sender</code> if <code>(2 ** (2 * totalSupply)) * 1 ether</code> tokens are attached.
 <ul>
 <li>Implement the buyout value as a pure function.</li>
 <li>Make sure to handle payouts to the old owner correctly!</li>
+<li>Emit a (new) <code>BuyOutEvent</code> with the old and new owner indexed, and the buyout price.</li>
 <li><code>address(this).balance</code> is increased by <code>msg.value</code> before execution begins.</li>
 </ul>
 </li>
 <li>Read <a href="https://docs.soliditylang.org/en/v0.8.4/common-patterns.html#withdrawal-from-contracts">this section in the Solidity documentation</a>. Rewrite <code>buyOut()</code> with these considerations.</li>
+</ol>
+<h2 id="design-patterns--security-considerations">Design Patterns &amp; Security Considerations</h2>
+<h3 id="listing-2">Listing</h3>
+<div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="n">InconspicuousToken</span> <span class="p">{</span>
+    <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">balances</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// Constant values are defined at compile time and replaced throughout the
+</span><span class="c1"></span>    <span class="c1">// contract so they do not incur a storage read cost.
+</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="kr">constant</span> <span class="n">minimumBuy</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">gwei</span><span class="p">;</span>
+    
+    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Errors look a little bit like events, but they halt execution when used
+</span><span class="c1"></span>    <span class="n">error</span> <span class="n">InsufficientBuy</span><span class="p">();</span>
+    
+    <span class="c1">// Custom function modifiers alter function behavior
+</span><span class="c1"></span>    <span class="kd">modifier</span> <span class="n">enforceMinimumBuy</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Similar to a require(...) call
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&lt;</span> <span class="n">minimumBuy</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">revert</span> <span class="n">InsufficientBuy</span><span class="p">();</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Will be replaced with the modified function&#39;s body
+</span><span class="c1"></span>        <span class="kr">_</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">contractBalance</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Uses a custom function modifier to ensure that a condition is met
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">buy</span> <span class="p">()</span> <span class="kr">payable</span> <span class="kr">external</span> <span class="n">enforceMinimumBuy</span> <span class="p">{</span>
+        <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
+        <span class="n">totalSupply</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">sell</span> <span class="p">()</span> <span class="kr">external</span> <span class="p">{</span>
+        <span class="c1">// !!!WARNING!!!
+</span><span class="c1"></span>        <span class="c1">// This function is vulnerable!
+</span><span class="c1"></span>        
+        <span class="c1">// Send the user their unwrapped funds
+</span><span class="c1"></span>        <span class="kt">uint256</span> <span class="nb">balance</span> <span class="o">=</span> <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">];</span>
+        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="kr">payable</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">).</span><span class="nb">call</span><span class="p">{</span>
+            <span class="nb">value</span><span class="o">:</span> <span class="nb">balance</span>
+        <span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+        
+        <span class="c1">// Don&#39;t empty their wallet if the transaction failed
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">totalSupply</span> <span class="o">-=</span> <span class="nb">balance</span><span class="p">;</span>
+            <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">external</span> <span class="p">{</span>
+        <span class="c1">// ...
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="concepts-2">Concepts</h3>
+<h4 id="fallback--receive-functions">Fallback &amp; Receive Functions</h4>
+<p>Recall that any given Ethereum address may be controlled by a smart contract or a real person. Smart contracts can also respond to transactions sent directly to their address by using a special <code>fallback</code> or <code>receive</code> function. These functions look like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="c1">// No function keyword
+</span><span class="c1"></span><span class="n">receive</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+    <span class="c1">// Called when the contract address is paid directly
+</span><span class="c1"></span>    <span class="c1">// Just like any other payable function
+</span><span class="c1"></span>    <span class="c1">// Keep in mind the gas limit could be as low as 2300
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="c1">// Optionally payable
+</span><span class="c1"></span><span class="n">fallback</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+    <span class="c1">// Called when no function signature matches
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>See the documentation for <a href="https://docs.soliditylang.org/en/v0.8.4/contracts.html#fallback-function">fallback functions</a> and <a href="https://docs.soliditylang.org/en/v0.8.4/contracts.html#receive-ether-function">receive functions</a>.</p>
+<h4 id="cross-contract-calls">Cross-contract calls</h4>
+<p>Smart contracts can call each other if they know the address and interface of the contract they want to call. Fortunately, addresses aren&rsquo;t too difficult to discover, and a contract&rsquo;s interface can be easily imported into another file by using the <code>import</code> keyword:</p>
+<div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="c1">// At the top of the file
+</span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;./InconspicuousToken.sol&#34;</span><span class="p">;</span>
+
+<span class="c1">// Elsewhere in your contract...
+</span><span class="c1"></span><span class="n">InconspicuousToken</span> <span class="n">it</span> <span class="o">=</span> <span class="n">InconspicuousToken</span><span class="p">(</span><span class="n">contractAddress</span><span class="p">);</span>
+<span class="n">it</span><span class="p">.</span><span class="n">buy</span><span class="p">{</span> <span class="nb">value</span><span class="o">:</span> <span class="cm">/* ... */</span> <span class="p">}();</span>
+<span class="n">it</span><span class="p">.</span><span class="n">sell</span><span class="p">();</span>
+</code></pre></div><p>See <a href="https://docs.soliditylang.org/en/v0.8.4/layout-of-source-files.html#importing-other-source-files">the documentation for import</a> and <a href="https://ethereum.org/en/developers/tutorials/interact-with-other-contracts-from-solidity/">more information about calling other contracts</a>.</p>
+<h4 id="security-vulnerability-re-entrancy">Security Vulnerability: Re-entrancy</h4>
+<p>Sending ETH to an address has the potential to trigger some smart contract code&mdash;smart contract code which could theoretically call other smart contract code and so on and so forth.</p>
+<p>This all brings us to a type of security vulnerability called <strong>re-entrancy</strong>, and as it turns out, the above listing is vulnerable to a re-entrancy attack.</p>
+<p>The general idea of a re-entrancy attack is to call back into a contract while it is in the middle of executing, in order to take advantage of a half-baked state.</p>
+<h4 id="mitigation">Mitigation</h4>
+<p>Use the <strong>checks-effects-interactions</strong> order of operations:</p>
+<ol>
+<li>Check &amp; validate your input</li>
+<li>Perform any and all modifications to contract state</li>
+<li>Send calls to other contracts</li>
+</ol>
+<p>This ensures that your contract state will <em>always</em> be valid when other contracts may be attempting to interact with it <em>even as part of one of your own function calls</em>.</p>
+<h3 id="exercises-2">Exercises</h3>
+<ol>
+<li>Construct a contract that performs a re-entrancy attack on <code>InconspicuousToken</code>.
+<ul>
+<li>Your contract should contain four functions:
+<ul>
+<li><code>contractBalance()</code> for figuring out if your attack worked</li>
+<li>A <code>receive</code> function</li>
+<li><code>performAttack1(address)</code> which performs a buy on <code>InconspicuousToken</code></li>
+<li><code>performAttack2(address)</code> which performs a sell on <code>InconspicuousToken</code></li>
+</ul>
+</li>
+<li>The attack should drain the <code>InconspicuousToken</code>&rsquo;s balance into the attacking contract&rsquo;s balance</li>
+</ul>
+</li>
+<li>Use the check-effects-interactions pattern to fix <code>InconspicuousToken</code>.</li>
 </ol>
 
   </div>
@@ -272,32 +408,30 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
   
   
     <script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
-  integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+  src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha256-+EWBEj6A8lxFvckkChitv8/RcHK/PcWvQV+D7PDflC8="
   crossorigin="anonymous"
 ></script>
 <script
-  defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/contrib/auto-render.min.js"
-  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
+  src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha256-G53bYZLObbTLTA3j70xRGPKxKYlBbzvDZ789B6sSFkE="
   crossorigin="anonymous"
 ></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          
-          
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          
-          throwOnError : false
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true },
+      ],
+      
+      throwOnError: false,
     });
+  });
 </script>
 
   
