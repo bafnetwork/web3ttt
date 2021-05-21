@@ -51,3 +51,10 @@ hr {
   border: 0;
   border-bottom: 1px solid rgba($black, 0.2);
 }
+
+code:not([data-lang]) {
+  color: $secondary;
+  background-color: rgba($secondary, 0.05);
+  padding: 0 2px;
+  border-radius: 3px;
+}

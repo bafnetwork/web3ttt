@@ -78,7 +78,7 @@ Some recent values for example:
 
 Gas price: 66 Gwei (0.000000066 ETH) \
 Gas for transaction: 21,000 \
-Transaction fee: 21,000 &times; 0.000000066 ETH = 0.001386 ETH ($3.82 @ $2,756.35/ETH)
+Transaction fee: 21,000 &times; 0.000000066 ETH = 0.001386 ETH (<span>$</span>3.82 @ <span>$</span>2,756.35/ETH)
 
 ### Exercises
 
