@@ -26,6 +26,10 @@
   </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/tags/fungibility/</loc>
   </url><url>
+    <loc>https://bafnetwork.github.io/web3ttt/tags/gas/</loc>
+  </url><url>
+    <loc>https://bafnetwork.github.io/web3ttt/tags/gwei/</loc>
+  </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/tags/hashing/</loc>
   </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/categories/lesson/</loc>
@@ -36,6 +40,8 @@
   </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/tags/proof-of-work/</loc>
   </url><url>
+    <loc>https://bafnetwork.github.io/web3ttt/tags/remix/</loc>
+  </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/tags/smart-contract/</loc>
   </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/tags/solidity/</loc>
@@ -45,5 +51,7 @@
     <loc>https://bafnetwork.github.io/web3ttt/tags/</loc>
   </url><url>
     <loc>https://bafnetwork.github.io/web3ttt/</loc>
+  </url><url>
+    <loc>https://bafnetwork.github.io/web3ttt/tags/wei/</loc>
   </url>
 </urlset>

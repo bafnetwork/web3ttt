@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>solidity on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/tags/solidity/</link>
-    <description>Recent content in solidity on Web3 Teacher Training Track</description>
+    <title>wei on Web3 Teacher Training Track</title>
+    <link>https://bafnetwork.github.io/web3ttt/tags/wei/</link>
+    <description>Recent content in wei on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/solidity/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/wei/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>03 - Writing Smart Contracts in Solidity</title>
       <link>https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/</link>

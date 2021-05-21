@@ -11,10 +11,13 @@
 
   
   
-  <link rel="stylesheet" href="/web3ttt/css/style.min.571bf95d13d832c230f01fe2c79e4b591eab934c0f084f49bda32de5a0220523.css">
+  <link rel="stylesheet" href="/web3ttt/css/style.min.0514a485a1734d827c711cff3c0076bf161f742fb602e62a7c156f244711e94e.css">
   
 
   
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
   
 
 
@@ -95,7 +98,168 @@
         
   <h1 class="title">03 - Writing Smart Contracts in Solidity</h1>
   <div class="content ">
-    <p>Have fun!</p>
+    <p>Follow along in <a href="https://remix.ethereum.org/">Remix IDE</a>.</p>
+<h2 id="essential-syntax">Essential Syntax</h2>
+<h3 id="listing">Listing</h3>
+<div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: &lt;license-identifier-here&gt;
+</span><span class="c1">// ex. SPDX-License-Identifier: MIT
+</span><span class="c1">// ex. SPDX-License-Identifier: GPL-3.0-or-later
+</span><span class="c1">// ex. SPDX-License-Identifier: UNLICENSED
+</span><span class="c1"></span>
+<span class="c1">// Solidity compiler version
+</span><span class="c1">// You can specify more precise version selection bounds by using the syntax
+</span><span class="c1">// here: https://docs.npmjs.com/cli/v6/using-npm/semver
+</span><span class="c1"></span><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="c1">// Most of your code will live inside a contract declaration
+</span><span class="c1"></span><span class="kd">contract</span> <span class="n">FreeToken</span> <span class="p">{</span>
+    <span class="c1">// Solidity has a few unique data types, such as mapping, address
+</span><span class="c1"></span>    <span class="c1">// A mapping is like an associative array, dictionary, or hashmap
+</span><span class="c1"></span>    <span class="c1">// This mapping maps Ethereum addresses to 256-bit unsigned integers
+</span><span class="c1"></span>    <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">balances</span><span class="p">;</span>
+    
+    <span class="c1">// The public access modifier doesn&#39;t allow external code to write to this
+</span><span class="c1"></span>    <span class="c1">// value, only read
+</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">// External functions can only be called from OUTSIDE the contract, and are
+</span><span class="c1"></span>    <span class="c1">// disallowed from making internal function calls. Public functions can do
+</span><span class="c1"></span>    <span class="c1">// both, but are more expensive.
+</span><span class="c1"></span>    <span class="c1">// This function doesn&#39;t modify the state of the contract, so it is marked
+</span><span class="c1"></span>    <span class="c1">// with the view modifier
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// This function does modify the state of the contract, so no view modifier
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">mint</span> <span class="p">()</span> <span class="kr">external</span> <span class="p">{</span>
+        <span class="c1">// msg.sender gives us the external address that initiated this call
+</span><span class="c1"></span>        <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">totalSupply</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Could this function be improved?
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">external</span> <span class="p">{</span>
+        <span class="c1">// Failed calls to require() revert the transaction, undoing state
+</span><span class="c1"></span>        <span class="c1">// changes
+</span><span class="c1"></span>        <span class="nb">require</span><span class="p">(</span><span class="n">_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Amount must be nonzero&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">_amount</span><span class="p">,</span> <span class="s">&#34;Insufficient balance&#34;</span><span class="p">);</span>
+        
+        <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">-=</span> <span class="n">_amount</span><span class="p">;</span>
+        <span class="n">balances</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span> <span class="o">+=</span> <span class="n">_amount</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="concepts">Concepts</h3>
+<p>Executing code on the blockchain costs money, and it&rsquo;s paid for in Ethereum. The network defines a unit called <strong>gas</strong>, which is set to some amount of ETH. Executing code on the Ethereum network takes some amount of gas. For example, a regular old ETH transfer transaction takes 21,000 gas. The more complex a contract&rsquo;s logic, the more gas it will take, and therefore, the more expensive it will be to call that contract.</p>
+<p>Some general rules to keep your gas usage low:</p>
+<ul>
+<li>Only compute what you absolutely have to</li>
+<li>Storage I/O is <em>expensive</em>, memory less so</li>
+<li>Be <em>very careful</em> when writing looping or recursive logic</li>
+</ul>
+<p>Some recent values for example:</p>
+<p>Gas price: 66 Gwei (0.000000066 ETH)<br>
+Gas for transaction: 21,000<br>
+Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH ($3.82 @ $2,756.35/ETH)</p>
+<h3 id="exercises">Exercises</h3>
+<ol>
+<li>Create a <code>gift(address, uint256)</code> function that adds an amount to anyone&rsquo;s balance, and rewards the gifter with a call to the <code>mint()</code> function
+<ul>
+<li>Make sure to update <code>totalSupply</code>.</li>
+<li>What modifiers should the function have?</li>
+</ul>
+</li>
+<li>The transfer function could use less gas while having the same functionality. What improvements can you make?
+<ul>
+<li>Optimization 1:
+<ul>
+<li><a href="https://docs.soliditylang.org/en/v0.8.4/introduction-to-smart-contracts.html#storage-memory-and-the-stack">Hint 1</a></li>
+</ul>
+</li>
+<li>Optimization 2:
+<ul>
+<li><a href="https://docs.soliditylang.org/en/v0.8.4/080-breaking-changes.html#silent-changes-of-the-semantics">Hint 1</a></li>
+<li><a href="https://docs.soliditylang.org/en/v0.8.4/control-structures.html#checked-or-unchecked-arithmetic">Hint 2</a></li>
+</ul>
+</li>
+<li>If you need help, check out <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/5f50b9f6e02c6a8ce8fc4b243fdbbf210b0e6446/contracts/token/ERC20/ERC20.sol#L215">this transfer function from an OpenZeppelin ERC-20 implementation</a>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="payable-functions">Payable Functions</h2>
+<h3 id="listing-1">Listing</h3>
+<div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="n">VeryExpensiveToken</span> <span class="p">{</span>
+    <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="kr">public</span> <span class="n">balances</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// ETH can be sent to payable addresses
+</span><span class="c1"></span>    <span class="kt">address</span> <span class="kr">payable</span> <span class="kr">public</span> <span class="n">owner</span><span class="p">;</span>
+    
+    <span class="c1">// Called when the contract is first deployed
+</span><span class="c1"></span>    <span class="n">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="kr">payable</span> <span class="n">_owner</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="n">_owner</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Functions marked payable have access to msg.value, which is a quantity of
+</span><span class="c1"></span>    <span class="c1">// ETH tokens sent along with the function call
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">buy</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+        <span class="kt">uint256</span> <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">totalSupply</span><span class="p">;</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;=</span> <span class="n">_nextTokenCost</span><span class="p">(</span><span class="n">_totalSupply</span><span class="p">),</span>
+            <span class="s">&#34;Not enough to buy next token&#34;</span><span class="p">);</span>
+        <span class="n">totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">nextTokenCost</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_nextTokenCost</span><span class="p">(</span><span class="n">totalSupply</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Pure functions cannot modify state, like view functions, but it also
+</span><span class="c1"></span>    <span class="c1">// cannot read state either
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">_nextTokenCost</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// There are some nice keywords for pecuniary numbers in Solidity:
+</span><span class="c1"></span>        <span class="c1">//   1 wei == 1
+</span><span class="c1"></span>        <span class="c1">//   1 gwei == 1e9
+</span><span class="c1"></span>        <span class="c1">//   1 ether == 1e18
+</span><span class="c1"></span>        <span class="c1">// Also for durations:
+</span><span class="c1"></span>        <span class="c1">//   1 seconds == 1
+</span><span class="c1"></span>        <span class="c1">//   minutes, hours, days, weeks
+</span><span class="c1"></span>        <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">_totalSupply</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">withdraw</span> <span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">owner</span><span class="p">);</span>
+
+        <span class="c1">// Although .send() and .transfer() functions exist for sending ETH,
+</span><span class="c1"></span>        <span class="c1">// their use is no longer recommended because they rely on a constant
+</span><span class="c1"></span>        <span class="c1">// gas cost for computations which is no longer a safe assumption
+</span><span class="c1"></span>        <span class="c1">// https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now
+</span><span class="c1"></span>        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="n">owner</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span> <span class="nb">value</span><span class="o">:</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="s">&#34;Withdraw failed&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="c1">// ...
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="concepts-1">Concepts</h3>
+<p>Payable functions are able to receive ETH tokens. The payment value is in the <code>msg.value</code> global in units of <strong>wei</strong>, the smallest division of Ethereum (1 ether = $10^{18}$ wei).</p>
+<h3 id="exercises-1">Exercises</h3>
+<ol>
+<li>Create a <code>buyOut()</code> function which changes the owner to <code>msg.sender</code> if <code>(2 ** (2 * totalSupply)) * 1 ether</code> tokens are attached.
+<ul>
+<li>Implement the buyout value as a pure function.</li>
+<li>Make sure to handle payouts to the old owner correctly!</li>
+<li><code>address(this).balance</code> is increased by <code>msg.value</code> before execution begins.</li>
+</ul>
+</li>
+<li>Read <a href="https://docs.soliditylang.org/en/v0.8.4/common-patterns.html#withdrawal-from-contracts">this section in the Solidity documentation</a>. Rewrite <code>buyOut()</code> with these considerations.</li>
+</ol>
 
   </div>
 
@@ -106,6 +270,36 @@
   
 
   
+  
+    <script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
+  integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.13.10/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
+  crossorigin="anonymous"
+></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
   
 
 
