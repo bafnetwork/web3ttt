@@ -52,9 +52,27 @@ hr {
   border-bottom: 1px solid rgba($black, 0.2);
 }
 
-code:not([data-lang]) {
+.highlight code {
+  color: unset;
+  background-color: unset;
+  padding: unset;
+  border-radius: unset;
+}
+
+pre {
+  margin: 0;
+}
+
+code {
   color: $secondary;
   background-color: rgba($secondary, 0.05);
   padding: 0 2px;
   border-radius: 3px;
+}
+
+.highlight > .chroma {
+  overflow-x: auto;
+  padding: 8px;
+  box-shadow: 0 0 5px inset rgba($black, 0.2);
+  border-radius: 5px;
 }

@@ -13,7 +13,7 @@ Follow along in [Remix IDE](https://remix.ethereum.org/). Copy and paste the lis
 
 ### Listing
 
-```solidity
+```solidity {linenos=true}
 // SPDX-License-Identifier: <license-identifier-here>
 // ex. SPDX-License-Identifier: MIT
 // ex. SPDX-License-Identifier: GPL-3.0-or-later
@@ -100,7 +100,7 @@ Transaction fee: 21,000 &times; 0.000000066 ETH = 0.001386 ETH (<span>$</span>3.
 
 ### Listing
 
-```solidity
+```solidity {linenos=true}
 pragma solidity ^0.8.4;
 
 contract VeryExpensiveToken {
@@ -193,7 +193,7 @@ If you are short on gas and your logic can be performed off-chain somewhere, **e
 
 ### Listing
 
-```solidity
+```solidity {linenos=true}
 pragma solidity ^0.8.4;
 
 contract InconspicuousToken {
@@ -299,7 +299,7 @@ Sending ETH to an address has the potential to trigger some smart contract code-
 
 This all brings us to a type of security vulnerability called **re-entrancy**, and as it turns out, the above listing is vulnerable to a re-entrancy attack.
 
-The general idea of a re-entrancy attack is to call back into a contract while it is in the middle of executing, in order to take advantage of a half-baked state.
+The general idea of a re-entrancy attack is to call back into a contract while it is in the middle of executing (i.e. when it calls another contract), in order to take advantage of an invalid intermediate state.
 
 #### Mitigation
 
