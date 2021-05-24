@@ -42,6 +42,7 @@
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-solidity@1/solidity.min.js"></script>
     <script defer>
       if (document.readyState !== 'complete') {
         document.addEventListener('readystatechange', () => {
@@ -54,7 +55,7 @@
       }
 
       function init () {
-        console.log(document.readyState);
+        RevealHighlight().hljs.registerLanguage('solidity', window.hljsDefineSolidity);
         Reveal.initialize({
           plugins: [
             RevealMarkdown,
