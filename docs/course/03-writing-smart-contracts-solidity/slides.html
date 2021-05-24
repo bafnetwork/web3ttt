@@ -26,11 +26,230 @@
     <div class="reveal">
       <div class="slides">
         <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
-          <textarea data-template># Writing Smart Contracts in Solidity
+          <textarea data-template>## Writing Smart Contracts in Solidity
 
 Getting our hands dirty with some Solidity
 
 ---
+
+Be sure to test out all this code for yourself in [Remix IDE](https://remix.ethereum.org/).
+
+---
+
+## Essential Syntax
+
+---
+
+### License Identifier (optional)
+
+```solidity
+// SPDX-License-Identifier: &lt;license-identifier-here&gt;
+// ex. SPDX-License-Identifier: MIT
+// ex. SPDX-License-Identifier: GPL-3.0-or-later
+// ex. SPDX-License-Identifier: UNLICENSED
+```
+
+---
+
+### Solidity Language Version
+
+```solidity
+pragma solidity ^0.8.4;
+```
+
+[Version selection syntax](https://docs.npmjs.com/cli/v6/using-npm/semver)
+
+---
+
+### Contract Declaration
+
+```solidity
+contract MyContractName {
+    // ...
+}
+```
+
+---
+
+### Data Types
+
+`bool`, `[u]int[8-256]`, `address [payable]`, `bytes[1-32]`, `string`, `mapping`, enums, contracts, arrays, structs
+
+_no undefined or null values_
+
+_no floating-point numbers_
+
+---
+
+### Access Modifiers
+
+`public`, `private`, `internal`, `external`
+
+---
+
+### View Modifier
+
+Indicates the function does not modify state
+
+---
+
+### Pure Modifier
+
+Indicates the function does not access or modify state
+
+---
+
+### Globals
+
+`msg.sender`, `msg.value`, `tx.origin`, `require(...)`, `keccak256(...)`, `sha256(...)`, `block.timestamp`, `block.number`, `blockhash(...)`
+
+[More](https://docs.soliditylang.org/en/v0.8.4/cheatsheet.html#global-variables)
+
+---
+
+### Gas
+
+The cost of running code on the blockchain
+
+---
+
+Regular ETH transfer costs 21,000 gas
+
+---
+
+If the gas price is 66 Gwei (0.000000066 ETH)
+
+21,000 &amp;times; 0.000000066 ETH = 0.001386 ETH
+
+&lt;span&gt;$&lt;/span&gt;3.82 @ &lt;span&gt;$&lt;/span&gt;2,756.35/ETH
+
+---
+
+#### Keeping gas usage low
+
+- Only compute what you absolutely have to
+- Storage I/O is _expensive_, memory less so
+- Be _very careful_ when writing looping or recursive logic
+
+---
+
+_\[exercises\]_
+
+---
+
+### Events
+
+Consume little gas, make it easy to add hooks for off-chain logic
+
+---
+
+### Payable Functions
+
+Send ether to a smart contract function
+
+Value appears in `msg.value` in units of _wei_ (smallest, indivisible unit of Ethereum)
+
+---
+
+#### Attaching ETH to a message call
+
+```solidity
+myContract.myFunction{ value: 1 ether }(/* ... */);
+```
+
+---
+
+Pay addresses
+
+```solidity
+(bool success,) = payableAddress.call{ value: 1 ether }(&#34;&#34;);
+```
+
+Use of `send` and `transfer` is somewhat discouraged due to fixed gas allocation
+
+---
+
+Change gas limit
+
+```solidity
+address.functionCall{ gas: 21000 }(/* ... */);
+```
+
+Again, fixed/hardcoded gas limits are discouraged
+
+---
+
+_\[exercises\]_
+
+---
+
+## Best Practices
+
+Design patterns &amp; security considerations
+
+---
+
+Constants prevent reading from storage
+
+```solidity
+uint256 constant minimumBuy = 1 gwei;
+```
+
+---
+
+Function modifiers increase modularity and readability
+
+```solidity
+modifier onlyOwner() {
+    require(owner() == msg.sender, &#34;Caller is not the owner&#34;);
+    _;
+}
+```
+
+```solidity
+function mint () external onlyOwner {
+    // ...
+}
+```
+
+---
+
+### Receive &amp; Fallback
+
+```solidity
+// No function keyword
+receive () external payable {
+    // Called when the contract address is paid directly
+    // Just like any other payable function
+    // Keep in mind the gas limit could be as low as 2300
+}
+```
+
+```solidity
+// Optionally payable
+fallback () external payable {
+    // Called when no function signature matches
+}
+```
+
+---
+
+### Re-entrancy Vulnerability
+
+1. _Contract A_ calls _Contract B_ before finishing setting its own state
+2. _Contract B_ calls _Contract A_, taking advantage of _Contract A_&#39;s invalid state
+
+---
+
+Use the **checks-effects-interactions** order of operations to prevent other contract calls from taking advantage of an invalid intermediate state.
+
+---
+
+_\[exercises\]_
+
+---
+
+That&#39;s it!
 </textarea>
         </section>
       </div>
@@ -40,6 +259,7 @@ Getting our hands dirty with some Solidity
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-solidity@1/solidity.min.js"></script>
     <script defer>
       if (document.readyState !== 'complete') {
         document.addEventListener('readystatechange', () => {
@@ -52,7 +272,7 @@ Getting our hands dirty with some Solidity
       }
 
       function init () {
-        console.log(document.readyState);
+        RevealHighlight().hljs.registerLanguage('solidity', window.hljsDefineSolidity);
         Reveal.initialize({
           plugins: [
             RevealMarkdown,
