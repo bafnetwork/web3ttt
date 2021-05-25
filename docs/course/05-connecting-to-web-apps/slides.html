@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>05 - Connecting to Web Apps - Web3 Teacher Training Track - Slideshow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" href="https://bafnetwork.github.io/web3ttt/favicon.ico">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reset.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/obsidian.min.css">
+
+    
+      
+      <link rel="stylesheet" href="/web3ttt/css/slides.min.fc9c15aa7c5af591e711455e5f33af7b35a7683f8dd48db1ca3aa18edb39eeec.css">
+    
+  </head>
+  <body>
+    
+    
+    
+    
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+          <textarea data-template>## Connecting to Web Apps
+
+Using the Ethers.js library to add web3 interactions to a web application
+
+---
+</textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/math/math.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/reveal.js@4/plugin/highlight/highlight.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/highlightjs-solidity@1/solidity.min.js"></script>
+    <script defer>
+      if (document.readyState !== 'complete') {
+        document.addEventListener('readystatechange', () => {
+          if (document.readyState === "complete") {
+            init();
+          }
+        });
+      } else {
+        init();
+      }
+
+      function init () {
+        RevealHighlight().hljs.registerLanguage('solidity', window.hljsDefineSolidity);
+        Reveal.initialize({
+          plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealMath,
+          ],
+        });
+      }
+    </script>
+
+    
+  
+  
+    
+  
+
+  </body>
+</html>
