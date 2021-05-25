@@ -80,3 +80,18 @@ Note: These contracts were selected for their relative simplicity and readabilit
 - [NEXO Token](https://etherscan.io/address/0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206#code)[^not-an-endorsement]
 
 [^not-an-endorsement]: Not an endorsement of this project or its practices.
+
+## Project Status Update
+
+Given some of these example smart contracts, you should start thinking about what you might want your project to look like. You project must contain a smart contract and web front-end at least. It does not have to be complicated, but it should be usable by a general audience. Here are some more ideas for consideration:
+
+- Identity management (cf. [Unstoppable Domains](https://unstoppabledomains.com/))
+- Lottery
+- Voting systems
+- Auction
+- Savings account/loans
+- Integration with website (such as [r/CryptoCurrency MOON](https://www.reddit.com/r/CryptoCurrency/))
+- Escrow (mediate payments between two parties)
+- NFT collectibles game (à la [CryptoKitties](https://www.cryptokitties.co/) or similar marketplace ([Rarible](https://rarible.com/), [SuperRare](https://www.superrare.co/))
+- Sports, etc. betting
+- ERC-20 exchange platform

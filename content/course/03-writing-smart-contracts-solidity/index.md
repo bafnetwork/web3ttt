@@ -328,3 +328,7 @@ This ensures that your contract state will _always_ be valid when other contract
      - `performAttack2(address)` which performs a sell on `InconspicuousToken`
    - The attack should drain the `InconspicuousToken`'s balance into the attacking contract's balance
 2. Use the check-effects-interactions pattern to fix `InconspicuousToken`.
+
+## Project Status Update
+
+Begin writing the smart contract(s) for your project. Do not be afraid to use sources like [the OpenZeppelin contract library](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts) for help and inspiration. Remember to emit events for things that your web application will need to be aware of!

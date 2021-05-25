@@ -44,6 +44,10 @@ This course is _not_ slow-moving. It starts with the basics but will be moving q
 
 Lessons will be recorded and uploaded to YouTube. <!-- TODO: Where will these be uploaded? -->
 
+## Project
+
+Students will complete a web3 project during this course. The planning for this project should start during [topic 2]({{< relref "/course/02-exploring-smart-contracts/index.md" >}}), and project development should continue until [topic 6]({{< relref "/course/06-deploying-to-testnet" >}}), when the project should be ready for deployment and presentation before the class.
+
 ## Topics
 
 Note: These are tentative and still subject to change as the course is under development.
