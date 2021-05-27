@@ -6,7 +6,7 @@
     margin-bottom: 12px;
   }
 
-  &__list {
+  @at-root &__list, #TableOfContents ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -15,16 +15,24 @@
     font-size: .9rem;
   }
 
-  &__item {
-    padding-bottom: 8px;
+  @at-root #TableOfContents ul ul {
+    padding-left: 1em;
+  }
+
+  @at-root #TableOfContents ul ul ul {
+    padding-left: 2em;
+  }
+
+  @at-root &__item, #TableOfContents li {
 
     &--active {
       color: lighten($primary, 10%);
     }
   }
 
-  &__link {
+  @at-root &__link, #TableOfContents li > a {
     text-decoration: none;
+    line-height: 1.8;
 
     &:hover {
       text-decoration: underline;
