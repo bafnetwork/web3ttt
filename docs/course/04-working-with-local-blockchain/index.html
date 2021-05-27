@@ -11,7 +11,7 @@
 
   
   
-  <link rel="stylesheet" href="/web3ttt/css/style.min.31b30b303ca5bfc1004571caa51a00122b58c07bf19d1243c3e049f06080c634.css">
+  <link rel="stylesheet" href="/web3ttt/css/style.min.d9ce46402bdd7171d42f2891d106621ecdec91e1b85a4d2fe52534bf13a6e20d.css">
   
 
   
@@ -97,16 +97,40 @@
     </li>
     
   </ul>
-    
-    
-    
-      <h4 class="sidebar__header">Lesson Material</h4>
-      <ul class="sidebar__list">
-        <li class="sidebar__item">
-          <a class="sidebar__link" target="_blank" href="/web3ttt/course/04-working-with-local-blockchain/slides.html">Slides</a>
-        </li>
+  
+    <h4 class="sidebar__header">Outline</h4>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#set-up">Set up</a>
+      <ul>
+        <li><a href="#install-a-local-server">Install a local server</a></li>
+        <li><a href="#install-metamask">Install Metamask</a></li>
+        <li><a href="#install-nodejs">Install Node.js</a></li>
+        <li><a href="#install-truffle-cli">Install Truffle CLI</a></li>
+        <li><a href="#install-updated-solidity-compiler">Install updated Solidity compiler</a></li>
       </ul>
-    
+    </li>
+    <li><a href="#start-your-blockchain">Start your blockchain</a></li>
+    <li><a href="#prepare-a-contract-to-deploy">Prepare a contract to deploy</a></li>
+    <li><a href="#deploy-using-remix">Deploy using Remix</a>
+      <ul>
+        <li><a href="#injected-web3">Injected Web3</a></li>
+      </ul>
+    </li>
+    <li><a href="#deploy-using-truffle-suite">Deploy using Truffle Suite</a></li>
+  </ul>
+</nav>
+  
+  
+  
+  
+    <h4 class="sidebar__header">Lesson Material</h4>
+    <ul class="sidebar__list">
+      <li class="sidebar__item">
+        <a class="sidebar__link" target="_blank" href="/web3ttt/course/04-working-with-local-blockchain/slides.html">Slides</a>
+      </li>
+    </ul>
+  
 </aside>
 
       
@@ -115,7 +139,71 @@
         
   <h1 class="title">04 - Working with a Local Blockchain</h1>
   <div class="content ">
-    <p>Have fun!</p>
+    <h2 id="set-up">Set up</h2>
+<h3 id="install-a-local-server">Install a local server</h3>
+<p><a href="https://www.trufflesuite.com/ganache">Ganache</a> is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. <strong>This is the recommended route for this course</strong>, since we won&rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running. Feel free to explore the other solutions if you&rsquo;re feeling adventurous.</p>
+<p>If you want to explore the <a href="https://www.trufflesuite.com/truffle">Truffle CLI</a> for yourself, it also comes with a development server.</p>
+<p>Alternatively, you can download and run a <a href="https://geth.ethereum.org/">full Ethereum node</a> for your dApp development setup.</p>
+<h3 id="install-metamask">Install Metamask</h3>
+<p><a href="https://metamask.io/">Metamask</a> is a browser extension that allows websites to connect to an Ethereum network, whether mainnet, testnet, or any other RPC provider (like a local Ganache instance).</p>
+<h3 id="install-nodejs">Install Node.js</h3>
+<p><a href="https://nodejs.org/">Node.js</a> is a local JavaScript runtime that comes with the Node Package Manager (NPM), which we will use to install Truffle.</p>
+<h3 id="install-truffle-cli">Install Truffle CLI</h3>
+<p>Truffle is a suite of command-line tools for dApp development.</p>
+<p>Once you have NPM installed, installing Truffle is as simple as running this command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ npm install -g truffle
+</code></pre></div><p>Double-check everything is working by running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ truffle version
+Truffle v5.3.7 (core: 5.3.7)
+Solidity v0.5.16 (solc-js)
+Node v14.16.1
+Web3.js v1.3.6
+</code></pre></div><h3 id="install-updated-solidity-compiler">Install updated Solidity compiler</h3>
+<p>Truffle&rsquo;s built-in Solidity compiler isn&rsquo;t always the latest version, so let&rsquo;s install a more up-to-date one:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ npm install -g solc@latest
+</code></pre></div><p>Double-check everything is working by running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ solcjs --version
+0.8.4+commit.c7e474f2.Emscripten.clang
+</code></pre></div><h2 id="start-your-blockchain">Start your blockchain</h2>
+<ol>
+<li>Open up Ganache.</li>
+</ol>
+<p><img src="./ganache-init-screen.png" alt="Ganache welcome screen with quickstart button"></p>
+<ol start="2">
+<li>Press on the big &ldquo;Quickstart&rdquo; button.</li>
+<li>Your blockchain is running!</li>
+</ol>
+<p><img src="./ganache-accounts-list.png" alt="Ganache running and displaying accounts list"></p>
+<ol start="4">
+<li>Click on the settings cog icon and go to the &ldquo;Server&rdquo; tab. Make sure the port number is set to 8545, then save and restart Ganache.</li>
+</ol>
+<p><img src="./ganache-server-settings.png" alt="Ganache server settings screen"></p>
+<h2 id="prepare-a-contract-to-deploy">Prepare a contract to deploy</h2>
+<p>You may deploy a contract you have already written, or feel free to use <a href="https://github.com/bafnetwork/web3ttt/blob/main/examples/04/contracts/PyramidScheme.sol">this one</a> as a sample.</p>
+<h2 id="deploy-using-remix">Deploy using Remix</h2>
+<p>Remix IDE is a surprisingly capable browser-based development environment. One of its most useful features is the ability to connect to different web3 providers.</p>
+<h3 id="injected-web3">Injected Web3</h3>
+<p><strong>Injected Web3</strong> refers to the way that extensions like MetaMask support web3 integration: injecting a global JavaScript object into the page that provides handles to various pieces of functionality within a selected Ethereum network.</p>
+<p>MetaMask comes with a custom RPC configuration for <code>localhost:8545</code> networks by default, which makes it easier for us. If you don&rsquo;t have that configuration or would like to set up another one, use the following configuration:</p>
+<p><img src="./metamask-localhost-configuration.png" alt="MetaMask custom network configuration for localhost on port 8545"></p>
+<p>Select the local network configuration, then import an account from Ganache:</p>
+<ol>
+<li>Click on the &ldquo;Import Account&rdquo; button in MetaMask.</li>
+</ol>
+<p><img src="./metamask-import-account-button.png" alt="MetaMask import account button"></p>
+<ol start="2">
+<li>Copy the private key from any account in Ganache.</li>
+</ol>
+<p><img src="./ganache-show-keys-button.png" alt="Ganache &ldquo;Show Keys&rdquo; button"></p>
+<ol start="3">
+<li>Paste it into MetaMask and click &ldquo;Import&rdquo;.</li>
+</ol>
+<p><img src="./metamask-import-private-key.png" alt="MetaMask import private key"></p>
+<p>Open up Remix IDE and navigate to the &ldquo;Deploy &amp; Run Transactions&rdquo; side panel.</p>
+<p><img src="./remix-deploy.png" alt="Remix IDE Deploy & Run Transactions panel"></p>
+<p>Choose &ldquo;Injected Web3&rdquo; from the &ldquo;Environment&rdquo; dropdown. MetaMask should open up and ask you to confirm the connection to the website.</p>
+<p>Now, when contracts are deployed from Remix, instead of only existing in-browser, the contracts will actually be deployed onto your local blockchain, and you will be able to observe activity from Ganache&rsquo;s interface.</p>
+<h2 id="deploy-using-truffle-suite">Deploy using Truffle Suite</h2>
 
   </div>
 
