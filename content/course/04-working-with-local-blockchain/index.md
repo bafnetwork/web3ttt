@@ -2,9 +2,8 @@
 title: '04 - Working with a Local Blockchain'
 description: 'How to set up and deploy to your own blockchain'
 categories: ['lesson']
-tags: []
+tags: ['ganache', 'truffle', 'localhost', 'blockchain', 'development environment', 'metamask', 'remix', 'javascript', 'solidity', 'web3 provider', 'testing']
 outputs: ['html', 'slides']
-katex: true
 ---
 
 ## Set up
@@ -113,4 +112,81 @@ Choose "Injected Web3" from the "Environment" dropdown. MetaMask should open up 
 
 Now, when contracts are deployed from Remix, instead of only existing in-browser, the contracts will actually be deployed onto your local blockchain, and you will be able to observe activity from Ganache's interface.
 
+This approach is good to know because it is flexible: you can easily configure MetaMask to connect to any RPC network you desire, not just a local one.
+
+### Web3 Provider
+
+The other way to connect Remix IDE to your local blockchain bypasses MetaMask entirely. First, ensure that the web address you're using to access Remix does *not* start with `https`. Then, you can select "Web3 Provider" from the "Environment" dropdown, and paste in `http://127.0.0.1:8545`, adjusting for whatever port Ganache is running on. If you plan on writing contracts in Remix using a local blockchain, this is probably a better long-term solution.
+
 ## Deploy using Truffle Suite
+
+If you don't wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn't provide GUI's to help you along. You can find our example Truffle project [here](https://github.com/bafnetwork/web3ttt/tree/main/examples/04) and customize it to fit your needs. Otherwise, you can run `truffle init` in an empty directory to start from scratch.
+
+The first thing to do is make sure that your `truffle-config.js` file knows how to connect to your local blockchain instance. Find the bit of code that looks like this and add your connection information.
+
+```js
+development: {
+  host: '127.0.0.1',
+  port: 8545,
+  network_id: '*',
+},
+```
+
+Also find the section that looks like this and add the version of Solidity you want to use:
+
+```js
+compilers: {
+  solc: {
+    version: '0.8.4',
+```
+
+Now you should be able to run `truffle console` from the same directory as `truffle-config.js` and receive a prompt connected to the blockchain from which you can deploy and manage your project during development.
+
+```txt
+$ truffle console
+truffle(development)>
+```
+
+This acts pretty much like a JavaScript REPL[^repl] with Truffle, Web3 utilities, and proxies to your compiled contracts in scope, along with a few extra commands. Here's a useful selection:
+
+[^repl]: **R**ead **E**val **P**rint **L**oop
+
+- `compile` compiles all of your contracts
+- `migrate` runs any new migrations that haven't been run yet
+- `migrate --reset` runs all of the migrations in order from the beginning
+- `test <path-to-test-script>` runs a test (keep your tests in the `test/` directory)
+
+This setup is pretty friendly to test-driven development (which is a great paradigm for writing smart contracts). [Check out the sample test](https://github.com/bafnetwork/web3ttt/blob/main/examples/04/test/PyramidScheme.test.js).
+
+In the Truffle Console, your compiled contracts will be available, and if they have been deployed by the migrations scripts, you can grab an instance of the deployed contract by writing something like the following:
+
+```js
+let instance = await MyContract.deployed();
+```
+
+You can interact with the contract using the `instance` variable.
+
+To call view methods:
+
+```js
+instance.myViewMethod.call(param1, param2, {
+  from: '0xADDRESS',
+});
+```
+
+To run transactions:
+
+```js
+instance.myFunction(param1, param2, {
+  from: '0xADDRESS',
+  value: web3.utils.toWei('1', 'ether'),
+  gas: '300000',
+  gasPrice: web3.utils.toWei('20', 'gwei'),
+});
+```
+
+The configuration object and its properties (everything in `{` curly braces `}`) are optional for both view and transaction calls, so you only need to include them if the call requires them.
+
+## Project Status Update
+
+Put the finishing touches on your smart contract, and then write some tests for it! You can use whatever development setup you want. Don't forget to emit any events you may need to listen for, since we're going to be writing the web app next!
