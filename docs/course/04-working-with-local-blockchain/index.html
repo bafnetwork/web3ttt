@@ -16,14 +16,6 @@
 
   
   
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-  integrity="sha256-hFAmQt2dGk6G99nu2cEWz8/1JGRnBP/BsGoZwQ7WeLE="
-  crossorigin="anonymous"
-/>
-
-  
 
 
 </head>
@@ -115,9 +107,11 @@
     <li><a href="#deploy-using-remix">Deploy using Remix</a>
       <ul>
         <li><a href="#injected-web3">Injected Web3</a></li>
+        <li><a href="#web3-provider">Web3 Provider</a></li>
       </ul>
     </li>
     <li><a href="#deploy-using-truffle-suite">Deploy using Truffle Suite</a></li>
+    <li><a href="#project-status-update">Project Status Update</a></li>
   </ul>
 </nav>
   
@@ -203,7 +197,57 @@ Web3.js v1.3.6
 <p><img src="./remix-deploy.png" alt="Remix IDE Deploy & Run Transactions panel"></p>
 <p>Choose &ldquo;Injected Web3&rdquo; from the &ldquo;Environment&rdquo; dropdown. MetaMask should open up and ask you to confirm the connection to the website.</p>
 <p>Now, when contracts are deployed from Remix, instead of only existing in-browser, the contracts will actually be deployed onto your local blockchain, and you will be able to observe activity from Ganache&rsquo;s interface.</p>
+<p>This approach is good to know because it is flexible: you can easily configure MetaMask to connect to any RPC network you desire, not just a local one.</p>
+<h3 id="web3-provider">Web3 Provider</h3>
+<p>The other way to connect Remix IDE to your local blockchain bypasses MetaMask entirely. First, ensure that the web address you&rsquo;re using to access Remix does <em>not</em> start with <code>https</code>. Then, you can select &ldquo;Web3 Provider&rdquo; from the &ldquo;Environment&rdquo; dropdown, and paste in <code>http://127.0.0.1:8545</code>, adjusting for whatever port Ganache is running on. If you plan on writing contracts in Remix using a local blockchain, this is probably a better long-term solution.</p>
 <h2 id="deploy-using-truffle-suite">Deploy using Truffle Suite</h2>
+<p>If you don&rsquo;t wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn&rsquo;t provide GUI&rsquo;s to help you along. You can find our example Truffle project <a href="https://github.com/bafnetwork/web3ttt/tree/main/examples/04">here</a> and customize it to fit your needs. Otherwise, you can run <code>truffle init</code> in an empty directory to start from scratch.</p>
+<p>The first thing to do is make sure that your <code>truffle-config.js</code> file knows how to connect to your local blockchain instance. Find the bit of code that looks like this and add your connection information.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">development</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+  <span class="nx">port</span><span class="o">:</span> <span class="mi">8545</span><span class="p">,</span>
+  <span class="nx">network_id</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="p">},</span>
+</code></pre></div><p>Also find the section that looks like this and add the version of Solidity you want to use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">compilers</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">solc</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;0.8.4&#39;</span><span class="p">,</span>
+</code></pre></div><p>Now you should be able to run <code>truffle console</code> from the same directory as <code>truffle-config.js</code> and receive a prompt connected to the blockchain from which you can deploy and manage your project during development.</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ truffle console
+truffle(development)&gt;
+</code></pre></div><p>This acts pretty much like a JavaScript REPL<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with Truffle, Web3 utilities, and proxies to your compiled contracts in scope, along with a few extra commands. Here&rsquo;s a useful selection:</p>
+<ul>
+<li><code>compile</code> compiles all of your contracts</li>
+<li><code>migrate</code> runs any new migrations that haven&rsquo;t been run yet</li>
+<li><code>migrate --reset</code> runs all of the migrations in order from the beginning</li>
+<li><code>test &lt;path-to-test-script&gt;</code> runs a test (keep your tests in the <code>test/</code> directory)</li>
+</ul>
+<p>This setup is pretty friendly to test-driven development (which is a great paradigm for writing smart contracts). <a href="https://github.com/bafnetwork/web3ttt/blob/main/examples/04/test/PyramidScheme.test.js">Check out the sample test</a>.</p>
+<p>In the Truffle Console, your compiled contracts will be available, and if they have been deployed by the migrations scripts, you can grab an instance of the deployed contract by writing something like the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">MyContract</span><span class="p">.</span><span class="nx">deployed</span><span class="p">();</span>
+</code></pre></div><p>You can interact with the contract using the <code>instance</code> variable.</p>
+<p>To call view methods:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">instance</span><span class="p">.</span><span class="nx">myViewMethod</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">from</span><span class="o">:</span> <span class="s1">&#39;0xADDRESS&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>To run transactions:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">instance</span><span class="p">.</span><span class="nx">myFunction</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">from</span><span class="o">:</span> <span class="s1">&#39;0xADDRESS&#39;</span><span class="p">,</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">toWei</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;ether&#39;</span><span class="p">),</span>
+  <span class="nx">gas</span><span class="o">:</span> <span class="s1">&#39;300000&#39;</span><span class="p">,</span>
+  <span class="nx">gasPrice</span><span class="o">:</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">toWei</span><span class="p">(</span><span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;gwei&#39;</span><span class="p">),</span>
+<span class="p">});</span>
+</code></pre></div><p>The configuration object and its properties (everything in <code>{</code> curly braces <code>}</code>) are optional for both view and transaction calls, so you only need to include them if the call requires them.</p>
+<h2 id="project-status-update">Project Status Update</h2>
+<p>Put the finishing touches on your smart contract, and then write some tests for it! You can use whatever development setup you want. Don&rsquo;t forget to emit any events you may need to listen for, since we&rsquo;re going to be writing the web app next!</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><strong>R</strong>ead <strong>E</strong>val <strong>P</strong>rint <strong>L</strong>oop&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
   </div>
 
@@ -214,34 +258,6 @@ Web3.js v1.3.6
   
 
   
-  
-    <script
-  src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
-  integrity="sha256-+EWBEj6A8lxFvckkChitv8/RcHK/PcWvQV+D7PDflC8="
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
-  integrity="sha256-G53bYZLObbTLTA3j70xRGPKxKYlBbzvDZ789B6sSFkE="
-  crossorigin="anonymous"
-></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    renderMathInElement(document.body, {
-      
-      
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true },
-      ],
-      
-      throwOnError: false,
-    });
-  });
-</script>
-
   
 
 

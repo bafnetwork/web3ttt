@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>development environment</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/development-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/development-environment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>erc-20</title>
       <link>https://bafnetwork.github.io/web3ttt/tags/erc-20/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,6 +61,15 @@
     </item>
     
     <item>
+      <title>ganache</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/ganache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/ganache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>gas</title>
       <link>https://bafnetwork.github.io/web3ttt/tags/gas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -75,6 +93,33 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bafnetwork.github.io/web3ttt/tags/hashing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>localhost</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/localhost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/localhost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metamask</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/metamask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/metamask/</guid>
       <description></description>
     </item>
     
@@ -138,6 +183,33 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bafnetwork.github.io/web3ttt/tags/staking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>truffle</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/truffle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/truffle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web3 provider</title>
+      <link>https://bafnetwork.github.io/web3ttt/tags/web3-provider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bafnetwork.github.io/web3ttt/tags/web3-provider/</guid>
       <description></description>
     </item>
     
