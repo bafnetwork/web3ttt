@@ -34,4 +34,10 @@ Get a smart contract to deploy
 
 ---
 
+## Project Status Update
+
+Finish writing your contracts, write some tests, deploy on local testnet!
+
+---
+
 That's it!

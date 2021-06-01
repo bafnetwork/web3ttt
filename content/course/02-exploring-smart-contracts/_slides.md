@@ -162,7 +162,9 @@ Issues
 
 ---
 
-Up next: Writing smart contracts in Solidity!
+## Project Status Update
+
+Brainstorm project ideas
 
 ---
 

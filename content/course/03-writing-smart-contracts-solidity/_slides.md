@@ -221,4 +221,10 @@ _\[exercises\]_
 
 ---
 
+## Project Status Update
+
+Begin writing your smart contract(s)!
+
+---
+
 That's it!
