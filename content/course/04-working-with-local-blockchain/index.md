@@ -118,7 +118,9 @@ This approach is good to know because it is flexible: you can easily configure M
 
 The other way to connect Remix IDE to your local blockchain bypasses MetaMask entirely. First, ensure that the web address you're using to access Remix does *not* start with `https`. Then, you can select "Web3 Provider" from the "Environment" dropdown, and paste in `http://127.0.0.1:8545`, adjusting for whatever port Ganache is running on. If you plan on writing contracts in Remix using a local blockchain, this is probably a better long-term solution.
 
-## Deploy using Truffle Suite
+## Deploy from local project
+
+### Truffle Suite
 
 If you don't wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn't provide GUI's to help you along. You can find our example Truffle project [here](https://github.com/bafnetwork/web3ttt/tree/main/examples/04) and customize it to fit your needs. Otherwise, you can run `truffle init` in an empty directory to start from scratch.
 
@@ -186,6 +188,13 @@ instance.myFunction(param1, param2, {
 ```
 
 The configuration object and its properties (everything in `{` curly braces `}`) are optional for both view and transaction calls, so you only need to include them if the call requires them.
+
+### Local geth testnet
+
+Although we won't go over this method in detail in this course, we encourage you to at least read a little about how geth works. This is an excellent two-part guide that will get you up-and-running with a local geth testnet instance. (If you installed the Solidity compiler as described [above]({{< relref "#install-updated-solidity-compiler" >}}), the executable is called `solcjs` instead of just `solc`.)
+
+- Part 1: [How to Set Up a Private Ethereum Blockchain using Geth](https://arvanaghi.com/blog/how-to-set-up-a-private-ethereum-blockchain-using-geth/)
+- Part 2: [Testing Smart Contracts Locally using Geth](https://arvanaghi.com/blog/testing-smart-contracts-on-a-private-blockchain-with-Geth/)
 
 ## Project Status Update
 
