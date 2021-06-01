@@ -7,7 +7,7 @@ How to set up and deploy to your own blockchain
 Things to install:
 
 - Local server (Ganache)
-- Metamask
+- MetaMask
 - Node.js
 - Truffle CLI
 - Latest Solidity compiler
@@ -22,7 +22,7 @@ Get a smart contract to deploy
 
 ---
 
-### Deploy from Remix using Metamask Injected Web3
+### Deploy from Remix using MetaMask Injected Web3
 
 ---
 

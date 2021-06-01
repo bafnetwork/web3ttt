@@ -16,9 +16,9 @@ If you want to explore the [Truffle CLI](https://www.trufflesuite.com/truffle) f
 
 Alternatively, you can download and run a [full Ethereum node](https://geth.ethereum.org/) for your dApp development setup.
 
-### Install Metamask
+### Install MetaMask
 
-[Metamask](https://metamask.io/) is a browser extension that allows websites to connect to an Ethereum network, whether mainnet, testnet, or any other RPC provider (like a local Ganache instance).
+[MetaMask](https://metamask.io/) is a browser extension that allows websites to connect to an Ethereum network, whether mainnet, testnet, or any other RPC provider (like a local Ganache instance).
 
 ### Install Node.js
 
