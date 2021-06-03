@@ -23,6 +23,11 @@ summaryLength = 30
   url = "/course/"
   weight = 2
 
+[[menu.main]]
+  name = "Apply"
+  url = "https://docs.google.com/forms/d/e/1FAIpQLSdfKjnWogsd7ZZ4pb5HN6vfuZITz9gWhMI6IvfkYU1LTqRgBQ/viewform?usp=sf_link"
+  weight = 3
+
 [params]
   google_analytics_id=""
   homepage_button_link = "/course"
