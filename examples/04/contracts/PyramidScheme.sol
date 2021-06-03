@@ -3,16 +3,29 @@
 pragma solidity ^0.8.4;
 
 contract PyramidScheme {
-    mapping(address => uint256) public balances;
-    mapping(address => uint256) public credit;
-    mapping(address => address) public parents;
+    mapping(address => uint256) private balances;
+    mapping(address => uint256) private credit;
+    mapping(address => address) private parents;
     uint256 public totalSupply = 0;
-    address payable public owner;
-    uint256 constant initiationFee = 1 ether;
+    address payable public immutable owner;
+    uint256 public constant INITIATION_FEE = 1 ether;
+
+    event SignUpEvent(
+        address indexed recruit,
+        address indexed recruiter,
+        uint256 initiationFee
+    );
+    event CreditReceivedEvent(address indexed to, uint256 amount);
+    event CreditWithdrawnEvent(address indexed from, uint256 amount);
+    event TransferEvent(
+        address indexed from,
+        address indexed to,
+        uint256 value
+    );
 
     constructor(address payable _owner) {
         owner = _owner;
-        parents[owner] = owner;
+        parents[_owner] = _owner;
     }
 
     function buy() external payable {
@@ -26,12 +39,14 @@ contract PyramidScheme {
     function signUp(address recruiter) external payable {
         require(parents[msg.sender] == address(0x0), "Already signed up");
         require(parents[recruiter] != address(0x0), "Unknown recruiter");
-        require(msg.value >= initiationFee, "Insufficient initiation fee");
+        require(msg.value >= INITIATION_FEE, "Insufficient initiation fee");
         require(msg.sender != owner, "Owner cannot sign up");
 
         parents[msg.sender] = recruiter;
         distributeFee(recruiter, msg.value);
         balances[msg.sender] += msg.value;
+
+        emit SignUpEvent(msg.sender, recruiter, msg.value);
     }
 
     function distributeFee(address recruiter, uint256 value) internal {
@@ -41,29 +56,48 @@ contract PyramidScheme {
 
         if (recruiter == owner) {
             credit[recruiter] += value;
+
+            emit CreditReceivedEvent(recruiter, value);
         } else {
-            uint256 reward = value / 2;
+            uint256 reward = (value - 1) / 2 + 1; // Round up
             credit[recruiter] += reward;
             distributeFee(parents[recruiter], value - reward);
+
+            emit CreditReceivedEvent(recruiter, reward);
         }
     }
 
-    function balanceOf(address _wallet) public view returns (uint256) {
-        return balances[_wallet];
+    function balanceOf(address wallet) external view returns (uint256) {
+        return balances[wallet];
     }
 
-    function withdrawCredit() public {
-        require(credit[msg.sender] != 0, "No credit to withdraw");
-        uint256 value = credit[msg.sender];
-        credit[msg.sender] = 0;
-        (bool success, ) = payable(msg.sender).call{value: value}("");
+    function withdrawCredit(uint256 amount) external {
+        require(amount != 0, "Amount cannot be zero");
+
+        uint256 currentCredit = credit[msg.sender];
+        require(currentCredit != 0, "No credit to withdraw");
+        require(amount <= currentCredit, "Insufficient credit");
+
+        credit[msg.sender] = currentCredit - amount;
+
+        (bool success, ) = payable(msg.sender).call{value: amount}("");
         require(success, "Withdraw failed");
+
+        emit CreditWithdrawnEvent(msg.sender, amount);
     }
 
-    function transfer(address _to, uint256 _amount) public {
-        require(_amount > 0, "Amount must be nonzero");
-        require(balances[msg.sender] >= _amount, "Insufficient balance");
-        balances[msg.sender] -= _amount;
-        balances[_to] += _amount;
+    function creditOf(address wallet) external view returns (uint256) {
+        return credit[wallet];
+    }
+
+    function transfer(address to, uint256 amount) external {
+        require(amount > 0, "Amount must be nonzero");
+        uint256 balance = balances[msg.sender];
+        require(balance >= amount, "Insufficient balance");
+
+        balances[msg.sender] = balance - amount;
+        balances[to] += amount;
+
+        emit TransferEvent(msg.sender, to, amount);
     }
 }
