@@ -2,223 +2,223 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/tags/</link>
+    <link>https://web3.courses/tags/</link>
     <description>Recent content in Tags on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web3.courses/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blockchain</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/blockchain/</link>
+      <link>https://web3.courses/tags/blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/blockchain/</guid>
+      <guid>https://web3.courses/tags/blockchain/</guid>
       <description></description>
     </item>
     
     <item>
       <title>consensus</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/consensus/</link>
+      <link>https://web3.courses/tags/consensus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/consensus/</guid>
+      <guid>https://web3.courses/tags/consensus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development environment</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/development-environment/</link>
+      <link>https://web3.courses/tags/development-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/development-environment/</guid>
+      <guid>https://web3.courses/tags/development-environment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>erc-20</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/erc-20/</link>
+      <link>https://web3.courses/tags/erc-20/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/erc-20/</guid>
+      <guid>https://web3.courses/tags/erc-20/</guid>
       <description></description>
     </item>
     
     <item>
       <title>erc-721</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/erc-721/</link>
+      <link>https://web3.courses/tags/erc-721/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/erc-721/</guid>
+      <guid>https://web3.courses/tags/erc-721/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fungibility</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/fungibility/</link>
+      <link>https://web3.courses/tags/fungibility/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/fungibility/</guid>
+      <guid>https://web3.courses/tags/fungibility/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ganache</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/ganache/</link>
+      <link>https://web3.courses/tags/ganache/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/ganache/</guid>
+      <guid>https://web3.courses/tags/ganache/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gas</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/gas/</link>
+      <link>https://web3.courses/tags/gas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/gas/</guid>
+      <guid>https://web3.courses/tags/gas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gwei</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/gwei/</link>
+      <link>https://web3.courses/tags/gwei/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/gwei/</guid>
+      <guid>https://web3.courses/tags/gwei/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hashing</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/hashing/</link>
+      <link>https://web3.courses/tags/hashing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/hashing/</guid>
+      <guid>https://web3.courses/tags/hashing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/javascript/</link>
+      <link>https://web3.courses/tags/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/javascript/</guid>
+      <guid>https://web3.courses/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>localhost</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/localhost/</link>
+      <link>https://web3.courses/tags/localhost/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/localhost/</guid>
+      <guid>https://web3.courses/tags/localhost/</guid>
       <description></description>
     </item>
     
     <item>
       <title>metamask</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/metamask/</link>
+      <link>https://web3.courses/tags/metamask/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/metamask/</guid>
+      <guid>https://web3.courses/tags/metamask/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mining</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/mining/</link>
+      <link>https://web3.courses/tags/mining/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/mining/</guid>
+      <guid>https://web3.courses/tags/mining/</guid>
       <description></description>
     </item>
     
     <item>
       <title>proof-of-stake</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/proof-of-stake/</link>
+      <link>https://web3.courses/tags/proof-of-stake/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/proof-of-stake/</guid>
+      <guid>https://web3.courses/tags/proof-of-stake/</guid>
       <description></description>
     </item>
     
     <item>
       <title>proof-of-work</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/proof-of-work/</link>
+      <link>https://web3.courses/tags/proof-of-work/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/proof-of-work/</guid>
+      <guid>https://web3.courses/tags/proof-of-work/</guid>
       <description></description>
     </item>
     
     <item>
       <title>remix</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/remix/</link>
+      <link>https://web3.courses/tags/remix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/remix/</guid>
+      <guid>https://web3.courses/tags/remix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>smart contract</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/smart-contract/</link>
+      <link>https://web3.courses/tags/smart-contract/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/smart-contract/</guid>
+      <guid>https://web3.courses/tags/smart-contract/</guid>
       <description></description>
     </item>
     
     <item>
       <title>solidity</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/solidity/</link>
+      <link>https://web3.courses/tags/solidity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/solidity/</guid>
+      <guid>https://web3.courses/tags/solidity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>staking</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/staking/</link>
+      <link>https://web3.courses/tags/staking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/staking/</guid>
+      <guid>https://web3.courses/tags/staking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>testing</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/testing/</link>
+      <link>https://web3.courses/tags/testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/testing/</guid>
+      <guid>https://web3.courses/tags/testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>truffle</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/truffle/</link>
+      <link>https://web3.courses/tags/truffle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/truffle/</guid>
+      <guid>https://web3.courses/tags/truffle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web3 provider</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/web3-provider/</link>
+      <link>https://web3.courses/tags/web3-provider/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/web3-provider/</guid>
+      <guid>https://web3.courses/tags/web3-provider/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wei</title>
-      <link>https://bafnetwork.github.io/web3ttt/tags/wei/</link>
+      <link>https://web3.courses/tags/wei/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/tags/wei/</guid>
+      <guid>https://web3.courses/tags/wei/</guid>
       <description></description>
     </item>
     

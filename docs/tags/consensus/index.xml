@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>consensus on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/tags/consensus/</link>
+    <link>https://web3.courses/tags/consensus/</link>
     <description>Recent content in consensus on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/consensus/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web3.courses/tags/consensus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>01 - Intro to Blockchain &amp; Smart Contracts</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/</link>
+      <link>https://web3.courses/course/01-intro-blockchain-smart-contracts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/</guid>
+      <guid>https://web3.courses/course/01-intro-blockchain-smart-contracts/</guid>
       <description>What is &amp;ldquo;blockchain&amp;rdquo;? &amp;ldquo;Blockchain technology&amp;rdquo; is the buzzword in the business. You probably have heard about everything but the kitchen sink being put &amp;ldquo;on the blockchain.&amp;rdquo; Let&amp;rsquo;s review what a blockchain actually is.</description>
     </item>
     

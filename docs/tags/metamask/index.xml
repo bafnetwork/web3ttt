@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>metamask on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/tags/metamask/</link>
+    <link>https://web3.courses/tags/metamask/</link>
     <description>Recent content in metamask on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/metamask/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web3.courses/tags/metamask/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>04 - Working with a Local Blockchain</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/04-working-with-local-blockchain/</link>
+      <link>https://web3.courses/course/04-working-with-local-blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/course/04-working-with-local-blockchain/</guid>
+      <guid>https://web3.courses/course/04-working-with-local-blockchain/</guid>
       <description>Set up Install a local server Ganache is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. This is the recommended route for this course, since we won&amp;rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running.</description>
     </item>
     

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>solidity on Web3 Teacher Training Track</title>
-    <link>https://bafnetwork.github.io/web3ttt/tags/solidity/</link>
+    <link>https://web3.courses/tags/solidity/</link>
     <description>Recent content in solidity on Web3 Teacher Training Track</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bafnetwork.github.io/web3ttt/tags/solidity/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://web3.courses/tags/solidity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>03 - Writing Smart Contracts in Solidity</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/</link>
+      <link>https://web3.courses/course/03-writing-smart-contracts-solidity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/</guid>
+      <guid>https://web3.courses/course/03-writing-smart-contracts-solidity/</guid>
       <description>Follow along in Remix IDE. Copy and paste the listings, deploy and test your solutions to the exercises.
 Essential Syntax Listing View on GitHub
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48  // SPDX-License-Identifier: &amp;lt;license-identifier-here&amp;gt; // ex.</description>
@@ -19,10 +19,10 @@ Essential Syntax Listing View on GitHub
     
     <item>
       <title>04 - Working with a Local Blockchain</title>
-      <link>https://bafnetwork.github.io/web3ttt/course/04-working-with-local-blockchain/</link>
+      <link>https://web3.courses/course/04-working-with-local-blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bafnetwork.github.io/web3ttt/course/04-working-with-local-blockchain/</guid>
+      <guid>https://web3.courses/course/04-working-with-local-blockchain/</guid>
       <description>Set up Install a local server Ganache is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. This is the recommended route for this course, since we won&amp;rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running.</description>
     </item>
     

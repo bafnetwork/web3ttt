@@ -7,11 +7,11 @@
   <title>04 - Working with a Local Blockchain - Web3 Teacher Training Track</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" href="https://bafnetwork.github.io/web3ttt/favicon.ico">
+  <link rel="icon" href="https://web3.courses/favicon.ico">
 
   
   
-  <link rel="stylesheet" href="/web3ttt/css/style.min.d9ce46402bdd7171d42f2891d106621ecdec91e1b85a4d2fe52534bf13a6e20d.css">
+  <link rel="stylesheet" href="/css/style.min.d9ce46402bdd7171d42f2891d106621ecdec91e1b85a4d2fe52534bf13a6e20d.css">
   
 
   
@@ -23,17 +23,21 @@
 <body class='page page-default-single'>
   <header class="header">
   <div class="header__logo">
-    <a href="https://bafnetwork.github.io/web3ttt/"><img alt="Logo" src="/web3ttt/images/icon.png" /></a>
+    <a href="https://web3.courses/"><img alt="Logo" src="/images/icon.png" /></a>
   </div>
   <ul id="main-menu" class="main-menu">
   
   
   <li class="main-menu__item menu-item-home">
-    <a class="main-menu__link" href="/web3ttt/">Home</a>
+    <a class="main-menu__link" href="/">Home</a>
   </li>
   
   <li class="main-menu__item menu-item-course">
-    <a class="main-menu__link" href="/web3ttt/course/">Course</a>
+    <a class="main-menu__link" href="/course/">Course</a>
+  </li>
+  
+  <li class="main-menu__item menu-item-apply">
+    <a class="main-menu__link" href="https://docs.google.com/forms/d/e/1FAIpQLSdfKjnWogsd7ZZ4pb5HN6vfuZITz9gWhMI6IvfkYU1LTqRgBQ/viewform?usp=sf_link">Apply</a>
   </li>
   
 </ul>
@@ -57,35 +61,35 @@
   <ul class="sidebar__list">
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/syllabus/">Syllabus</a>
+      <a class="sidebar__link" href="https://web3.courses/course/syllabus/">Syllabus</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/useful-information/">Useful Information</a>
+      <a class="sidebar__link" href="https://web3.courses/course/useful-information/">Useful Information</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/01-intro-blockchain-smart-contracts/">01 - Intro to Blockchain &amp; Smart Contracts</a>
+      <a class="sidebar__link" href="https://web3.courses/course/01-intro-blockchain-smart-contracts/">01 - Intro to Blockchain &amp; Smart Contracts</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/02-exploring-smart-contracts/">02 - Exploring Smart Contracts</a>
+      <a class="sidebar__link" href="https://web3.courses/course/02-exploring-smart-contracts/">02 - Exploring Smart Contracts</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/03-writing-smart-contracts-solidity/">03 - Writing Smart Contracts in Solidity</a>
+      <a class="sidebar__link" href="https://web3.courses/course/03-writing-smart-contracts-solidity/">03 - Writing Smart Contracts in Solidity</a>
     </li>
     
     <li class="sidebar__item sidebar__item--active">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/04-working-with-local-blockchain/">04 - Working with a Local Blockchain</a>
+      <a class="sidebar__link" href="https://web3.courses/course/04-working-with-local-blockchain/">04 - Working with a Local Blockchain</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/05-connecting-to-web-apps/">05 - Connecting to Web Apps</a>
+      <a class="sidebar__link" href="https://web3.courses/course/05-connecting-to-web-apps/">05 - Connecting to Web Apps</a>
     </li>
     
     <li class="sidebar__item">
-      <a class="sidebar__link" href="https://bafnetwork.github.io/web3ttt/course/06-deploying-to-testnet/">06 - Deploying to Testnet</a>
+      <a class="sidebar__link" href="https://web3.courses/course/06-deploying-to-testnet/">06 - Deploying to Testnet</a>
     </li>
     
   </ul>
@@ -96,7 +100,7 @@
     <li><a href="#set-up">Set up</a>
       <ul>
         <li><a href="#install-a-local-server">Install a local server</a></li>
-        <li><a href="#install-metamask">Install Metamask</a></li>
+        <li><a href="#install-metamask">Install MetaMask</a></li>
         <li><a href="#install-nodejs">Install Node.js</a></li>
         <li><a href="#install-truffle-cli">Install Truffle CLI</a></li>
         <li><a href="#install-updated-solidity-compiler">Install updated Solidity compiler</a></li>
@@ -110,7 +114,12 @@
         <li><a href="#web3-provider">Web3 Provider</a></li>
       </ul>
     </li>
-    <li><a href="#deploy-using-truffle-suite">Deploy using Truffle Suite</a></li>
+    <li><a href="#deploy-from-local-project">Deploy from local project</a>
+      <ul>
+        <li><a href="#truffle-suite">Truffle Suite</a></li>
+        <li><a href="#local-geth-testnet">Local geth testnet</a></li>
+      </ul>
+    </li>
     <li><a href="#project-status-update">Project Status Update</a></li>
   </ul>
 </nav>
@@ -121,7 +130,7 @@
     <h4 class="sidebar__header">Lesson Material</h4>
     <ul class="sidebar__list">
       <li class="sidebar__item">
-        <a class="sidebar__link" target="_blank" href="/web3ttt/course/04-working-with-local-blockchain/slides.html">Slides</a>
+        <a class="sidebar__link" target="_blank" href="/course/04-working-with-local-blockchain/slides.html">Slides</a>
       </li>
     </ul>
   
@@ -138,8 +147,8 @@
 <p><a href="https://www.trufflesuite.com/ganache">Ganache</a> is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. <strong>This is the recommended route for this course</strong>, since we won&rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running. Feel free to explore the other solutions if you&rsquo;re feeling adventurous.</p>
 <p>If you want to explore the <a href="https://www.trufflesuite.com/truffle">Truffle CLI</a> for yourself, it also comes with a development server.</p>
 <p>Alternatively, you can download and run a <a href="https://geth.ethereum.org/">full Ethereum node</a> for your dApp development setup.</p>
-<h3 id="install-metamask">Install Metamask</h3>
-<p><a href="https://metamask.io/">Metamask</a> is a browser extension that allows websites to connect to an Ethereum network, whether mainnet, testnet, or any other RPC provider (like a local Ganache instance).</p>
+<h3 id="install-metamask">Install MetaMask</h3>
+<p><a href="https://metamask.io/">MetaMask</a> is a browser extension that allows websites to connect to an Ethereum network, whether mainnet, testnet, or any other RPC provider (like a local Ganache instance).</p>
 <h3 id="install-nodejs">Install Node.js</h3>
 <p><a href="https://nodejs.org/">Node.js</a> is a local JavaScript runtime that comes with the Node Package Manager (NPM), which we will use to install Truffle.</p>
 <h3 id="install-truffle-cli">Install Truffle CLI</h3>
@@ -200,7 +209,8 @@ Web3.js v1.3.6
 <p>This approach is good to know because it is flexible: you can easily configure MetaMask to connect to any RPC network you desire, not just a local one.</p>
 <h3 id="web3-provider">Web3 Provider</h3>
 <p>The other way to connect Remix IDE to your local blockchain bypasses MetaMask entirely. First, ensure that the web address you&rsquo;re using to access Remix does <em>not</em> start with <code>https</code>. Then, you can select &ldquo;Web3 Provider&rdquo; from the &ldquo;Environment&rdquo; dropdown, and paste in <code>http://127.0.0.1:8545</code>, adjusting for whatever port Ganache is running on. If you plan on writing contracts in Remix using a local blockchain, this is probably a better long-term solution.</p>
-<h2 id="deploy-using-truffle-suite">Deploy using Truffle Suite</h2>
+<h2 id="deploy-from-local-project">Deploy from local project</h2>
+<h3 id="truffle-suite">Truffle Suite</h3>
 <p>If you don&rsquo;t wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn&rsquo;t provide GUI&rsquo;s to help you along. You can find our example Truffle project <a href="https://github.com/bafnetwork/web3ttt/tree/main/examples/04">here</a> and customize it to fit your needs. Otherwise, you can run <code>truffle init</code> in an empty directory to start from scratch.</p>
 <p>The first thing to do is make sure that your <code>truffle-config.js</code> file knows how to connect to your local blockchain instance. Find the bit of code that looks like this and add your connection information.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">development</span><span class="o">:</span> <span class="p">{</span>
@@ -238,6 +248,12 @@ truffle(development)&gt;
   <span class="nx">gasPrice</span><span class="o">:</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">toWei</span><span class="p">(</span><span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;gwei&#39;</span><span class="p">),</span>
 <span class="p">});</span>
 </code></pre></div><p>The configuration object and its properties (everything in <code>{</code> curly braces <code>}</code>) are optional for both view and transaction calls, so you only need to include them if the call requires them.</p>
+<h3 id="local-geth-testnet">Local geth testnet</h3>
+<p>Although we won&rsquo;t go over this method in detail in this course, we encourage you to at least read a little about how geth works. This is an excellent two-part guide that will get you up-and-running with a local geth testnet instance. (If you installed the Solidity compiler as described <a href="#install-updated-solidity-compiler">above</a>, the executable is called <code>solcjs</code> instead of just <code>solc</code>.)</p>
+<ul>
+<li>Part 1: <a href="https://arvanaghi.com/blog/how-to-set-up-a-private-ethereum-blockchain-using-geth/">How to Set Up a Private Ethereum Blockchain using Geth</a></li>
+<li>Part 2: <a href="https://arvanaghi.com/blog/testing-smart-contracts-on-a-private-blockchain-with-Geth/">Testing Smart Contracts Locally using Geth</a></li>
+</ul>
 <h2 id="project-status-update">Project Status Update</h2>
 <p>Put the finishing touches on your smart contract, and then write some tests for it! You can use whatever development setup you want. Don&rsquo;t forget to emit any events you may need to listen for, since we&rsquo;re going to be writing the web app next!</p>
 <section class="footnotes" role="doc-endnotes">
@@ -262,7 +278,7 @@ truffle(development)&gt;
 
 
   
-  <script type="text/javascript" src="/web3ttt/js/scripts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  <script type="text/javascript" src="/js/scripts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
   
 
   
