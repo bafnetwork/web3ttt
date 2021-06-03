@@ -23,17 +23,6 @@ button {
   border-radius: 5px;
 }
 
-.big {
-  font-size: 1.4rem;
-  padding: 20px 40px;
-  background-color: #db039a;
-  border-radius: 10000px;
-}
-
 button:active {
   background-color: #111411;
-}
-
-.big:active {
-  background-color: #cc0d93;
 }

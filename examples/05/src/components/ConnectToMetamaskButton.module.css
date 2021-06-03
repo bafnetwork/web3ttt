@@ -1,0 +1,10 @@
+.connect-button {
+  font-size: 1.4rem;
+  padding: 20px 40px;
+  background-color: #db039a;
+  border-radius: 10000px;
+}
+
+.connect-button:active {
+  background-color: #cc0d93;
+}
