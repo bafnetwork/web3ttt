@@ -19,11 +19,17 @@ Are you...
 - Willing to share this knowledge with other people?
 - Ready to learn?
 
-Technical skills:
+Required technical skills:
 
 - Some experience programming in any general-purpose programming language
 - Familiarity with basic data structures (maps, sets, linked lists, arrays)
 - Comfortable with the command line
+
+Preferred experience:
+
+- Some web development experience (HTML, CSS, JavaScript). [React.js](https://reactjs.org/) experience is a plus.
+- Basic understanding of Internet-related security concepts such as XSS & injection attacks, public-key cryptography
+- Traded cryptocurrency on an exchange
 
 ## Outcomes
 
