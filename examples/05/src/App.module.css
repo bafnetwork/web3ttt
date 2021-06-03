@@ -1,0 +1,39 @@
+main {
+  background-color: white;
+  margin: 30px auto;
+  width: 600px;
+  max-width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  appearance: unset;
+  font-family: inherit;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.07s ease-out;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  background-color: #202920;
+  border-radius: 5px;
+}
+
+.big {
+  font-size: 1.4rem;
+  padding: 20px 40px;
+  background-color: #db039a;
+  border-radius: 10000px;
+}
+
+button:active {
+  background-color: #111411;
+}
+
+.big:active {
+  background-color: #cc0d93;
+}
