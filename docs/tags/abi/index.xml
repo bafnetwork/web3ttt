@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>abi on Web3 Teacher Training Track</title>
+    <link>https://web3.courses/tags/abi/</link>
+    <description>Recent content in abi on Web3 Teacher Training Track</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://web3.courses/tags/abi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>05 - Connecting to Web Apps</title>
+      <link>https://web3.courses/course/05-connecting-to-web-apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/course/05-connecting-to-web-apps/</guid>
+      <description>Reference the sample project to see all of this in action.
+Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web browsers do not yet natively provide support for Web3 API&amp;rsquo;s, so access to those API&amp;rsquo;s is usually provided via some sort of browser extension.</description>
+    </item>
+    
+  </channel>
+</rss>
