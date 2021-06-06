@@ -1,6 +1,11 @@
 {{ define "header_css" }}{{ end }}
 {{ define "body_classes" }}page-default-single{{ end }}
 {{ define "header_classes" }}{{ end }}
+{{ define "meta_tags" }}
+  {{- if isset .Params "redirect" -}}
+    <meta http-equiv="refresh" content="0;URL={{ .Params.redirect }}">
+  {{- end -}}
+{{ end }}
 
 {{ define "main" }}
 <h1 class="title">{{.Title}}</h1>

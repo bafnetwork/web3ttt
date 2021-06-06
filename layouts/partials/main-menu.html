@@ -2,7 +2,11 @@
   {{ $currentPage := . }}
   {{ range .Site.Menus.main }}
   <li class="main-menu__item menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
-    <a class="main-menu__link" href="{{ .URL }}">{{ .Name }}</a>
+    <a class="main-menu__link" href="{{ .URL }}"
+      {{- if isset .Params "target" -}}
+        target="{{ .Params.target }}"
+      {{- end -}}
+    >{{ .Name }}</a>
   </li>
   {{ end }}
 </ul>
