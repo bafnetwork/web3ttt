@@ -20,19 +20,19 @@ summaryLength = 30
 
 [[menu.main]]
   name = "Course"
-  url = "/course/"
+  url = "/teacher-training-track"
   weight = 2
 
 [[menu.main]]
   name = "Apply"
-  url = "/apply/"
+  url = "/apply"
   weight = 3
   [menu.main.params]
     target = "_blank"
 
 [params]
   google_analytics_id=""
-  homepage_button_link = "/course"
+  homepage_button_link = "/teacher-training-track"
   homepage_button_text = "View Course"
   homepage_intro = "The Blockchain Acceleration Foundation's Web3 Teacher Training Track is a dApp and smart contract development course"
   homepage_image = "/images/logo.png"
