@@ -7,7 +7,7 @@ description: 'Important information about the course'
 **Instructor:** Jacob Lindahl \
 **Email**: <jacob@baf.network> \
 **Office Hours**: TBD \
-**Course Website**: <https://web3.courses/course/> \
+**Course Website**: <https://web3.courses/t3/> \
 **Cohort**: \#1 \
 **Course Meetings**: TBD
 
