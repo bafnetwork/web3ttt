@@ -8,19 +8,19 @@
     <language>en-us</language><atom:link href="https://web3.courses/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>01 - Intro to Blockchain &amp; Smart Contracts</title>
-      <link>https://web3.courses/course/01-intro-blockchain-smart-contracts/</link>
+      <link>https://web3.courses/teacher-training-track/01-intro-blockchain-smart-contracts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://web3.courses/course/01-intro-blockchain-smart-contracts/</guid>
+      <guid>https://web3.courses/teacher-training-track/01-intro-blockchain-smart-contracts/</guid>
       <description>What is &amp;ldquo;blockchain&amp;rdquo;? &amp;ldquo;Blockchain technology&amp;rdquo; is the buzzword in the business. You probably have heard about everything but the kitchen sink being put &amp;ldquo;on the blockchain.&amp;rdquo; Let&amp;rsquo;s review what a blockchain actually is.</description>
     </item>
     
     <item>
       <title>04 - Working with a Local Blockchain</title>
-      <link>https://web3.courses/course/04-working-with-local-blockchain/</link>
+      <link>https://web3.courses/teacher-training-track/04-working-with-local-blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://web3.courses/course/04-working-with-local-blockchain/</guid>
+      <guid>https://web3.courses/teacher-training-track/04-working-with-local-blockchain/</guid>
       <description>Set up Install a local server Ganache is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. This is the recommended route for this course, since we won&amp;rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running.</description>
     </item>
     

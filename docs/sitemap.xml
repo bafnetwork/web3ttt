@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://web3.courses/course/</loc>
+    <loc>https://web3.courses/teacher-training-track/</loc>
   </url><url>
-    <loc>https://web3.courses/course/syllabus/</loc>
+    <loc>https://web3.courses/teacher-training-track/syllabus/</loc>
   </url><url>
-    <loc>https://web3.courses/course/useful-information/</loc>
+    <loc>https://web3.courses/teacher-training-track/useful-information/</loc>
   </url><url>
-    <loc>https://web3.courses/course/01-intro-blockchain-smart-contracts/</loc>
+    <loc>https://web3.courses/teacher-training-track/01-intro-blockchain-smart-contracts/</loc>
   </url><url>
-    <loc>https://web3.courses/course/02-exploring-smart-contracts/</loc>
+    <loc>https://web3.courses/teacher-training-track/02-exploring-smart-contracts/</loc>
   </url><url>
-    <loc>https://web3.courses/course/03-writing-smart-contracts-solidity/</loc>
+    <loc>https://web3.courses/teacher-training-track/03-writing-smart-contracts-solidity/</loc>
   </url><url>
-    <loc>https://web3.courses/course/04-working-with-local-blockchain/</loc>
+    <loc>https://web3.courses/teacher-training-track/04-working-with-local-blockchain/</loc>
   </url><url>
-    <loc>https://web3.courses/course/05-connecting-to-web-apps/</loc>
+    <loc>https://web3.courses/teacher-training-track/05-connecting-to-web-apps/</loc>
   </url><url>
-    <loc>https://web3.courses/course/06-deploying-to-testnet/</loc>
+    <loc>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</loc>
   </url><url>
     <loc>https://web3.courses/tags/abi/</loc>
   </url><url>

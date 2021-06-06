@@ -8,19 +8,19 @@
     <language>en-us</language><atom:link href="https://web3.courses/tags/web3-provider/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>04 - Working with a Local Blockchain</title>
-      <link>https://web3.courses/course/04-working-with-local-blockchain/</link>
+      <link>https://web3.courses/teacher-training-track/04-working-with-local-blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://web3.courses/course/04-working-with-local-blockchain/</guid>
+      <guid>https://web3.courses/teacher-training-track/04-working-with-local-blockchain/</guid>
       <description>Set up Install a local server Ganache is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. This is the recommended route for this course, since we won&amp;rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running.</description>
     </item>
     
     <item>
       <title>05 - Connecting to Web Apps</title>
-      <link>https://web3.courses/course/05-connecting-to-web-apps/</link>
+      <link>https://web3.courses/teacher-training-track/05-connecting-to-web-apps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://web3.courses/course/05-connecting-to-web-apps/</guid>
+      <guid>https://web3.courses/teacher-training-track/05-connecting-to-web-apps/</guid>
       <description>Reference the sample project to see all of this in action.
 Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web browsers do not yet natively provide support for Web3 API&amp;rsquo;s, so access to those API&amp;rsquo;s is usually provided via some sort of browser extension.</description>
     </item>
