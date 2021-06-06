@@ -7,7 +7,7 @@ description: 'Important information about the course'
 **Instructor:** Jacob Lindahl \
 **Email**: <jacob@baf.network> \
 **Office Hours**: TBD \
-**Course Website**: TBD \
+**Course Website**: <https://web3.courses/course/> \
 **Cohort**: \#1 \
 **Course Meetings**: TBD
 
@@ -52,7 +52,7 @@ Lessons will be recorded and uploaded to YouTube. <!-- TODO: Where will these be
 
 ## Project
 
-Students will complete a web3 project during this course. The planning for this project should start during [topic 2]({{< relref "/course/02-exploring-smart-contracts/index.md" >}}), and project development should continue until [topic 6]({{< relref "/course/06-deploying-to-testnet" >}}), when the project should be ready for deployment and presentation before the class.
+Students will complete a web3 project during this course. The planning for this project should start during [topic 2]({{< relref "/teacher-training-track/02-exploring-smart-contracts/index.md" >}}), and project development should continue until [topic 6]({{< relref "/teacher-training-track/06-deploying-to-testnet" >}}), when the project should be ready for deployment and presentation before the class.
 
 ## Topics
 
