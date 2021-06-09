@@ -25,7 +25,37 @@ If you're familiar with JavaScript's event-driven design pattern, MetaMask's eve
 
 ### RPC Calls
 
-RPC calls are performed by calling [`ethereum.request(config)`](https://docs.metamask.io/guide/ethereum-provider.html#ethereum-request-args). [See the list of available RPC methods.](https://docs.metamask.io/guide/rpc-api.html) This is how things like transactions are sent. However, the request parameters can become very complicated very quickly for all but the simplest of requests, so that's where the Ethers.js library steps in to help.
+RPC calls are performed by calling [`ethereum.request(...)`](https://docs.metamask.io/guide/ethereum-provider.html#ethereum-request-args). [See the list of available RPC methods.](https://docs.metamask.io/guide/rpc-api.html) This is how things like transactions are sent. However, the request parameters can become very complicated very quickly for all but the simplest of requests, so that's where the Ethers.js library steps in to help.
+
+## Web App Integration
+
+Initiating a connection with a user's MetaMask is fairly straightforward. All that we have to do is request access to the user's account, and MetaMask will prompt the user to accept or reject the request.
+
+```js
+const accounts = await window.ethereum.request({
+  method: 'eth_requestAccounts',
+});
+```
+
+Note that although the method name is called `eth_requestAccounts` (_plural_), at the moment MetaMask will never return more than one account at a time, that being the currently selected account. At the time of writing, MetaMask will not, for example, return a list of all the accounts the user has connected to the app.[^metamask-multiple-accounts]
+
+[^metamask-multiple-accounts]: https://docs.metamask.io/guide/ethereum-provider.html#accountschanged
+
+When a user connects a new account to a web app, selects a different account to use, or disconnects MetaMask from a web app, the `accountsChanged` event will fire:
+
+```js
+ethereum.addListener('accountsChanged', (accounts) => {
+  // accounts is an array of addresses, length of either 0 or 1
+});
+```
+
+At any time, we can request the connected accounts (without prompting the user to authorize a new account) with the following RPC call:
+
+```js
+const accounts = await ethereum.request({ method: 'eth_accounts' });
+```
+
+Using these RPC requests and event listeners, we can easily write a web app that connects to MetaMask and dynamically updates its connection status as the user authorizes or deauthorizes accounts. Take a look at the [`useConnection` React hook](https://github.com/bafnetwork/web3ttt/blob/main/examples/05/src/hooks/Connection.js) in the example project.
 
 ## Working with Ethers.js
 
@@ -41,7 +71,7 @@ Then import it into our project:
 import { ethers } from 'ethers';
 ```
 
-Ethers.js supports many different types of Ethereum RPC providers in many different contexts. For instance, it can connect to a JSON RPC node directly, but in our case, since we're building a simple web app, we're going the simpler route of just handing it our `window.ethereum` object and telling it to go from there:
+Ethers.js supports many different types of Ethereum RPC providers in many different contexts. For instance, it can connect to a JSON RPC node directly (e.g. if you were writing a server-side Node.js app), but in our case, since we're building a simple web app, we're going the simpler route of just handing it our `window.ethereum` object and telling it to go from there:
 
 ```js
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -102,36 +132,6 @@ contract.signUp(recruiterAddress, {
   value: ethers.utils.parseEther('1'), // Send 1 ETH along with transaction
 });
 ```
-
-## Web App Integration
-
-Initiating a connection with a user's MetaMask is fairly straightforward. All that we have to do is request access to the user's account, and MetaMask will prompt the user to accept or reject the request.
-
-```js
-const accounts = await window.ethereum.request({
-  method: 'eth_requestAccounts',
-});
-```
-
-Note that although the method name is called `eth_requestAccounts` _plural_, at the moment MetaMask will never return more than one account at a time, that being the currently selected account. At the time of writing, MetaMask will not, for example, return a list of all the accounts the user has connected to the app.[^metamask-multiple-accounts]
-
-[^metamask-multiple-accounts]: https://docs.metamask.io/guide/ethereum-provider.html#accountschanged
-
-When a user connects a new account to a web app, selects a different account to use, or disconnects MetaMask from a web app, the `accountsChanged` event will fire:
-
-```js
-ethereum.on('accountsChanged', (accounts) => {
-  // accounts is an array of addresses, length of either 0 or 1
-});
-```
-
-At any time, we can request the connected accounts (without prompting the user to authorize a new account) with the following RPC call:
-
-```js
-const accounts = await ethereum.request({ method: 'eth_accounts' });
-```
-
-Using these RPC requests and event listeners, we can easily write a web app that connects to MetaMask and dynamically updates its connection status as the user authorizes or deauthorizes accounts. Take a look at the [`useConnection` React hook](https://github.com/bafnetwork/web3ttt/blob/main/examples/05/src/hooks/Connection.js) in the example project.
 
 ## Notes
 
