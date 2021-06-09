@@ -15,7 +15,7 @@
 
     
       
-      <link rel="stylesheet" href="/css/slides.min.fc9c15aa7c5af591e711455e5f33af7b35a7683f8dd48db1ca3aa18edb39eeec.css">
+      <link rel="stylesheet" href="/css/slides.min.d0b86dc4f2c1a332a792ba1f2104e5825879687db5a2bd3f4e0775a1735c8b12.css">
     
   </head>
   <body>
@@ -28,9 +28,175 @@
         <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
           <textarea data-template>## Connecting to Web Apps
 
-Using the Ethers.js library to add web3 interactions to a web application
+Using MetaMask &amp; Ethers.js in web apps
 
 ---
+
+Adding Web3 functionality to regular web browsers
+
+&lt;img src=&#34;./metamask-fox.svg&#34; width=&#34;300&#34; alt=&#34;MetaMask fox icon&#34; /&gt;
+
+---
+
+### MetaMask
+
+- Browser extension
+- Web3 provider
+- RPC interface through injected `ethereum` object
+
+---
+
+We will interact with MetaMask in two ways:
+
+- Sending RPC requests via `.request(...)`
+- Listening for events via `.addListener(...)`
+
+(Also feeding it to Ethers.js)
+
+---
+
+Prompt the user to connect MetaMask to the web app
+
+```js
+const accounts = await window.ethereum.request({
+  method: &#39;eth_requestAccounts&#39;,
+});
+```
+
+---
+
+Check which accounts the user currently allows the web app to access
+
+```js
+const accounts = await ethereum.request({ method: &#39;eth_accounts&#39; });
+```
+
+---
+
+Event whenever accounts are changed (authorized, deauthorized, connected, switched)
+
+```js
+ethereum.addListener(&#39;accountsChanged&#39;, (accounts) =&gt; {
+  // ...
+});
+```
+
+---
+
+Check out the `useConnection` React hook in the example project that puts these to use
+
+---
+
+### Ethers.js
+
+- Wrapper around web3 provider
+- Feed it an application binary interface (ABI)
+- Nice interface for smart contracts
+
+---
+
+Install
+
+```txt
+$ npm install --save ethers
+```
+
+Import
+
+```js
+import { ethers } from &#39;ethers&#39;;
+```
+
+---
+
+Connect to MetaMask
+
+```js
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+```
+
+---
+
+Create a contract handle
+
+```js
+const contract = new ethers.Contract(
+  contractAddress,
+  contractAbi,
+  provider.getSigner(0),
+);
+```
+
+---
+
+### Application Binary Interface
+
+or &#34;ABI&#34; for short
+
+---
+
+**ABI**
+
+Description Ethers.js (or similar library) can read and know how to interact with a contract
+
+JSON data format
+
+---
+
+Generate an ABI for a contract
+
+```txt
+$ solc --abi &lt;path-to-contract&gt;
+```
+
+or
+
+```txt
+$ solcjs --abi &lt;path-to-contract&gt;
+```
+
+For example:
+
+```txt
+$ solcjs --abi ./PyramidScheme.sol
+```
+
+---
+
+Feed the `ethers.Contract` constructor the ABI
+
+Ethers generates proxies for each method
+
+---
+
+Calling a view method
+
+```js
+contract.balanceOf(address);
+```
+
+Returns `Promise&lt;BigNumber&gt;`
+
+---
+
+`Promise` - asynchronous pending result
+
+`BigNumber` - EVM deals with numbers larger than JS&#39;s built-in `Number` type can precisely handle
+
+---
+
+Transactions (with optional attached ETH)
+
+```js
+contract.signUp(recruiterAddress, {
+  // final `overrides` parameter
+  value: ethers.utils.parseEther(&#39;1&#39;),
+});
+```
+
+---
+
+Go forth and build dApps!
 </textarea>
         </section>
       </div>
