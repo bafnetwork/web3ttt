@@ -6,13 +6,14 @@
     margin-bottom: 12px;
   }
 
-  @at-root &__list, #TableOfContents ul {
+  @at-root &__list,
+    #TableOfContents ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   @at-root #TableOfContents ul ul {
@@ -23,16 +24,22 @@
     padding-left: 2em;
   }
 
-  @at-root &__item, #TableOfContents li {
+  &__item {
+    border-left: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 
     &--active {
-      color: lighten($primary, 10%);
+      background-color: rgba($primary, 0.05);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
 
-  @at-root &__link, #TableOfContents li > a {
+  @at-root &__link,
+    #TableOfContents li > a {
     text-decoration: none;
     line-height: 1.8;
+    padding: 3px;
 
     &:hover {
       text-decoration: underline;
