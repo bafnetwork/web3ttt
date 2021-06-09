@@ -1,7 +1,16 @@
+@import './variables';
+
 .reveal pre code {
   font-family: 'Victor Mono', 'Fira Code', 'Inconsolata-g', Inconsolata,
     'DejaVu Sans Mono', Consolas, 'Courier New', Courier, monospace;
   border-radius: 0.2em;
   padding: 0.5em;
   line-height: 1.4;
+}
+
+code:not(.hljs) {
+  color: lighten($secondary, 15%);
+  background-color: rgba($secondary, 0.05);
+  padding: 0 2px;
+  border-radius: 3px;
 }
