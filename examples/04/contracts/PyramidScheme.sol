@@ -3,9 +3,9 @@
 pragma solidity ^0.8.4;
 
 contract PyramidScheme {
-    mapping(address => uint256) private balances;
-    mapping(address => uint256) private credit;
-    mapping(address => address) private parents;
+    mapping(address => uint256) public balances;
+    mapping(address => uint256) public credit;
+    mapping(address => address) public parents;
     uint256 public totalSupply = 0;
     address payable public immutable owner;
     uint256 public constant INITIATION_FEE = 1 ether;
