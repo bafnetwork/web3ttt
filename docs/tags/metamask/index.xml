@@ -25,5 +25,14 @@
 Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web browsers do not yet natively provide support for Web3 API&amp;rsquo;s, so access to those API&amp;rsquo;s is usually provided via some sort of browser extension.</description>
     </item>
     
+    <item>
+      <title>06 - Deploying to Testnet</title>
+      <link>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</guid>
+      <description>What is a testnet? Setting up a Rinkeby.io testnet account Deploying from Remix with MetaMask Deploying our Truffle project with Infura </description>
+    </item>
+    
   </channel>
 </rss>

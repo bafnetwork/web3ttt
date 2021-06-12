@@ -34,6 +34,15 @@
     </item>
     
     <item>
+      <title>deploy</title>
+      <link>https://web3.courses/tags/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>development environment</title>
       <link>https://web3.courses/tags/development-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -115,6 +124,15 @@
     </item>
     
     <item>
+      <title>infura</title>
+      <link>https://web3.courses/tags/infura/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/tags/infura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>javascript</title>
       <link>https://web3.courses/tags/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -187,6 +205,15 @@
     </item>
     
     <item>
+      <title>rinkeby</title>
+      <link>https://web3.courses/tags/rinkeby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/tags/rinkeby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>smart contract</title>
       <link>https://web3.courses/tags/smart-contract/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -219,6 +246,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web3.courses/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testnet</title>
+      <link>https://web3.courses/tags/testnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/tags/testnet/</guid>
       <description></description>
     </item>
     

@@ -6,6 +6,8 @@
   </url><url>
     <loc>https://web3.courses/teacher-training-track/syllabus/</loc>
   </url><url>
+    <loc>https://web3.courses/teacher-training-track/calendar/</loc>
+  </url><url>
     <loc>https://web3.courses/teacher-training-track/useful-information/</loc>
   </url><url>
     <loc>https://web3.courses/teacher-training-track/01-intro-blockchain-smart-contracts/</loc>
@@ -30,6 +32,8 @@
   </url><url>
     <loc>https://web3.courses/tags/consensus/</loc>
   </url><url>
+    <loc>https://web3.courses/tags/deploy/</loc>
+  </url><url>
     <loc>https://web3.courses/tags/development-environment/</loc>
   </url><url>
     <loc>https://web3.courses/tags/erc-20/</loc>
@@ -47,6 +51,8 @@
     <loc>https://web3.courses/tags/gwei/</loc>
   </url><url>
     <loc>https://web3.courses/tags/hashing/</loc>
+  </url><url>
+    <loc>https://web3.courses/tags/infura/</loc>
   </url><url>
     <loc>https://web3.courses/tags/javascript/</loc>
   </url><url>
@@ -66,6 +72,8 @@
   </url><url>
     <loc>https://web3.courses/tags/remix/</loc>
   </url><url>
+    <loc>https://web3.courses/tags/rinkeby/</loc>
+  </url><url>
     <loc>https://web3.courses/tags/smart-contract/</loc>
   </url><url>
     <loc>https://web3.courses/tags/solidity/</loc>
@@ -75,6 +83,8 @@
     <loc>https://web3.courses/tags/</loc>
   </url><url>
     <loc>https://web3.courses/tags/testing/</loc>
+  </url><url>
+    <loc>https://web3.courses/tags/testnet/</loc>
   </url><url>
     <loc>https://web3.courses/tags/truffle/</loc>
   </url><url>

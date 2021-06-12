@@ -26,5 +26,14 @@ Essential Syntax Listing View on GitHub
       <description>Set up Install a local server Ganache is a great GUI for quickly spinning up an easily usable local blockchain in just a few clicks. This is the recommended route for this course, since we won&amp;rsquo;t be able to spend a lot of time helping everyone get a more complicated solution up and running.</description>
     </item>
     
+    <item>
+      <title>06 - Deploying to Testnet</title>
+      <link>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</guid>
+      <description>What is a testnet? Setting up a Rinkeby.io testnet account Deploying from Remix with MetaMask Deploying our Truffle project with Infura </description>
+    </item>
+    
   </channel>
 </rss>

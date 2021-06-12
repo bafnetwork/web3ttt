@@ -23,6 +23,15 @@ Prerequisites Are you&amp;hellip;
     </item>
     
     <item>
+      <title>Calendar</title>
+      <link>https://web3.courses/teacher-training-track/calendar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/teacher-training-track/calendar/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
       <title>Useful Information</title>
       <link>https://web3.courses/teacher-training-track/useful-information/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -85,7 +94,7 @@ Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web brows
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</guid>
-      <description>Have fun!</description>
+      <description>What is a testnet? Setting up a Rinkeby.io testnet account Deploying from Remix with MetaMask Deploying our Truffle project with Infura </description>
     </item>
     
   </channel>
