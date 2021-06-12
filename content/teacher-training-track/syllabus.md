@@ -56,6 +56,8 @@ Students will complete a web3 project during this course. The planning for this 
 
 ## Topics
 
+<!-- TODO: Correct/remove this section -->
+
 Note: These are tentative and still subject to change as the course is under development.
 
 - Intro Session - 45 minute - Web3 Appreciation
