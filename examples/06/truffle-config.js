@@ -48,7 +48,6 @@ module.exports = {
       network_id: '*', // Any network (default: none)
     },
     rinkeby: {
-      host: '127.0.0.1',
       provider: () =>
         new HDWalletProvider(
           mnemonic,
