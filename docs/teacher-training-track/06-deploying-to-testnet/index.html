@@ -132,9 +132,18 @@
         <li><a href="#exercise">Exercise</a></li>
       </ul>
     </li>
-    <li><a href="#setting-up-a-rinkebyio-testnet-account">Setting up a Rinkeby.io testnet account</a></li>
+    <li><a href="#funding-a-rinkebyio-testnet-account">Funding a Rinkeby.io testnet account</a></li>
     <li><a href="#deploying-from-remix-with-metamask">Deploying from Remix with MetaMask</a></li>
-    <li><a href="#deploying-our-truffle-project-with-infura">Deploying our Truffle project with Infura</a></li>
+    <li><a href="#deploying-our-truffle-project-with-infura">Deploying our Truffle project with Infura</a>
+      <ul>
+        <li><a href="#create-infura-account">Create Infura account</a></li>
+        <li><a href="#save-project-credentials">Save project credentials</a></li>
+        <li><a href="#set-up-npm-project">Set up NPM project</a></li>
+        <li><a href="#install-dependencies">Install dependencies</a></li>
+        <li><a href="#create-network-configuration">Create network configuration</a></li>
+        <li><a href="#run-migrations-on-a-selected-network">Run migrations on a selected network</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   
@@ -163,7 +172,7 @@
 <h3 id="exercise">Exercise</h3>
 <p>What&rsquo;s another reason that it might be useful to use a non-decentralized consensus mechanism like PoA in a testnet? Why might it be better to use PoW in a testnet?</p>
 <p><a href="https://medium.com/blockcentric/ethereum-testnets-what-are-they-and-why-so-many-ebf62821bbc">This is a good article</a> if you&rsquo;re interested in reading a little more about the details of the Ethereum testnets.</p>
-<h2 id="setting-up-a-rinkebyio-testnet-account">Setting up a Rinkeby.io testnet account</h2>
+<h2 id="funding-a-rinkebyio-testnet-account">Funding a Rinkeby.io testnet account</h2>
 <p>For the purposes of this course we&rsquo;ll be using the <a href="https://www.rinkeby.io/">Rinkeby testnet</a>. However, don&rsquo;t feel tied to any one particular testnet. Although the process of obtaining starter tokens may be a little different, as long as your provider supports the testnet, you&rsquo;ll be fine.</p>
 <p>To obtain some free Ether on the Rinkeby testnet, head over to <a href="https://www.rinkeby.io/#faucet">the faucet page</a>, and follow the instructions there.</p>
 <p><img src="./rinkeby-faucet.png" alt="Rinkeby faucet page"></p>
@@ -173,12 +182,67 @@
 <p>Congratulations, now you have some Ether to spend on the Rinkeby testnet!</p>
 <p><img src="./metamask-receive.png" alt="Tokens received from Rinkeby faucet displayed on MetaMask"></p>
 <h2 id="deploying-from-remix-with-metamask">Deploying from Remix with MetaMask</h2>
+<p>The Remix IDE + MetaMask setup can be really nice, because Remix&rsquo;s process for deploying a contract is the same whether we&rsquo;re deploying to the integrated JavaScript VM, a local blockchain, or a live network. Simply connect your MetaMask, select the contract to deploy, and click on the &ldquo;Deploy&rdquo; button.</p>
+<p><img src="./metamask-deploy.png" alt="MetaMask new contract deployment from Remix"></p>
 <h2 id="deploying-our-truffle-project-with-infura">Deploying our Truffle project with Infura</h2>
+<p>Much of what is explained here is in <a href="https://github.com/bafnetwork/web3ttt/tree/main/examples/06">the sample</a>.</p>
+<p>Instead of relying on websites and browser extensions to deploy our contracts, we can set up a significantly more robust deployment solution using Truffle&rsquo;s suite of tools and Infura&rsquo;s HTTP provider.</p>
+<h3 id="create-infura-account">Create Infura account</h3>
+<p>Creating an Infura account is pretty easy, just go to <a href="https://infura.io/">their website</a> and follow the steps. Infura is free for up to three projects and is limited to 100,000 requests per day.</p>
+<h3 id="save-project-credentials">Save project credentials</h3>
+
+
+After creating an Infura account and project, we'll need to find the <span style="color:#00f;font-weight:bold">project ID</span> and <span style="color:red;font-weight:bold">project secret</span>.
+
+
+<p><img src="./infura-configuration.png" alt="Project ID and project secret locations in Infura"></p>
+<p>You&rsquo;ll also need the 12-word mnemonic associated with your testnet account.</p>
+<p>Copy and paste each of these values into a file named <code>.env</code> in your project root directory like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-env" data-lang="env"><span class="nv">MNEMONIC</span><span class="o">=</span><span class="s2">&#34;&lt;12-word-mnemonic&gt;&#34;</span>
+<span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">&#34;&lt;project-id&gt;&#34;</span>
+<span class="nv">PROJECT_SECRET</span><span class="o">=</span><span class="s2">&#34;&lt;project-secret&gt;&#34;</span>
+</code></pre></div><p>Note that you only need the project secret if you check the &ldquo;Require project secret for all requests&rdquo; checkbox.</p>
+<h3 id="set-up-npm-project">Set up NPM project</h3>
+<p>If your contracts are already in an NPM project, great. If not, run this command in your project&rsquo;s root directory to create one:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ npm init -y
+</code></pre></div><h3 id="install-dependencies">Install dependencies</h3>
+<p>We&rsquo;ll need to add two dependencies:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ npm install --save-dev @truffle/hdwallet-provider dotenv
+</code></pre></div><ul>
+<li><a href="https://www.npmjs.com/package/@truffle/hdwallet-provider"><code>@truffle/hdwallet-provider</code></a> creates a Web3 provider from a 12-word mnemonic and the URL of the host.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+<li><a href="https://www.npmjs.com/package/dotenv"><code>dotenv</code></a> allows us to easily store credentials in another file so that they won&rsquo;t get added to version control.</li>
+</ul>
+<h3 id="create-network-configuration">Create network configuration</h3>
+<p>Paste this at the top of your <code>truffle-config.js</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">HDWalletProvider</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@truffle/hdwallet-provider&#39;</span><span class="p">);</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;dotenv&#39;</span><span class="p">).</span><span class="nx">config</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">mnemonic</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">&#39;MNEMONIC&#39;</span><span class="p">];</span>
+<span class="kr">const</span> <span class="nx">projectId</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">&#39;PROJECT_ID&#39;</span><span class="p">];</span>
+</code></pre></div><p>Then, add a <code>rinkeby</code> key to <code>networks</code>, and fill in the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">rinkeby</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">provider</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+    <span class="k">new</span> <span class="nx">HDWalletProvider</span><span class="p">(</span> <span class="c1">// Construct a new HD wallet provider
+</span><span class="c1"></span>      <span class="nx">mnemonic</span><span class="p">,</span> <span class="c1">// 12-word mnemonic for a funded wallet
+</span><span class="c1"></span>      <span class="s1">&#39;https://rinkeby.infura.io/v3/&#39;</span> <span class="o">+</span> <span class="nx">projectId</span><span class="p">,</span> <span class="c1">// Host URL
+</span><span class="c1"></span>    <span class="p">),</span>
+  <span class="nx">network_id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// Rinkeby&#39;s network ID
+</span><span class="c1"></span>  <span class="nx">gas</span><span class="o">:</span> <span class="mi">6700000</span><span class="p">,</span> <span class="c1">// Varies
+</span><span class="c1"></span>  <span class="nx">gasPrice</span><span class="o">:</span> <span class="mi">10000000000</span><span class="p">,</span> <span class="c1">// See https://rinkeby.etherscan.io/blocks
+</span><span class="c1"></span><span class="p">},</span>
+</code></pre></div><h3 id="run-migrations-on-a-selected-network">Run migrations on a selected network</h3>
+<p>Once the network configuration is all set up, we can run our Truffle migrations on the Rinkeby testnet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ truffle migration --network rinkeby
+</code></pre></div><p>And with any luck, we&rsquo;ll be able to see <a href="https://rinkeby.etherscan.io/address/0xd404253b132af251366e113be5f2c98004c1bcde">our contract on the Rinkeby testnet</a>!</p>
+<p><img src="./etherscan-contract.png" alt="Contract deployed to the Rinkeby testnet as shown on Etherscan.io"></p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>Unless, of course, you call <a href="https://docs.soliditylang.org/en/v0.8.4/introduction-to-smart-contracts.html#deactivate-and-self-destruct"><code>selfdestruct</code></a>, which is not particularly common&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>An HD (<strong>H</strong>ierarchical <strong>D</strong>eterministic) wallet can generate a series of addresses from a 12-word mnemonic. <a href="https://www.investopedia.com/terms/h/hd-wallet-hierarchical-deterministic-wallet.asp">More details</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
