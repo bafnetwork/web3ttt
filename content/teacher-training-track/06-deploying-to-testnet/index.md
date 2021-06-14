@@ -23,7 +23,7 @@ What's another reason that it might be useful to use a non-decentralized consens
 
 [This is a good article](https://medium.com/blockcentric/ethereum-testnets-what-are-they-and-why-so-many-ebf62821bbc) if you're interested in reading a little more about the details of the Ethereum testnets.
 
-## Setting up a Rinkeby.io testnet account
+## Funding a Rinkeby.io testnet account
 
 For the purposes of this course we'll be using the [Rinkeby testnet](https://www.rinkeby.io/). However, don't feel tied to any one particular testnet. Although the process of obtaining starter tokens may be a little different, as long as your provider supports the testnet, you'll be fine.
 
@@ -43,4 +43,96 @@ Congratulations, now you have some Ether to spend on the Rinkeby testnet!
 
 ## Deploying from Remix with MetaMask
 
+The Remix IDE + MetaMask setup can be really nice, because Remix's process for deploying a contract is the same whether we're deploying to the integrated JavaScript VM, a local blockchain, or a live network. Simply connect your MetaMask, select the contract to deploy, and click on the "Deploy" button.
+
+![MetaMask new contract deployment from Remix](./metamask-deploy.png)
+
 ## Deploying our Truffle project with Infura
+
+Much of what is explained here is in [the sample](https://github.com/bafnetwork/web3ttt/tree/main/examples/06).
+
+Instead of relying on websites and browser extensions to deploy our contracts, we can set up a significantly more robust deployment solution using Truffle's suite of tools and Infura's HTTP provider.
+
+### Create Infura account
+
+Creating an Infura account is pretty easy, just go to [their website](https://infura.io/) and follow the steps. Infura is free for up to three projects and is limited to 100,000 requests per day.
+
+### Save project credentials
+
+{{< raw_html >}}
+After creating an Infura account and project, we'll need to find the <span style="color:#00f;font-weight:bold">project ID</span> and <span style="color:red;font-weight:bold">project secret</span>.
+{{< /raw_html >}}
+
+![Project ID and project secret locations in Infura](./infura-configuration.png)
+
+You'll also need the 12-word mnemonic associated with your testnet account.
+
+Copy and paste each of these values into a file named `.env` in your project root directory like so:
+
+```env
+MNEMONIC="<12-word-mnemonic>"
+PROJECT_ID="<project-id>"
+PROJECT_SECRET="<project-secret>"
+```
+
+Note that you only need the project secret if you check the "Require project secret for all requests" checkbox.
+
+### Set up NPM project
+
+If your contracts are already in an NPM project, great. If not, run this command in your project's root directory to create one:
+
+```txt
+$ npm init -y
+```
+
+### Install dependencies
+
+We'll need to add two dependencies:
+
+```txt
+$ npm install --save-dev @truffle/hdwallet-provider dotenv
+```
+
+- [`@truffle/hdwallet-provider`](https://www.npmjs.com/package/@truffle/hdwallet-provider) creates a Web3 provider from a 12-word mnemonic and the URL of the host.[^hdwallet]
+- [`dotenv`](https://www.npmjs.com/package/dotenv) allows us to easily store credentials in another file so that they won't get added to version control.
+
+[^hdwallet]: An HD (**H**ierarchical **D**eterministic) wallet can generate a series of addresses from a 12-word mnemonic. [More details](https://www.investopedia.com/terms/h/hd-wallet-hierarchical-deterministic-wallet.asp)
+
+### Create network configuration
+
+Paste this at the top of your `truffle-config.js`:
+
+```js
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+require('dotenv').config();
+
+const mnemonic = process.env['MNEMONIC'];
+const projectId = process.env['PROJECT_ID'];
+```
+
+Then, add a `rinkeby` key to `networks`, and fill in the following:
+
+```js
+rinkeby: {
+  provider: () =>
+    new HDWalletProvider( // Construct a new HD wallet provider
+      mnemonic, // 12-word mnemonic for a funded wallet
+      'https://rinkeby.infura.io/v3/' + projectId, // Host URL
+    ),
+  network_id: 4, // Rinkeby's network ID
+  gas: 6700000, // Varies
+  gasPrice: 10000000000, // See https://rinkeby.etherscan.io/blocks
+},
+```
+
+### Run migrations on a selected network
+
+Once the network configuration is all set up, we can run our Truffle migrations on the Rinkeby testnet:
+
+```txt
+$ truffle migration --network rinkeby
+```
+
+And with any luck, we'll be able to see [our contract on the Rinkeby testnet](https://rinkeby.etherscan.io/address/0xd404253b132af251366e113be5f2c98004c1bcde)!
+
+![Contract deployed to the Rinkeby testnet as shown on Etherscan.io](./etherscan-contract.png)
