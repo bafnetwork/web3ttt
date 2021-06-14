@@ -93,13 +93,15 @@ But what is `contractAbi`?
 
 ## Application Binary Interface
 
-Ethers.js doesn't much of anything about our smart contract, so we need to tell Ethers.js how to interact with it. That's where the Application Binary Interface (ABI) comes in. The ABI is a JSON description of the interface of a smart contract, and it provides enough information for Ethers.js to correctly construct transactions that interact with the contract.
+Ethers.js doesn't much of anything about our smart contract, so we need to tell Ethers.js how to interact with it. That's where the **application binary interface** (ABI) comes in. The ABI is a JSON description of the interface of a smart contract, and it provides enough information for Ethers.js to correctly construct transactions that interact with the contract.
 
 We can generate an ABI for a smart contract by running the following command:
 
 ```txt
 $ solc[js] --abi <path-to-contract>
 ```
+
+(Compiling a contract with Truffle will also generate an ABI stored under the `abi` key in the output JSON.)
 
 For instance:
 
