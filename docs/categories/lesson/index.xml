@@ -60,7 +60,7 @@ Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web brows
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</guid>
-      <description>What is a testnet? Setting up a Rinkeby.io testnet account Deploying from Remix with MetaMask Deploying our Truffle project with Infura </description>
+      <description>What is a testnet? Recall that smart contracts deployments are irreversible: once you deploy a contract, it&amp;rsquo;s on the network for good. Code added to the blockchain is immutable and cannot be modified.</description>
     </item>
     
   </channel>

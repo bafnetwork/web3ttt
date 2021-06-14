@@ -124,6 +124,20 @@
     
   </ul>
   
+    <h4 class="sidebar__header">Outline</h4>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-a-testnet">What is a testnet?</a>
+      <ul>
+        <li><a href="#exercise">Exercise</a></li>
+      </ul>
+    </li>
+    <li><a href="#setting-up-a-rinkebyio-testnet-account">Setting up a Rinkeby.io testnet account</a></li>
+    <li><a href="#deploying-from-remix-with-metamask">Deploying from Remix with MetaMask</a></li>
+    <li><a href="#deploying-our-truffle-project-with-infura">Deploying our Truffle project with Infura</a></li>
+  </ul>
+</nav>
+  
   
   
   
@@ -143,9 +157,31 @@
   <h1 class="title">06 - Deploying to Testnet</h1>
   <div class="content ">
     <h2 id="what-is-a-testnet">What is a testnet?</h2>
+<p>Recall that smart contracts deployments are irreversible: once you deploy a contract, it&rsquo;s on the network for good. Code added to the blockchain is <strong>immutable</strong> and cannot be modified.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> This means that we have to be <em>really sure</em> that what we deploy is really what we want to deploy, and that means <em>lots and lots of testing</em>. No take-backsies!</p>
+<p>Of course, local testing on our own local blockchain can only get us so far. That&rsquo;s why there are <strong>testnets</strong>. These are Ethereum protocol-compatible networks that typically distribute tokens for free so that smart contract developers can deploy their contracts to their network first for more realistic testing.</p>
+<p>Instead of using proof-of-work, some of these networks use <strong>proof-of-authority</strong> (PoA) for their consensus mechanism to facilitate such features as free token distribution while also keeping costs and complexity low. PoA relies on trusted parties for validation, and is therefore not decentralized, but that should be fine in a testnet.</p>
+<h3 id="exercise">Exercise</h3>
+<p>What&rsquo;s another reason that it might be useful to use a non-decentralized consensus mechanism like PoA in a testnet? Why might it be better to use PoW in a testnet?</p>
+<p><a href="https://medium.com/blockcentric/ethereum-testnets-what-are-they-and-why-so-many-ebf62821bbc">This is a good article</a> if you&rsquo;re interested in reading a little more about the details of the Ethereum testnets.</p>
 <h2 id="setting-up-a-rinkebyio-testnet-account">Setting up a Rinkeby.io testnet account</h2>
+<p>For the purposes of this course we&rsquo;ll be using the <a href="https://www.rinkeby.io/">Rinkeby testnet</a>. However, don&rsquo;t feel tied to any one particular testnet. Although the process of obtaining starter tokens may be a little different, as long as your provider supports the testnet, you&rsquo;ll be fine.</p>
+<p>To obtain some free Ether on the Rinkeby testnet, head over to <a href="https://www.rinkeby.io/#faucet">the faucet page</a>, and follow the instructions there.</p>
+<p><img src="./rinkeby-faucet.png" alt="Rinkeby faucet page"></p>
+<p>You&rsquo;ll need a Twitter or Facebook account to make a public post containing the address you wish to fund. It&rsquo;s pretty easy, just paste your address into a tweet, and then paste the link to the tweet into the field on the faucet page. You can delete the tweet afterward if you prefer.</p>
+<p>Now just click on the &ldquo;Give me Ether&rdquo; button and select whichever timeframe you prefer.</p>
+<p><img src="./rinkeby-give.png" alt="Give me Ether button on Rinkeby faucet page"></p>
+<p>Congratulations, now you have some Ether to spend on the Rinkeby testnet!</p>
+<p><img src="./metamask-receive.png" alt="Tokens received from Rinkeby faucet displayed on MetaMask"></p>
 <h2 id="deploying-from-remix-with-metamask">Deploying from Remix with MetaMask</h2>
 <h2 id="deploying-our-truffle-project-with-infura">Deploying our Truffle project with Infura</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Unless, of course, you call <a href="https://docs.soliditylang.org/en/v0.8.4/introduction-to-smart-contracts.html#deactivate-and-self-destruct"><code>selfdestruct</code></a>, which is not particularly common&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
   </div>
 
