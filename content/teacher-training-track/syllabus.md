@@ -6,10 +6,11 @@ description: 'Important information about the course'
 
 **Instructor:** Jacob Lindahl \
 **Email**: <jacob@baf.network> \
-**Office Hours**: TBD \
+**Office Hours**: Email me and we can set something up! \
 **Course Website**: <https://web3.courses/t3/> \
+**Discord**: TBD \
 **Cohort**: \#1 \
-**Course Meetings**: TBD
+**Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays]({{< relref "./calendar" >}})
 
 ## Prerequisites
 
@@ -48,28 +49,12 @@ Student work in this course will be reviewed, but not graded, and the certificat
 
 This course is _not_ slow-moving. It starts with the basics but will be moving quickly.
 
-Lessons will be recorded and uploaded to YouTube. <!-- TODO: Where will these be uploaded? -->
+Lessons will be recorded and uploaded to [YouTube](https://www.youtube.com/channel/UClN34KJfDsCVRs8rJHXH_-A).
 
 ## Project
 
 Students will complete a web3 project during this course. The planning for this project should start during [topic 2]({{< relref "/teacher-training-track/02-exploring-smart-contracts/index.md" >}}), and project development should continue until [topic 6]({{< relref "/teacher-training-track/06-deploying-to-testnet" >}}), when the project should be ready for deployment and presentation before the class.
 
-## Topics
-
-<!-- TODO: Correct/remove this section -->
-
-Note: These are tentative and still subject to change as the course is under development.
-
-- Intro Session - 45 minute - Web3 Appreciation
-- Topic 1 - Clone, edit, deploy applications. Taking pre-existing open-source decentralized applications and giving a broad overview, while examining their structure and deployment model.
-- Topic 2 - How do you design these systems? Mechanics of deployment.
-- Topic 3 - Creating something new. Basics of front-end web programming, writing contracts (Solidity or Vyper), integrating with nodes, communication, interaction, transacting, etc.
-- Topic 4 - Deploying to testnet. Hosting the front-end and getting it hooked up. Deploying (to mainnet?) and contract versioning.
-- Topic 5 - Beginning the designing and building of a web3 distributed application dev course of their own. Working with sample course materials provided by the course.
-- Topic 6 - Soft skills. How to hold a workshop, how to market/advertise. "Inverted workshop" day wherein students instruct other students or the instructors so that they can practice teaching while still under the supervision of the course.
-
 ## Content License
 
-The contents of the BAF Web3 Teacher Training Track and this website are &copy; Copyright 2021 Blockchain Acceleration Foundation, All Rights Reserved.
-
-<!-- TODO: Establish content license -->
+The contents of the BAF Web3 Teacher Training Track and this website are &copy; Copyright 2021 Blockchain Acceleration Foundation
