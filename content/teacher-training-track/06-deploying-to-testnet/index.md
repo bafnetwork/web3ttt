@@ -1,10 +1,9 @@
 ---
 title: '06 - Deploying to Testnet'
-description: 'How to deploy our smart contract to the Rinkeby testnet'
+description: 'How to deploy our smart contracts to the Rinkeby testnet'
 categories: ['lesson']
 tags: ['testnet', 'deploy', 'rinkeby', 'infura', 'truffle', 'metamask', 'remix']
 outputs: ['html', 'slides']
-katex: true
 ---
 
 ## What is a testnet?
@@ -136,3 +135,7 @@ $ truffle migration --network rinkeby
 And with any luck, we'll be able to see [our contract on the Rinkeby testnet](https://rinkeby.etherscan.io/address/0xd404253b132af251366e113be5f2c98004c1bcde)!
 
 ![Contract deployed to the Rinkeby testnet as shown on Etherscan.io](./etherscan-contract.png)
+
+## Project Status Update
+
+Deploy your dapp on a testnet (not necessarily Rinkeby) and show it off to the class! Be prepared to demonstrate and explain the deployment process you built in detail.
