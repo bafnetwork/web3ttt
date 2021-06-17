@@ -8,7 +8,7 @@ description: 'Important information about the course'
 **Email**: <jacob@baf.network> \
 **Office Hours**: Email me and we can set something up! \
 **Course Website**: <https://web3.courses/t3/> \
-**Discord**: TBD \
+**Discord**: **\#web3-ttt** on the BAF Discord ([free BAF membership required for access](https://www.blockchainacceleration.org/membership)) \
 **Cohort**: \#1 \
 **Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays]({{< relref "./calendar" >}})
 
