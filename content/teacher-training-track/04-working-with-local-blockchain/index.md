@@ -14,7 +14,7 @@ outputs: ['html', 'slides']
 
 If you want to explore the [Truffle CLI](https://www.trufflesuite.com/truffle) for yourself, it also comes with a development server.
 
-Alternatively, you can download and run a [full Ethereum node](https://geth.ethereum.org/) for your dApp development setup.
+Alternatively, you can download and run a full Ethereum node ([Geth](https://geth.ethereum.org/), [OpenEthereum](https://openethereum.github.io/)) for your dApp development setup.
 
 ### Install MetaMask
 
