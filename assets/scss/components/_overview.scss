@@ -1,8 +1,0 @@
-.overview {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  @include round-text;
-  background-color: lighten($highlight-1, 35%);
-}
