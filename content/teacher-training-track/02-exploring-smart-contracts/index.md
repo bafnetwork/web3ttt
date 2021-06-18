@@ -50,7 +50,7 @@ Note: These contracts were selected for their relative simplicity and readabilit
 
 - [Allowance Double Withdrawal Attack](https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/edit)
 
-## ERC-721: Non-fungible Tokens (NFT's)
+## ERC-721: Non-fungible Tokens (NFTs)
 
 An ERC-721 token contract provides an interface to an NFT token registry, wherein unique token identifiers are associated with their owner's ETH address. The public interface is reminiscent of some of the ERC-20 methods, with some interesting modifications and additions:
 

@@ -122,7 +122,7 @@ The other way to connect Remix IDE to your local blockchain bypasses MetaMask en
 
 ### Truffle Suite
 
-If you don't wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn't provide GUI's to help you along. You can find our example Truffle project [here](https://github.com/bafnetwork/web3ttt/tree/main/examples/04) and customize it to fit your needs. Otherwise, you can run `truffle init` in an empty directory to start from scratch.
+If you don't wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn't provide GUIs to help you along. You can find our example Truffle project [here](https://github.com/bafnetwork/web3ttt/tree/main/examples/04) and customize it to fit your needs. Otherwise, you can run `truffle init` in an empty directory to start from scratch.
 
 The first thing to do is make sure that your `truffle-config.js` file knows how to connect to your local blockchain instance. Find the bit of code that looks like this and add your connection information.
 

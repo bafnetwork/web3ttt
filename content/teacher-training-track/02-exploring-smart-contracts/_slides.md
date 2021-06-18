@@ -104,7 +104,7 @@ Issues
 
 ## ERC-721
 
-Non-fungible Tokens (NFT's)
+Non-fungible Tokens (NFTs)
 
 ---
 

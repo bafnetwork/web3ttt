@@ -9,9 +9,9 @@ katex: true
 
 Reference [the sample project](https://github.com/bafnetwork/web3ttt/tree/main/examples/05) to see all of this in action.
 
-## Working with Web3 API's in-browser
+## Working with Web3 APIs in-browser
 
-Unfortunately, most major web browsers do not yet natively provide support for Web3 API's, so access to those API's is usually provided via some sort of browser extension. In the case of Ethereum, the most popular extension that does this is [MetaMask](https://metamask.io/). Make sure that you have it installed on your browser before continuing!
+Unfortunately, most major web browsers do not yet natively provide support for Web3 APIs, so access to those APIs is usually provided via some sort of browser extension. In the case of Ethereum, the most popular extension that does this is [MetaMask](https://metamask.io/). Make sure that you have it installed on your browser before continuing!
 
 MetaMask provides access to a Web3 RPC[^rpc] interface in the form of the `window.ethereum` object injected into the page. If you have the extension installed, you can open up your browser console right now and tinker with it.
 

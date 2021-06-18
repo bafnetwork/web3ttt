@@ -66,7 +66,7 @@ Smart contract logic can be activated by sending them special transactions calle
 Ethereum's smart contracts are _quasi-_[Turing-complete](https://en.wikipedia.org/wiki/Turing_completeness).[^quasi-turing-complete] Their many use-cases include:
 
 - Decentralized finance (DeFi)
-- Non-fungible tokens (NFT's)
+- Non-fungible tokens (NFTs)
 - Auctions
 - Elections
 - Trading
