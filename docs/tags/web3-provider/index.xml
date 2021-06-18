@@ -22,7 +22,7 @@
       
       <guid>https://web3.courses/teacher-training-track/05-connecting-to-web-apps/</guid>
       <description>Reference the sample project to see all of this in action.
-Working with Web3 API&amp;rsquo;s in-browser Unfortunately, most major web browsers do not yet natively provide support for Web3 API&amp;rsquo;s, so access to those API&amp;rsquo;s is usually provided via some sort of browser extension.</description>
+Working with Web3 APIs in-browser Unfortunately, most major web browsers do not yet natively provide support for Web3 APIs, so access to those APIs is usually provided via some sort of browser extension.</description>
     </item>
     
   </channel>

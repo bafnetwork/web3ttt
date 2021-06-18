@@ -75,7 +75,7 @@
       
         
 <aside class="sidebar">
-  <h4 class="sidebar__header">Teacher training track</h4>
+  <h4 class="sidebar__header">Teacher Training Track</h4>
   <ul class="sidebar__list">
     
     <li class="sidebar__item">
@@ -237,7 +237,7 @@ Web3.js v1.3.6
 <p>The other way to connect Remix IDE to your local blockchain bypasses MetaMask entirely. First, ensure that the web address you&rsquo;re using to access Remix does <em>not</em> start with <code>https</code>. Then, you can select &ldquo;Web3 Provider&rdquo; from the &ldquo;Environment&rdquo; dropdown, and paste in <code>http://127.0.0.1:8545</code>, adjusting for whatever port Ganache is running on. If you plan on writing contracts in Remix using a local blockchain, this is probably a better long-term solution.</p>
 <h2 id="deploy-from-local-project">Deploy from local project</h2>
 <h3 id="truffle-suite">Truffle Suite</h3>
-<p>If you don&rsquo;t wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn&rsquo;t provide GUI&rsquo;s to help you along. You can find our example Truffle project <a href="https://github.com/bafnetwork/web3ttt/tree/main/examples/04">here</a> and customize it to fit your needs. Otherwise, you can run <code>truffle init</code> in an empty directory to start from scratch.</p>
+<p>If you don&rsquo;t wish to write and test your contracts in Remix, you can use the Truffle Console to connect to Ganache locally, allowing you to use the editor of your choice in your development. Truffle Console (or Truffle Develop) is our recommended development setup for large or long-term projects. However, it requires a bit of configuration and doesn&rsquo;t provide GUIs to help you along. You can find our example Truffle project <a href="https://github.com/bafnetwork/web3ttt/tree/main/examples/04">here</a> and customize it to fit your needs. Otherwise, you can run <code>truffle init</code> in an empty directory to start from scratch.</p>
 <p>The first thing to do is make sure that your <code>truffle-config.js</code> file knows how to connect to your local blockchain instance. Find the bit of code that looks like this and add your connection information.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">development</span><span class="o">:</span> <span class="p">{</span>
   <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
