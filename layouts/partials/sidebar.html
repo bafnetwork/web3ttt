@@ -1,6 +1,6 @@
 {{ $currentNode := . }}
 <aside class="sidebar">
-  <h4 class="sidebar__header">{{ .Section | humanize }}</h4>
+  <h4 class="sidebar__header">{{ .Section | humanize | title }}</h4>
   <ul class="sidebar__list">
     {{ range where .Site.RegularPages "Section" .Section }}
     <li class="sidebar__item{{ if eq .File.UniqueID $currentNode.File.UniqueID }} sidebar__item--active{{ end }}">
