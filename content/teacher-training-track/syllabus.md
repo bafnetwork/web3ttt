@@ -10,7 +10,7 @@ description: 'Important information about the course'
 **Course Website**: <https://web3.courses/t3/> \
 **Discord**: **\#web3-ttt** on the BAF Discord ([free BAF membership required for access](https://www.blockchainacceleration.org/membership)) \
 **Cohort**: \#1 \
-**Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays]({{< relref "./calendar" >}})
+**Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays, June 21&ndash;July 28]({{< relref "./calendar" >}})
 
 ## Prerequisites
 
@@ -41,9 +41,15 @@ You will...
 - Be prepared to share what you have learned with others.
 - Receive a certificate of completion NFT.
 
+Activities include...
+
+- Writing a dapp of your own for the course project.
+- Presenting what you have learned back to the class.
+- Creating your own educational materials to use in your own workshop.
+
 ## Instruction
 
-This course is entirely remote. This course consists of one 45-minute intro session and six weeks of regular instruction. Synchronous class meetings will occur twice-a-week, consisting of approximately 1.5 hours of instruction and 0.5 hours of activity each.
+This course is entirely remote. This course consists of one intro session, ten sessions of regular instruction, and a demo/guest speaker session for a total of twelve meetings. Synchronous class meetings will occur twice per week for six weeks, consisting of approximately 0.5 hours of instruction and 0.5 hours of activity each.
 
 Student work in this course will be reviewed, but not graded, and the certificate of completion is not awarded contingent on any level of performance.
 
