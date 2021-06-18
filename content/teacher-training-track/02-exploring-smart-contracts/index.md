@@ -92,6 +92,6 @@ Given some of these example smart contracts, you should start thinking about wha
 - Savings account/loans
 - Integration with website (such as [r/CryptoCurrency MOON](https://www.reddit.com/r/CryptoCurrency/))
 - Escrow (mediate payments between two parties)
-- NFT collectibles game (à la [CryptoKitties](https://www.cryptokitties.co/) or similar marketplace ([Rarible](https://rarible.com/), [SuperRare](https://www.superrare.co/))
+- NFT collectibles game (à la [CryptoKitties](https://www.cryptokitties.co/) or similar marketplace ([Rarible](https://rarible.com/), [SuperRare](https://www.superrare.co/)))
 - Sports, etc. betting
 - ERC-20 exchange platform
