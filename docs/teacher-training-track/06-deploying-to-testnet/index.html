@@ -29,7 +29,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/style.min.09c856610044eaca668c902af1e248ec89da0b6a49dd5806a9c307dde93209fe.css">
+  <link rel="stylesheet" href="/css/style.min.de51ca4f6ab4c92a5133107c1f239b77f358b8b20a1402ab9ec937cc5e4b3f0e.css">
   
 
   
@@ -227,7 +227,8 @@ After creating an Infura account and project, we'll need to find the <span style
 </span><span class="c1"></span>  <span class="nx">gas</span><span class="o">:</span> <span class="mi">6700000</span><span class="p">,</span> <span class="c1">// Varies
 </span><span class="c1"></span>  <span class="nx">gasPrice</span><span class="o">:</span> <span class="mi">10000000000</span><span class="p">,</span> <span class="c1">// See https://rinkeby.etherscan.io/blocks
 </span><span class="c1"></span><span class="p">},</span>
-</code></pre></div><h3 id="run-migrations-on-a-selected-network">Run migrations on a selected network</h3>
+</code></pre></div><p>For more information about how to calculate the <code>gas</code> and <code>gasPrice</code> values, see <a href="https://ethereum.stackexchange.com/a/37898">this StackExchange answer for a breakdown of costs</a> and <a href="https://ethereum.stackexchange.com/a/40164">this StackExchange answer for how to compute an estimate</a>.</p>
+<h3 id="run-migrations-on-a-selected-network">Run migrations on a selected network</h3>
 <p>Once the network configuration is all set up, we can run our Truffle migrations on the Rinkeby testnet:</p>
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">$ truffle migration --network rinkeby
 </code></pre></div><p>And with any luck, we&rsquo;ll be able to see <a href="https://rinkeby.etherscan.io/address/0xd404253b132af251366e113be5f2c98004c1bcde">our contract on the Rinkeby testnet</a>!</p>

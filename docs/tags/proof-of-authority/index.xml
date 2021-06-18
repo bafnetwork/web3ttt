@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>proof-of-authority on Web3 Teacher Training Track</title>
+    <link>https://web3.courses/tags/proof-of-authority/</link>
+    <description>Recent content in proof-of-authority on Web3 Teacher Training Track</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://web3.courses/tags/proof-of-authority/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>06 - Deploying to Testnet</title>
+      <link>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://web3.courses/teacher-training-track/06-deploying-to-testnet/</guid>
+      <description>What is a testnet? Recall that smart contracts deployments are irreversible: once you deploy a contract, it&amp;rsquo;s on the network for good. Code added to the blockchain is immutable and cannot be modified.</description>
+    </item>
+    
+  </channel>
+</rss>
