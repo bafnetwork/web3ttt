@@ -2,7 +2,7 @@
 title: '06 - Deploying to Testnet'
 description: 'How to deploy our smart contracts to the Rinkeby testnet'
 categories: ['lesson']
-tags: ['testnet', 'deploy', 'rinkeby', 'infura', 'truffle', 'metamask', 'remix']
+tags: ['testnet', 'deploy', 'rinkeby', 'infura', 'truffle', 'metamask', 'remix', 'proof-of-authority', 'hd wallet']
 outputs: ['html', 'slides']
 ---
 
@@ -123,6 +123,8 @@ rinkeby: {
   gasPrice: 10000000000, // See https://rinkeby.etherscan.io/blocks
 },
 ```
+
+For more information about how to calculate the `gas` and `gasPrice` values, see [this StackExchange answer for a breakdown of costs](https://ethereum.stackexchange.com/a/37898) and [this StackExchange answer for how to compute an estimate](https://ethereum.stackexchange.com/a/40164).
 
 ### Run migrations on a selected network
 
