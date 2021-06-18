@@ -135,6 +135,19 @@ contract.signUp(recruiterAddress, {
 });
 ```
 
+## Project Status Update
+
+Write the frontend interface for your dapp. Feel free to use whatever frontend libraries you wish; although it is not required to use React, it may be easier for the purposes of this course.
+
+Here are some easy-to-use, free hosts your static frontend if you wish:
+
+- [GitHub Pages](https://pages.github.com/)
+- [Netlify](https://www.netlify.com/)
+- [Heroku](https://www.heroku.com/)
+- [Firebase](https://firebase.google.com/)
+- [Supabase](https://supabase.io/)
+- [Render](https://render.com/)
+
 ## Notes
 
 - [MetaMask API documentation](https://docs.metamask.io/)
