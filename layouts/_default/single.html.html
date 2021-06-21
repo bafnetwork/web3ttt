@@ -14,6 +14,14 @@
 
 {{ define "main" }}
   <h1 class="title">{{.Title}}</h1>
+  {{ if gt (len (.GetTerms "tags")) 0 }}
+  <ul class="tags">
+    {{ range sort .Params.tags "value" "asc" }}
+      {{ $page := $.Site.GetPage (printf "/tags/%s" (urlize .)) }}
+      <li class="tags__item"><a class="tags__link" href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
+  {{ end }}
   <div class="content {{if .Site.Params.enable_anchor_link}}{{ "anchor-link-enabled" }}{{ end }}">
     {{ .Content }}
   </div>

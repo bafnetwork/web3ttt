@@ -1,0 +1,32 @@
+.tags {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 80%;
+  color: rgba($black, 0.5);
+  line-height: 2.3;
+
+  &::before {
+    content: 'topics';
+    padding: 0 1em;
+  }
+
+  &__item {
+    list-style-type: none;
+    margin-right: 5px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $secondary;
+    padding: 5px 8px;
+    background-color: rgba($secondary, 0.075);
+    transition: all 0.05s;
+    border-radius: 2px;
+
+    &:hover {
+      color: $secondary;
+      background-color: rgba($secondary, 0.175);
+    }
+  }
+}
