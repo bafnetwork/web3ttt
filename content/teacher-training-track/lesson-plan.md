@@ -16,13 +16,13 @@ Note that it may take more than one class meeting to go through all of the mater
 
 ### Presentation
 
-Choose at least one topic that interests you from the section and do a little bit of independent research on it. **Prepare a small presentation** (not necessary to exceed one minute) covering the topic in more detail than it was presented in the course material. As part of the session you may be asked to share this presentation.
+Choose at least one topic that interests you from the section and do a little bit of independent research on it. **Prepare a small presentation** (not necessary to exceed two minutes) covering the topic in more detail than it was presented in the course material. As part of the session you may be asked to share this presentation.
 
 The goal of this exercise is to strengthen the skills of teaching and material preparation, as well as public speaking (albeit remotely).
 
-The presentation you prepare could be in the form of slides (e.g. PowerPoint), a written document (e.g. blog post), a demonstration or example, etc. It is up to you to decide: what is easiest for you to prepare, what is easiest for you to present clearly and effectively, and how to best make the presentation reusable.
+The presentation you prepare could be in the form of slides (e.g. PowerPoint), a written document (e.g. blog post), a demonstration or example, etc. It is up to you to decide: what is easiest for you to prepare and distribute, what is easiest for you to present clearly and effectively, and how to best make the presentation reusable.
 
-You want the presentation to be reusable because at the end of the course, you will have educational materials of your own making that involve every section in the course, and you can then use them in your own workshops.
+The presentation should be reusable so that at the end of the course you havea set of custom-made educational materials that involve every section in this course, and that you can use in your own workshops.
 
 ### Project
 
