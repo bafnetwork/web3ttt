@@ -2,7 +2,7 @@
 title: '04 - Working with a Local Blockchain'
 description: 'How to set up and deploy to your own blockchain'
 categories: ['lesson']
-tags: ['ganache', 'truffle', 'localhost', 'blockchain', 'development environment', 'metamask', 'remix', 'javascript', 'solidity', 'web3 provider', 'testing']
+tags: ['ganache', 'truffle', 'blockchain', 'metamask', 'remix', 'javascript', 'solidity', 'web3 provider', 'testing']
 outputs: ['html', 'slides']
 ---
 
