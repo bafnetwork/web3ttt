@@ -14,7 +14,7 @@ Note that it may take more than one class meeting to go through all of the mater
 
 **Read the relevant section** of the course material on the website.
 
-### Presentation
+### Topical Micro-presentation
 
 Choose at least one topic that interests you from the section and do a little bit of independent research on it. **Prepare a small presentation** (not necessary to exceed two minutes) covering the topic in more detail than it was presented in the course material. As part of the session you may be asked to share this presentation.
 
@@ -38,9 +38,9 @@ Whether you work on the project with another participant is completely up to you
 
 Each session will begin with a review of the material and exercises and a demonstration of any steps included.
 
-### Deep-dive presentations
+### Topical micro-presentations
 
-A selection of students will deliver their in-depth presentations on a specific subject of their choosing.
+A selection of students will deliver their deep-dive presentations on a specific subject of their choosing.
 
 ### Project update
 
