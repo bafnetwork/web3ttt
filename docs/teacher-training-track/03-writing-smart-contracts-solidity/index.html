@@ -163,11 +163,21 @@
   
   
   
+  
     <h4 class="sidebar__header">Lesson Material</h4>
     <ul class="sidebar__list">
+      
       <li class="sidebar__item">
         <a class="sidebar__link" target="_blank" href="/teacher-training-track/03-writing-smart-contracts-solidity/slides.html">Slides</a>
       </li>
+      
+      
+        
+          <li class="sidebar__item">
+            <a class="sidebar__link" target="_blank" href="https://www.youtube.com/watch?v=K82Jp8zq9f4">Recording</a>
+          </li>
+        
+      
     </ul>
   
 </aside>
@@ -265,10 +275,10 @@
 <span class="c1">// Solidity compiler version
 </span><span class="c1">// You can specify more precise version selection bounds by using the syntax
 </span><span class="c1">// here: https://docs.npmjs.com/cli/v6/using-npm/semver
-</span><span class="c1"></span><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+</span><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
 
 <span class="c1">// Most of your code will live inside a contract declaration
-</span><span class="c1"></span><span class="kd">contract</span> <span class="n">FreeToken</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">contract</span> <span class="nc">FreeToken</span> <span class="p">{</span>
     <span class="c1">// Solidity has a few unique data types, such as mapping, address
 </span><span class="c1"></span>    <span class="c1">// A mapping is like an associative array, dictionary, or hashmap
 </span><span class="c1"></span>    <span class="c1">// This mapping maps Ethereum addresses to 256-bit unsigned integers
@@ -276,26 +286,26 @@
 
     <span class="c1">// The public access modifier doesn&#39;t allow external code to write to this
 </span><span class="c1"></span>    <span class="c1">// value, only read
-</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="c1">// External functions can only be called from OUTSIDE the contract, and are
 </span><span class="c1"></span>    <span class="c1">// disallowed from making internal function calls. Public functions can do
 </span><span class="c1"></span>    <span class="c1">// both, but are more expensive.
 </span><span class="c1"></span>    <span class="c1">// This function doesn&#39;t modify the state of the contract, so it is marked
 </span><span class="c1"></span>    <span class="c1">// with the view modifier
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
     <span class="p">}</span>
 
     <span class="c1">// This function does modify the state of the contract, so no view modifier
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">mint</span> <span class="p">()</span> <span class="kr">external</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">mint</span> <span class="p">()</span> <span class="k">external</span> <span class="p">{</span>
         <span class="c1">// msg.sender gives us the external address that initiated this call
 </span><span class="c1"></span>        <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
         <span class="n">totalSupply</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// Could this function be improved?
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">external</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
         <span class="c1">// Failed calls to require() revert the transaction, undoing state
 </span><span class="c1"></span>        <span class="c1">// changes
 </span><span class="c1"></span>        <span class="nb">require</span><span class="p">(</span><span class="n">_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Amount must be nonzero&#34;</span><span class="p">);</span>
@@ -425,27 +435,27 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="lnt">71
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
 
-<span class="kd">contract</span> <span class="n">VeryExpensiveToken</span> <span class="p">{</span>
-    <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="kr">public</span> <span class="n">balances</span><span class="p">;</span>
-    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">contract</span> <span class="nc">VeryExpensiveToken</span> <span class="p">{</span>
+    <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="k">public</span> <span class="n">balances</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="c1">// ETH can be sent to payable addresses
-</span><span class="c1"></span>    <span class="kt">address</span> <span class="kr">payable</span> <span class="kr">public</span> <span class="n">owner</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="kt">address</span> <span class="k">payable</span> <span class="k">public</span> <span class="n">owner</span><span class="p">;</span>
 
     <span class="c1">// Called when the contract is first deployed
-</span><span class="c1"></span>    <span class="n">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="kr">payable</span> <span class="n">_owner</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="k">payable</span> <span class="n">_owner</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">owner</span> <span class="o">=</span> <span class="n">_owner</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// Events appear in logs (e.g. for debugging) and web3 applications can
 </span><span class="c1"></span>    <span class="c1">// listen for them
 </span><span class="c1"></span>    <span class="c1">// Indexed parameters are searchable in logs
-</span><span class="c1"></span>    <span class="kd">event</span> <span class="n">BuyEvent</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="kr">indexed</span> <span class="n">tokenIndex</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">price</span><span class="p">);</span>
+</span><span class="c1"></span>    <span class="kd">event</span> <span class="nc">BuyEvent</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">tokenIndex</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">price</span><span class="p">);</span>
 
     <span class="c1">// Functions marked payable have access to msg.value, which is a quantity of
 </span><span class="c1"></span>    <span class="c1">// ETH tokens sent along with the function call
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">buy</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">buy</span> <span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
         <span class="kt">uint256</span> <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">totalSupply</span><span class="p">;</span>
         <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;=</span> <span class="n">_nextTokenCost</span><span class="p">(</span><span class="n">_totalSupply</span><span class="p">),</span>
             <span class="s">&#34;Not enough to buy next token&#34;</span><span class="p">);</span>
@@ -456,13 +466,13 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="c1"></span>        <span class="n">emit</span> <span class="n">BuyEvent</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">_totalSupply</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="n">nextTokenCost</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">nextTokenCost</span> <span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">_nextTokenCost</span><span class="p">(</span><span class="n">totalSupply</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">// Pure functions cannot modify state, like view functions, but it also
 </span><span class="c1"></span>    <span class="c1">// cannot read state either
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">_nextTokenCost</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">_nextTokenCost</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">)</span> <span class="k">public</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// There are some nice keywords for pecuniary numbers in Solidity:
 </span><span class="c1"></span>        <span class="c1">//   1 wei == 1
 </span><span class="c1"></span>        <span class="c1">//   1 gwei == 1e9
@@ -473,7 +483,7 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="c1"></span>        <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">_totalSupply</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="n">withdraw</span> <span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">withdraw</span> <span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
         <span class="nb">assert</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">owner</span><span class="p">);</span>
 
         <span class="c1">// Although .send() and .transfer() functions exist for sending ETH,
@@ -488,11 +498,11 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
         <span class="nb">require</span><span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="s">&#34;Withdraw failed&#34;</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
         <span class="c1">// ...
 </span><span class="c1"></span>    <span class="p">}</span>
 <span class="p">}</span>
@@ -578,16 +588,16 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">4</span><span class="p">;</span>
 
-<span class="kd">contract</span> <span class="n">InconspicuousToken</span> <span class="p">{</span>
+<span class="kd">contract</span> <span class="nc">InconspicuousToken</span> <span class="p">{</span>
     <span class="kd">mapping</span> <span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">balances</span><span class="p">;</span>
-    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">totalSupply</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="c1">// Constant values are defined at compile time and replaced throughout the
 </span><span class="c1"></span>    <span class="c1">// contract so they do not incur a storage read cost.
-</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="kr">constant</span> <span class="n">minimumBuy</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">gwei</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="kt">uint256</span> <span class="k">constant</span> <span class="n">minimumBuy</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">gwei</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="n">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">balanceOf</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_wallet</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">balances</span><span class="p">[</span><span class="n">_wallet</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -595,33 +605,33 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 </span><span class="c1"></span>    <span class="n">error</span> <span class="n">InsufficientBuy</span><span class="p">();</span>
 
     <span class="c1">// Custom function modifiers alter function behavior
-</span><span class="c1"></span>    <span class="kd">modifier</span> <span class="n">enforceMinimumBuy</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">modifier</span> <span class="nf">enforceMinimumBuy</span> <span class="p">()</span> <span class="p">{</span>
         <span class="c1">// Similar to a require(...) call
 </span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&lt;</span> <span class="n">minimumBuy</span><span class="p">)</span> <span class="p">{</span>
             <span class="nb">revert</span> <span class="n">InsufficientBuy</span><span class="p">();</span>
         <span class="p">}</span>
 
         <span class="c1">// Will be replaced with the modified function&#39;s body
-</span><span class="c1"></span>        <span class="kr">_</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="k">_</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="n">contractBalance</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">contractBalance</span> <span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="c1">// Uses a custom function modifier to ensure that a condition is met
-</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">buy</span> <span class="p">()</span> <span class="kr">payable</span> <span class="kr">external</span> <span class="n">enforceMinimumBuy</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">buy</span> <span class="p">()</span> <span class="k">payable</span> <span class="k">external</span> <span class="n">enforceMinimumBuy</span> <span class="p">{</span>
         <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
         <span class="n">totalSupply</span> <span class="o">+=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="n">sell</span> <span class="p">()</span> <span class="kr">external</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">sell</span> <span class="p">()</span> <span class="k">external</span> <span class="p">{</span>
         <span class="c1">// !!!WARNING!!!
 </span><span class="c1"></span>        <span class="c1">// This function is vulnerable!
 </span><span class="c1"></span>
         <span class="c1">// Send the user their unwrapped funds
 </span><span class="c1"></span>        <span class="kt">uint256</span> <span class="nb">balance</span> <span class="o">=</span> <span class="n">balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">];</span>
-        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="kr">payable</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">).</span><span class="nb">call</span><span class="p">{</span>
+        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="k">payable</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">).</span><span class="nb">call</span><span class="p">{</span>
             <span class="nb">value</span><span class="o">:</span> <span class="nb">balance</span>
         <span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
 
@@ -632,7 +642,7 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nb">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="kr">external</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">transfer</span> <span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
         <span class="c1">// ...
 </span><span class="c1"></span>    <span class="p">}</span>
 <span class="p">}</span>
@@ -642,14 +652,14 @@ Transaction fee: 21,000 × 0.000000066 ETH = 0.001386 ETH (<!-- raw HTML omitted
 <h4 id="fallback--receive-functions">Fallback &amp; Receive Functions</h4>
 <p>Recall that any given Ethereum address may be controlled by a smart contract or a real person. Smart contracts can also respond to transactions sent directly to their address by using a special <code>fallback</code> or <code>receive</code> function. These functions look like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="c1">// No function keyword
-</span><span class="c1"></span><span class="n">receive</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="n">receive</span> <span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
     <span class="c1">// Called when the contract address is paid directly
 </span><span class="c1"></span>    <span class="c1">// Just like any other payable function
 </span><span class="c1"></span>    <span class="c1">// Keep in mind the gas limit could be as low as 2300
 </span><span class="c1"></span><span class="p">}</span>
 
 <span class="c1">// Optionally payable
-</span><span class="c1"></span><span class="n">fallback</span> <span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="n">fallback</span> <span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
     <span class="c1">// Called when no function signature matches
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>See the documentation for <a href="https://docs.soliditylang.org/en/v0.8.4/contracts.html#fallback-function">fallback functions</a> and <a href="https://docs.soliditylang.org/en/v0.8.4/contracts.html#receive-ether-function">receive functions</a>.</p>
