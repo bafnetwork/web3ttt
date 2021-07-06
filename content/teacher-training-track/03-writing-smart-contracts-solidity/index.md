@@ -5,6 +5,9 @@ categories: ['lesson']
 tags: ['smart contract', 'solidity', 'gas', 'wei', 'gwei', 'remix']
 outputs: ['html', 'slides']
 katex: true
+links:
+  - name: Recording
+    url: https://www.youtube.com/watch?v=K82Jp8zq9f4
 ---
 
 Follow along in [Remix IDE](https://remix.ethereum.org/). Copy and paste the listings, deploy and test your solutions to the exercises.

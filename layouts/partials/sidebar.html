@@ -14,12 +14,22 @@
   {{ end }}
   {{ $slidesOutputFormat := .OutputFormats.Get "slides" }}
   {{ $hasSlides := ne $slidesOutputFormat nil }}
-  {{ if $hasSlides }}
+  {{ $hasLinks := isset .Params "links" }}
+  {{ if or $hasSlides $hasLinks }}
     <h4 class="sidebar__header">Lesson Material</h4>
     <ul class="sidebar__list">
+      {{ if $hasSlides }}
       <li class="sidebar__item">
         <a class="sidebar__link" target="_blank" href="{{ $slidesOutputFormat.RelPermalink }}">Slides</a>
       </li>
+      {{ end }}
+      {{ if $hasLinks }}
+        {{ range $index,$linkInfo := .Params.links }}
+          <li class="sidebar__item">
+            <a class="sidebar__link" target="_blank" href="{{ $linkInfo.url }}">{{ $linkInfo.name }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
     </ul>
   {{ end }}
 </aside>

@@ -4,6 +4,9 @@ description: 'Diving into some real-life smart contracts!'
 categories: ['lesson']
 tags: ['smart contract', 'fungibility', 'erc-20', 'erc-721']
 outputs: ['html', 'slides']
+links:
+  - name: Recording
+    url: https://www.youtube.com/watch?v=bgppJNWy8g4
 ---
 
 ## Smart Contracts in Practice

@@ -2,9 +2,22 @@
 title: '01 - Intro to Blockchain & Smart Contracts'
 description: 'The heart of modern cryptocurrency'
 categories: ['lesson']
-tags: ['blockchain', 'smart contract', 'hashing', 'mining', 'staking', 'proof-of-work', 'proof-of-stake', 'consensus']
+tags:
+  [
+    'blockchain',
+    'smart contract',
+    'hashing',
+    'mining',
+    'staking',
+    'proof-of-work',
+    'proof-of-stake',
+    'consensus',
+  ]
 outputs: ['html', 'slides']
 katex: true
+links:
+  - name: Recording
+    url: https://www.youtube.com/watch?v=vKZIidRdx0s
 ---
 
 ## What is "blockchain"?

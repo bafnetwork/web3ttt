@@ -4,6 +4,8 @@ weight: 3
 description: 'Supplemental information & links'
 ---
 
+[Intro Session Recording](https://www.youtube.com/watch?v=xQorCd0y9Zg)
+
 ## Recommended Preparation
 
 - Explore the Ethereum blockchain & smart contracts on [Etherscan](https://etherscan.io/)

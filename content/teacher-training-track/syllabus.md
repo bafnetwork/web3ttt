@@ -10,7 +10,8 @@ description: 'Important information about the course'
 **Course Website**: <https://web3.courses/t3/> \
 **Discord**: **\#web3-ttt** on the BAF Discord ([free BAF membership required for access](https://www.blockchainacceleration.org/membership)) \
 **Cohort**: \#1 \
-**Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays, June 21&ndash;July 28]({{< relref "./calendar" >}})
+**Course Meetings**: [6-7PM Pacific, Mondays & Wednesdays, June 21&ndash;July 28]({{< relref "./calendar" >}}) \
+**Recordings**: The sessions will be recorded, and the recordings will be made available on a best-effort basis (check this website for updates).
 
 ## Prerequisites
 
@@ -55,7 +56,7 @@ Student work in this course will be reviewed, but not graded, and the certificat
 
 This course is _not_ slow-moving. It starts with the basics but will be moving quickly.
 
-Lessons will be recorded and uploaded to [YouTube](https://www.youtube.com/channel/UClN34KJfDsCVRs8rJHXH_-A).
+Lessons will be recorded and uploaded to [YouTube](https://www.youtube.com/playlist?list=PL0cPWYDSqQ2_F9QRvm1mynTw5yyPWn_s3).
 
 ## Project
 
